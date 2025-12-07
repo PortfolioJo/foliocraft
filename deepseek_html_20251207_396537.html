@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم النخيل الذهبي | تجربة طعام استثنائية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- تأثيرات الخلفية -->
+    <div class="spices-background" id="spicesBackground"></div>
+    <div class="kitchen-smoke" id="kitchenSmoke"></div>
+    
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- الشعار -->
+            <a href="#" class="navbar-logo">
+                <i class="fas fa-utensils"></i>
+                <span class="logo-text" data-key="logo">النخيل الذهبي</span>
+            </a>
+            
+            <!-- قائمة التنقل -->
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link active" data-page="home" data-key="navHome">
+                        <i class="fas fa-home"></i>
+                        <span>الرئيسية</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link" data-page="menu" data-key="navMenu">
+                        <i class="fas fa-book-open"></i>
+                        <span>قائمة الطعام</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link" data-page="about" data-key="navAbout">
+                        <i class="fas fa-store"></i>
+                        <span>عن المطعم</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link" data-page="order" data-key="navOrder">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>الطلبات</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link" data-page="contact" data-key="navContact">
+                        <i class="fas fa-envelope"></i>
+                        <span>اتصل بنا</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- عناصر الجانب الأيمن -->
+            <div class="navbar-right">
+                <!-- زر اللغة -->
+                <div class="language-switcher">
+                    <button class="language-btn" id="languageBtn">
+                        <span class="language-text" data-key="language">EN</span>
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option active" data-lang="ar">
+                            <i class="fas fa-check"></i>
+                            <span>العربية</span>
+                        </button>
+                        <button class="language-option" data-lang="en">
+                            <i class="fas fa-check"></i>
+                            <span>English</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- زر القائمة للموبايل -->
+                <button class="navbar-toggle" id="navbarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- زر الطلب السريع -->
+    <button class="quick-order-btn" id="quickOrderBtn">
+        <i class="fas fa-bolt"></i>
+        <span>طلب سريع</span>
+    </button>
+    
+    <!-- الصفحة الرئيسية -->
+    <div class="page active" id="home">
+        <div class="restaurant-hero">
+            <div class="hero-content">
+                <div class="restaurant-badge">
+                    <span data-key="heroBadge">★ منذ 1985 ★</span>
+                </div>
+                <h1 class="hero-title" data-key="heroTitle">
+                    <span class="hero-title-line">نكهات لا تُنسى</span>
+                    <span class="hero-title-line">تجربة لا تُعوَّض</span>
+                </h1>
+                <p class="hero-description" data-key="heroDescription">
+                    نقدم لكم أجود المأكولات العربية والعالمية بطابع عصري وأنيق. كل طبق يحمل قصة وكل نكهة تحمل ذكريات.
+                </p>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <span class="feature-text" data-key="feature1">خدمة 24/7</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <span class="feature-text" data-key="feature2">توصيل سريع</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <span class="feature-text" data-key="feature3">جودة مميزة</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" data-page="menu" data-key="viewMenu">
+                        <i class="fas fa-book-open"></i> تصفح القائمة
+                    </a>
+                    <a href="#" class="btn btn-secondary" data-page="order" data-key="orderNow">
+                        <i class="fas fa-shopping-cart"></i> اطلب الآن
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="dish-frame">
+                    <div class="dish-animation">
+                        <div class="dish-content">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الأطباق المميزة -->
+        <div class="featured-dishes">
+            <h2 class="section-title" data-key="featuredTitle">أطباقنا المميزة</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <div class="dish-price">65 ريال</div>
+                    </div>
+                    <div class="dish-info">
+                        <h3 data-key="dish1Title">كبسة لحم معتمدة</h3>
+                        <p data-key="dish1Desc">كبسة لحم عربية أصيلة مع أرز بسمتي وخلطة توابل سرية</p>
+                        <div class="dish-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="dish-tags">
+                            <span>وجبة رئيسية</span>
+                            <span>عربي</span>
+                            <span>حار</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <div class="dish-price">45 ريال</div>
+                    </div>
+                    <div class="dish-info">
+                        <h3 data-key="dish2Title">شيش طاووق مشوي</h3>
+                        <p data-key="dish2Desc">دجاج مشوي على الفحم مع صلصة الثوم والأعشاب</p>
+                        <div class="dish-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="dish-tags">
+                            <span>مشويات</span>
+                            <span>وجبة رئيسية</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <div class="dish-price">35 ريال</div>
+                    </div>
+                    <div class="dish-info">
+                        <h3 data-key="dish3Title">سلطة النخيل الخاصة</h3>
+                        <p data-key="dish3Desc">سلطة طازجة مع خضروات عضوية وصلصة زيت الزيتون</p>
+                        <div class="dish-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="dish-tags">
+                            <span>مقبلات</span>
+                            <span>صحي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- تصنيفات القائمة -->
+        <div class="menu-categories">
+            <h2 class="section-title" data-key="categoriesTitle">تصنيفات القائمة</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="main">
+                    <div class="category-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3 data-key="category1Title">الوجبات الرئيسية</h3>
+                    <p data-key="category1Desc">أشهى المأكولات العربية والعالمية</p>
+                </div>
+                
+                <div class="category-card" data-category="appetizers">
+                    <div class="category-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 data-key="category2Title">المقبلات والسلطات</h3>
+                    <p data-key="category2Desc">تشكيلة متنوعة من المقبلات الطازجة</p>
+                </div>
+                
+                <div class="category-card" data-category="grill">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 data-key="category3Title">المشويات</h3>
+                    <p data-key="category3Desc">مشويات على الفحم بوصفاتنا السرية</p>
+                </div>
+                
+                <div class="category-card" data-category="desserts">
+                    <div class="category-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <h3 data-key="category4Title">الحلويات</h3>
+                    <p data-key="category4Desc">أشهى الحلويات الشرقية والغربية</p>
+                </div>
+                
+                <div class="category-card" data-category="drinks">
+                    <div class="category-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3 data-key="category5Title">المشروبات</h3>
+                    <p data-key="category5Desc">مشروبات باردة وساخنة وعصائر طازجة</p>
+                </div>
+                
+                <div class="category-card" data-category="kids">
+                    <div class="category-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 data-key="category6Title">قائمة الأطفال</h3>
+                    <p data-key="category6Desc">وجبات خاصة وممتعة للأطفال</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة القائمة -->
+    <div class="page" id="menu">
+        <div class="page-header">
+            <h1 class="page-title" data-key="menuTitle">قائمة الطعام</h1>
+            <p class="page-description" data-key="menuDescription">استمتع بتجربة طعام لا تُنسى مع قائمتنا المميزة من الأطباق العربية والعالمية</p>
+        </div>
+        
+        <div class="menu-container">
+            <div class="menu-filter">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="main">الوجبات الرئيسية</button>
+                <button class="filter-btn" data-filter="appetizers">المقبلات</button>
+                <button class="filter-btn" data-filter="grill">المشويات</button>
+                <button class="filter-btn" data-filter="desserts">الحلويات</button>
+                <button class="filter-btn" data-filter="drinks">المشروبات</button>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- وجبات رئيسية -->
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-image">
+                        <div class="menu-item-badge" data-key="popular">الأكثر طلباً</div>
+                    </div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem1Title">كبسة لحم معتمدة</h3>
+                            <span class="menu-item-price">65 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem1Desc">كبسة لحم عربية أصيلة مع أرز بسمتي وخلطة توابل سرية، تقدم مع صلصة الطماطم والزبادي</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.5</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="1">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-image">
+                        <div class="menu-item-badge" data-key="new">جديد</div>
+                    </div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem2Title">شيش طاووق مشوي</h3>
+                            <span class="menu-item-price">45 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem2Desc">دجاج مشوي على الفحم مع صلصة الثوم والأعشاب، يقدم مع أرص وبطاطس</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="2">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مقبلات -->
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem3Title">سلطة النخيل الخاصة</h3>
+                            <span class="menu-item-price">35 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem3Desc">سلطة طازجة مع خضروات عضوية وصلصة زيت الزيتون والليمون</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.0</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="3">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem4Title">حمص بطحينة</h3>
+                            <span class="menu-item-price">25 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem4Desc">حمص طازج مع طحينة وزيت زيتون وليمون، يقدم مع خبز ساخن</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.5</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="4">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مشويات -->
+                <div class="menu-item" data-category="grill">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem5Title">مشكل مشاوي</h3>
+                            <span class="menu-item-price">85 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem5Desc">تشكيلة من اللحم والدجاج والكباب المشوي على الفحم</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="5">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- حلويات -->
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem6Title">كنافة بالنوكا</h3>
+                            <span class="menu-item-price">30 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem6Desc">كنافة محشية بالقشطة والمكسرات، تقدم ساخنة</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="6">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مشروبات -->
+                <div class="menu-item" data-category="drinks">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem7Title">عصير فرش مانجو</h3>
+                            <span class="menu-item-price">20 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem7Desc">عصير مانجو طازج مع قطع الفواكه</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.3</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="7">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="drinks">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3 data-key="menuItem8Title">قهوة عربية</h3>
+                            <span class="menu-item-price">15 ريال</span>
+                        </div>
+                        <p class="menu-item-description" data-key="menuItem8Desc">قهوة عربية أصيلة مع هيل</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-item="8">
+                                <i class="fas fa-plus"></i>
+                                <span data-key="addToCart">أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة عن المطعم -->
+    <div class="page" id="about">
+        <div class="page-header">
+            <h1 class="page-title" data-key="aboutTitle">عن مطعم النخيل الذهبي</h1>
+            <p class="page-description" data-key="aboutDescription">قصة تمتد لأكثر من 35 عاماً من العطاء والتميز في عالم المأكولات العربية</p>
+        </div>
+        
+        <div class="profile-content">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="image-frame"></div>
+                        <div class="image-overlay">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-info">
+                    <h2 data-key="aboutStoryTitle">قصة بدأت بحب للطعام</h2>
+                    <p data-key="aboutStoryDesc">
+                        تأسس مطعم النخيل الذهبي عام 1985 على يد الشيف أحمد العتيبي، الذي بدأ بمطعم صغير في قلب الرياض. بفضل الجودة والطعم الأصيل، توسع المطعم ليصبح أحد أشهر المطاعم في المملكة.
+                    </p>
+                    
+                    <div class="specialties">
+                        <h3 data-key="aboutValuesTitle">قيمنا</h3>
+                        <div class="tags">
+                            <span class="tag">الجودة أولاً</span>
+                            <span class="tag">النظافة</span>
+                            <span class="tag">الطعم الأصيل</span>
+                            <span class="tag">خدمة العملاء</span>
+                            <span class="tag">الابتكار</span>
+                            <span class="tag">الاستدامة</span>
+                        </div>
+                    </div>
+                    
+                    <div class="specialties">
+                        <h3 data-key="aboutAchievementsTitle">إنجازاتنا</h3>
+                        <div class="tags">
+                            <span class="tag">أفضل مطعم عربي 2023</span>
+                            <span class="tag">جائزة التميز في الخدمة</span>
+                            <span class="tag">شهادة الجودة العالمية</span>
+                            <span class="tag">أكثر المطاعم زيارة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- فريق العمل -->
+            <div class="philosophy">
+                <h2 data-key="teamTitle">فريقنا المميز</h2>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <div class="philosophy-number">01</div>
+                        <h3 data-key="chefTitle">شيف أحمد العتيبي</h3>
+                        <p data-key="chefDesc">مؤسس المطعم وأحد أشهر الطهاة في المملكة بخبرة تزيد عن 40 عاماً</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-number">02</div>
+                        <h3 data-key="team1Title">فريق الطهي</h3>
+                        <p data-key="team1Desc">فريق من الطهاة المحترفين المدربين على أعلى المستويات</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-number">03</div>
+                        <h3 data-key="team2Title">فريق الخدمة</h3>
+                        <p data-key="team2Desc">فريق متخصص في خدمة العملاء وتقديم تجربة طعام استثنائية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة الطلبات -->
+    <div class="page" id="order">
+        <div class="page-header">
+            <h1 class="page-title" data-key="orderTitle">طلباتك</h1>
+            <p class="page-description" data-key="orderDescription">أضف وجباتك المفضلة إلى السلة واطلبها الآن</p>
+        </div>
+        
+        <div class="order-container">
+            <div class="order-items">
+                <div class="order-item" data-item="1">
+                    <div class="order-item-image"></div>
+                    <div class="order-item-info">
+                        <div class="order-item-header">
+                            <h3>كبسة لحم معتمدة</h3>
+                            <span class="order-item-price">65 ريال</span>
+                        </div>
+                        <p class="order-item-description">كبسة لحم عربية أصيلة مع أرز بسمتي وخلطة توابل سرية</p>
+                        <div class="order-item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity-value">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="remove-item-btn">
+                                <i class="fas fa-trash"></i>
+                                <span>إزالة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-item" data-item="2">
+                    <div class="order-item-image"></div>
+                    <div class="order-item-info">
+                        <div class="order-item-header">
+                            <h3>شيش طاووق مشوي</h3>
+                            <span class="order-item-price">45 ريال</span>
+                        </div>
+                        <p class="order-item-description">دجاج مشوي على الفحم مع صلصة الثوم والأعشاب</p>
+                        <div class="order-item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity-value">2</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="remove-item-btn">
+                                <i class="fas fa-trash"></i>
+                                <span>إزالة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-summary">
+                <h2 data-key="orderSummary">ملخص الطلب</h2>
+                <div class="summary-item">
+                    <span data-key="subtotal">المجموع الفرعي</span>
+                    <span>155 ريال</span>
+                </div>
+                <div class="summary-item">
+                    <span data-key="delivery">رسوم التوصيل</span>
+                    <span>15 ريال</span>
+                </div>
+                <div class="summary-item">
+                    <span data-key="tax">الضريبة</span>
+                    <span>8 ريال</span>
+                </div>
+                <div class="summary-item total">
+                    <span data-key="total">المجموع الكلي</span>
+                    <span>178 ريال</span>
+                </div>
+                <button class="btn btn-primary checkout-btn" data-key="checkout">
+                    <i class="fas fa-credit-card"></i> اتمام الطلب
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة الاتصال -->
+    <div class="page" id="contact">
+        <div class="page-header">
+            <h1 class="page-title" data-key="contactTitle">اتصل بنا</h1>
+            <p class="page-description" data-key="contactDescription">نحن هنا لخدمتك في أي وقت، اتصل بنا أو زُر فرعنا</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3 data-key="locationTitle">العنوان</h3>
+                        <p data-key="locationText">حي العليا، شارع الملك فهد، الرياض 12211</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3 data-key="phoneTitle">الهاتف</h3>
+                        <p>+966 11 123 4567</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3 data-key="emailTitle">البريد الإلكتروني</h3>
+                        <p>info@goldenpalm.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3 data-key="hoursTitle">ساعات العمل</h3>
+                        <p data-key="hoursText">الأحد - الخميس: 10 ص - 12 ص</p>
+                        <p data-key="weekendHours">الجمعة - السبت: 1 م - 1 ص</p>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <h3 data-key="mapTitle">موقعنا على الخريطة</h3>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>خريطة الموقع</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" data-key="formName">الاسم *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-key="formEmail">البريد الإلكتروني *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" data-key="formPhone">رقم الهاتف *</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" data-key="formSubject">الموضوع *</label>
+                        <select id="subject" class="form-control" required>
+                            <option value="">اختر الموضوع</option>
+                            <option value="reservation">حجز طاولة</option>
+                            <option value="complaint">شكوى</option>
+                            <option value="suggestion">اقتراح</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" data-key="formMessage">الرسالة *</label>
+                        <textarea id="message" class="form-control" required placeholder="اكتب رسالتك هنا..." data-key="formMessagePlaceholder"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" data-key="formSubmit">
+                        <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 data-key="footerAbout">عن المطعم</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerAboutUs">عن النخيل الذهبي</span></a></li>
+                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerOurStory">قصتنا</span></a></li>
+                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerTeam">فريق العمل</span></a></li>
+                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerValues">قيمنا</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-key="footerMenu">القائمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="menu" data-filter="main"><i class="fas fa-chevron-left"></i> <span data-key="footerMainDishes">الوجبات الرئيسية</span></a></li>
+                        <li><a href="#" data-page="menu" data-filter="appetizers"><i class="fas fa-chevron-left"></i> <span data-key="footerAppetizers">المقبلات</span></a></li>
+                        <li><a href="#" data-page="menu" data-filter="grill"><i class="fas fa-chevron-left"></i> <span data-key="footerGrill">المشويات</span></a></li>
+                        <li><a href="#" data-page="menu" data-filter="desserts"><i class="fas fa-chevron-left"></i> <span data-key="footerDesserts">الحلويات</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-key="footerContact">تواصل معنا</h3>
+                    <div class="opening-hours">
+                        <p><strong data-key="footerAddress">العنوان:</strong> حي العليا، الرياض</p>
+                        <p><strong data-key="footerPhone">الهاتف:</strong> +966 11 123 4567</p>
+                        <p><strong data-key="footerEmail">البريد:</strong> info@goldenpalm.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-key="footerHours">ساعات العمل</h3>
+                    <div class="opening-hours">
+                        <p><strong>الأحد - الخميس:</strong> 10 ص - 12 ص</p>
+                        <p><strong>الجمعة - السبت:</strong> 1 م - 1 ص</p>
+                        <p><em data-key="footerDelivery">التوصيل متاح 24/7</em></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-key="footerCopyright">© 2024 مطعم النخيل الذهبي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
