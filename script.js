@@ -1,4 +1,4 @@
-// ملف JavaScript للثيم الراقي
+// ملف JavaScript للثيم الفني العصري
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========== شاشة التحميل ==========
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.toggle('active');
             
             // تحريك الأشرطة
-            const bars = this.querySelectorAll('.menu-bar');
+            const bars = this.querySelectorAll('.artistic-bar');
             if (this.classList.contains('active')) {
                 bars[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
                 bars[1].style.opacity = '0';
@@ -43,13 +43,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // إغلاق القائمة عند النقر على رابط
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+            if (menuToggle) {
+                menuToggle.classList.remove('active');
+            }
+            if (navLinks) {
+                navLinks.classList.remove('active');
+            }
             
-            const bars = menuToggle.querySelectorAll('.menu-bar');
-            bars[0].style.transform = 'none';
-            bars[1].style.opacity = '1';
-            bars[2].style.transform = 'none';
+            if (menuToggle) {
+                const bars = menuToggle.querySelectorAll('.artistic-bar');
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
         });
     });
     
@@ -96,10 +102,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // زر العودة للأعلى
         const backToTop = document.getElementById('backToTop');
-        if (window.pageYOffset > 500) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
+        if (backToTop) {
+            if (window.pageYOffset > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         }
         
         // تأثيرات التمرير للأرقام
@@ -137,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // استمرار حتى الوصول للهدف
                 if (newValue < target) {
                     setTimeout(() => {
-                        stat.textContent = newValue;
                         animateStats();
                     }, 30);
                 }
@@ -173,7 +180,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // إخفاء جميع المحتويات
                 tabPanes.forEach(pane => pane.classList.remove('active'));
                 // إظهار المحتوى المحدد
-                document.getElementById(tabId).classList.add('active');
+                const targetPane = document.getElementById(tabId);
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                }
             });
         });
     }
@@ -236,31 +246,38 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                
+                // إضافة تأثيرات خاصة للبطاقات
+                if (entry.target.classList.contains('artistic-card')) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                    }, 300);
+                }
             }
         });
     }, observerOptions);
     
     // مراقبة العناصر لإضافة تأثيرات
-    document.querySelectorAll('.premium-card, .reason-card, .tip-item').forEach(card => {
+    document.querySelectorAll('.artistic-card, .reason-card, .tip-item, .stat-box').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
     
-    // ========== تأثيرات راقية عند التحويم ==========
-    const premiumElements = document.querySelectorAll('.premium-btn, .premium-card, .social-icon');
+    // ========== تأثيرات التحويم ==========
+    const artisticElements = document.querySelectorAll('.artistic-btn, .artistic-card, .social-icon, .job-card');
     
-    premiumElements.forEach(element => {
+    artisticElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
-            if (this.classList.contains('gold-glow') || this.classList.contains('gold-btn')) {
-                this.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.4)';
-            } else if (this.classList.contains('silver-glow') || this.classList.contains('silver-btn')) {
-                this.style.boxShadow = '0 0 20px rgba(192, 192, 192, 0.4)';
-            } else if (this.classList.contains('bronze-glow')) {
-                this.style.boxShadow = '0 0 20px rgba(205, 127, 50, 0.4)';
-            } else if (this.classList.contains('platinum-glow')) {
-                this.style.boxShadow = '0 0 20px rgba(229, 228, 226, 0.4)';
+            if (this.classList.contains('beige-btn') || this.classList.contains('border-beige')) {
+                this.style.boxShadow = '0 8px 25px rgba(232, 224, 211, 0.4)';
+            } else if (this.classList.contains('nude-btn') || this.classList.contains('border-nude')) {
+                this.style.boxShadow = '0 8px 25px rgba(205, 182, 172, 0.4)';
+            } else if (this.classList.contains('gold-btn') || this.classList.contains('border-gold')) {
+                this.style.boxShadow = '0 8px 25px rgba(212, 175, 55, 0.3)';
+            } else if (this.classList.contains('border-brown')) {
+                this.style.boxShadow = '0 8px 25px rgba(139, 115, 85, 0.3)';
             }
         });
         
@@ -280,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = emailInput.value.trim();
             
             if (email && validateEmail(email)) {
-                showNotification('شكراً لاشتراكك! ستتلقى آخر التحديثات قريباً.', 'success');
+                showNotification('شكراً لاشتراكك! ستتلقى آخر التحديثات والموارد القيّمة قريباً.', 'success');
                 emailInput.value = '';
             } else {
                 showNotification('يرجى إدخال بريد إلكتروني صحيح.', 'error');
@@ -295,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = emailInput.value.trim();
             
             if (email && validateEmail(email)) {
-                showNotification('تم إرسال القوالب إلى بريدك! تحقق من مجلد الرسائل غير المرغوب فيها أيضاً.', 'success');
+                showNotification('تم إرسال القوالب المجانية إلى بريدك الإلكتروني بنجاح! نوصي بالتحقق من مجلد الرسائل غير المرغوب فيها أيضاً.', 'success');
                 emailInput.value = '';
                 hideSubscribeModal();
             } else {
@@ -318,16 +335,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // التحقق مما إذا كان المستخدم قد شاهد النافذة من قبل
         if (!localStorage.getItem('subscribeModalShown')) {
             setTimeout(() => {
-                subscribeModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                if (subscribeModal) {
+                    subscribeModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             }, 1000);
         }
     }
     
     function hideSubscribeModal() {
-        subscribeModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        localStorage.setItem('subscribeModalShown', 'true');
+        if (subscribeModal) {
+            subscribeModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            localStorage.setItem('subscribeModalShown', 'true');
+        }
     }
     
     if (closeModal) {
@@ -335,11 +356,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // إغلاق النافذة عند النقر خارجها
-    subscribeModal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            hideSubscribeModal();
-        }
-    });
+    if (subscribeModal) {
+        subscribeModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideSubscribeModal();
+            }
+        });
+    }
     
     // ========== إشعارات ==========
     function showNotification(message, type) {
@@ -349,25 +372,27 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // إضافة أنماط للإشعار
         notification.style.position = 'fixed';
-        notification.style.top = '20px';
-        notification.style.right = '20px';
-        notification.style.padding = '1rem 1.5rem';
+        notification.style.top = '25px';
+        notification.style.right = '25px';
+        notification.style.padding = '1.25rem 1.75rem';
         notification.style.borderRadius = 'var(--radius-md)';
         notification.style.color = 'white';
         notification.style.fontFamily = 'var(--font-body)';
+        notification.style.fontSize = '1.05rem';
         notification.style.zIndex = '9999';
         notification.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
         notification.style.transition = 'all 0.3s ease';
         notification.style.transform = 'translateY(-100px)';
         notification.style.opacity = '0';
+        notification.style.maxWidth = '400px';
+        notification.style.lineHeight = '1.5';
         
         if (type === 'success') {
-            notification.style.background = 'var(--gold-gradient)';
-            notification.style.border = '1px solid var(--gold)';
-            notification.style.color = 'var(--dark-blue)';
+            notification.style.background = 'linear-gradient(45deg, var(--secondary-brown), var(--accent-gold))';
+            notification.style.border = '2px solid var(--accent-gold)';
         } else {
-            notification.style.background = 'linear-gradient(45deg, #ff4444, #ff7700)';
-            notification.style.border = '1px solid #ff4444';
+            notification.style.background = 'linear-gradient(45deg, #9e2a2a, #b45309)';
+            notification.style.border = '2px solid #b45309';
         }
         
         document.body.appendChild(notification);
@@ -378,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
             notification.style.opacity = '1';
         }, 100);
         
-        // إزالة الإشعار بعد 3 ثوانٍ
+        // إزالة الإشعار بعد 4 ثوانٍ
         setTimeout(() => {
             notification.style.transform = 'translateY(-100px)';
             notification.style.opacity = '0';
@@ -387,14 +412,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     notification.parentNode.removeChild(notification);
                 }
             }, 300);
-        }, 3000);
+        }, 4000);
     }
     
     // ========== تأثيرات إضافية ==========
     // تأثير الكتابة للعنوان
-    const premiumTitle = document.querySelector('.premium-title');
-    if (premiumTitle) {
-        const spans = premiumTitle.querySelectorAll('span');
+    const artisticTitle = document.querySelector('.artistic-title');
+    if (artisticTitle) {
+        const spans = artisticTitle.querySelectorAll('span');
         spans.forEach((span, index) => {
             span.style.opacity = '0';
             span.style.transform = 'translateY(20px)';
@@ -407,60 +432,91 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // تأثيرات للابتوب
-    const laptopMockup = document.querySelector('.laptop-mockup');
-    if (laptopMockup) {
-        laptopMockup.addEventListener('mousemove', function(e) {
+    // تأثيرات للهاتف المحمول
+    const phoneMockup = document.querySelector('.phone-mockup');
+    if (phoneMockup) {
+        phoneMockup.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            const rotateY = (x / rect.width - 0.5) * 5;
-            const rotateX = (0.5 - y / rect.height) * 5;
+            const rotateY = (x / rect.width - 0.5) * 8;
+            const rotateX = (0.5 - y / rect.height) * 8;
             
             this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
         
-        laptopMockup.addEventListener('mouseleave', function() {
+        phoneMockup.addEventListener('mouseleave', function() {
             this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
         });
     }
     
-    // ========== تأثيرات خلفية ديناميكية ==========
-    function createFloatingElements() {
-        const colors = ['gold', 'silver', 'bronze', 'platinum'];
-        const sections = document.querySelectorAll('.premium-section');
+    // ========== تأثيرات الصوت (اختياري) ==========
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('artistic-btn') || 
+            e.target.closest('.artistic-btn') || 
+            e.target.classList.contains('tab-btn')) {
+            
+            // تأثير صوتي (يمكن إضافة صوت حقيقي)
+            playClickSound();
+        }
+    });
+    
+    function playClickSound() {
+        // في التطبيق الحقيقي، يمكنك إضافة صوت هنا
+        // const audio = new Audio('click-sound.mp3');
+        // audio.volume = 0.2;
+        // audio.play();
+    }
+    
+    // ========== تأثيرات الخلفية الديناميكية ==========
+    function createFloatingArtisticElements() {
+        const colors = ['beige', 'nude', 'gold'];
+        const section = document.querySelector('.artistic-section');
         
-        sections.forEach(section => {
-            for (let i = 0; i < 10; i++) {
-                const element = document.createElement('div');
-                element.className = `floating-element ${colors[Math.floor(Math.random() * colors.length)]}`;
-                
-                // مواضع عشوائية
-                const size = Math.random() * 15 + 5;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const duration = Math.random() * 20 + 20;
-                const delay = Math.random() * 5;
-                
-                element.style.width = `${size}px`;
-                element.style.height = `${size}px`;
-                element.style.right = `${posX}%`;
-                element.style.top = `${posY}%`;
-                element.style.animationDuration = `${duration}s`;
-                element.style.animationDelay = `${delay}s`;
-                
-                section.appendChild(element);
+        if (!section) return;
+        
+        for (let i = 0; i < 12; i++) {
+            const element = document.createElement('div');
+            element.className = `floating-artistic artistic-${colors[Math.floor(Math.random() * colors.length)]}`;
+            
+            // مواضع عشوائية
+            const size = Math.random() * 15 + 8;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            const duration = Math.random() * 20 + 20;
+            const delay = Math.random() * 5;
+            
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            element.style.right = `${posX}%`;
+            element.style.top = `${posY}%`;
+            element.style.animationDuration = `${duration}s`;
+            element.style.animationDelay = `${delay}s`;
+            element.style.position = 'absolute';
+            element.style.borderRadius = '50%';
+            element.style.opacity = '0.1';
+            element.style.zIndex = '0';
+            element.style.pointerEvents = 'none';
+            
+            if (element.className.includes('artistic-beige')) {
+                element.style.backgroundColor = 'var(--primary-beige)';
+            } else if (element.className.includes('artistic-nude')) {
+                element.style.backgroundColor = 'var(--primary-nude)';
+            } else if (element.className.includes('artistic-gold')) {
+                element.style.backgroundColor = 'var(--accent-gold)';
             }
-        });
+            
+            section.appendChild(element);
+        }
     }
     
     // استدعاء دالة العناصر العائمة
-    createFloatingElements();
+    createFloatingArtisticElements();
     
     // ========== رسالة ترحيب في الكونسول ==========
-    console.log('%c✨ بورتفوليو الذهبية - إصدار الجيل الجديد 2025 ✨', 'background: linear-gradient(45deg, #D4AF37, #C0C0C0, #CD7F32, #E5E4E2); color: #0A1929; padding: 10px; border-radius: 5px; font-size: 14px; font-weight: bold;');
-    console.log('%c🎯 موقع لبناء بورتفوليو قوي بمظهر راقي وعصري', 'color: #D4AF37; font-size: 12px;');
+    console.log('%c🎨 بورتفوليو فني - إصدار جيل Z 2025 🎨', 'background: linear-gradient(45deg, #E8E0D3, #CDB6AC, #8B7355, #D4AF37); color: #1A1A1A; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: bold;');
+    console.log('%c📚 منصة عربية لبناء بورتفوليو احترافي بمظهر فني عصري', 'color: #8B7355; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
     
     // ========== تحميل إضافي عند التمرير ==========
     let isLoading = false;
@@ -477,7 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loadingIndicator.className = 'loading-indicator';
             loadingIndicator.innerHTML = `
                 <div class="loading-spinner"></div>
-                <span>جاري تحميل المزيد...</span>
+                <span>جاري تحميل المزيد من المحتوى القيّم...</span>
             `;
             
             // إضافة الأنماط
@@ -485,32 +541,47 @@ document.addEventListener('DOMContentLoaded', function() {
             loadingStyle.textContent = `
                 .loading-indicator {
                     text-align: center;
-                    padding: 2rem;
+                    padding: 3rem;
                     color: var(--text-muted);
+                    font-size: 1.1rem;
                 }
                 .loading-spinner {
-                    border: 3px solid rgba(212, 175, 55, 0.1);
-                    border-top: 3px solid var(--gold);
+                    border: 3px solid rgba(139, 115, 85, 0.1);
+                    border-top: 3px solid var(--secondary-brown);
                     border-radius: 50%;
-                    width: 40px;
-                    height: 40px;
+                    width: 50px;
+                    height: 50px;
                     animation: spin 1s linear infinite;
-                    margin: 0 auto 1rem;
+                    margin: 0 auto 1.5rem;
+                }
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
                 }
             `;
             
             document.head.appendChild(loadingStyle);
-            document.querySelector('#tips').appendChild(loadingIndicator);
+            const tipsSection = document.querySelector('#tips');
+            if (tipsSection) {
+                tipsSection.appendChild(loadingIndicator);
+            }
             
             // محاكاة التأخير
             setTimeout(() => {
-                document.querySelector('#tips').removeChild(loadingIndicator);
+                if (tipsSection && tipsSection.contains(loadingIndicator)) {
+                    tipsSection.removeChild(loadingIndicator);
+                }
                 document.head.removeChild(loadingStyle);
                 isLoading = false;
                 
                 // رسالة أن كل المحتوى تم تحميله
-                showNotification('تم تحميل كل المحتوى! 🎉', 'success');
+                showNotification('تم تحميل جميع المحتويات الإضافية بنجاح! استمر في الاستكشاف. 🎉', 'success');
             }, 1500);
         }
     });
+    
+    // ========== تهيئة الأرقام المتحركة عند التحميل ==========
+    setTimeout(() => {
+        animateStats();
+    }, 500);
 });
