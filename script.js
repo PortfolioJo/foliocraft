@@ -1,4 +1,4 @@
-// ملف JavaScript للثيم الفني العصري
+// ملف JavaScript لـ FolioCraft
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========== شاشة التحميل ==========
@@ -9,13 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             loader.style.display = 'none';
-            
-            // عرض النافذة المنبثقة بعد 3 ثواني
-            setTimeout(() => {
-                showSubscribeModal();
-            }, 3000);
         }, 500);
-    }, 2000);
+    }, 1500);
     
     // ========== القائمة المتنقلة ==========
     const menuToggle = document.querySelector('.menu-toggle');
@@ -26,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('active');
             navLinks.classList.toggle('active');
             
-            // تحريك الأشرطة
             const bars = this.querySelectorAll('.artistic-bar');
             if (this.classList.contains('active')) {
                 bars[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
@@ -55,24 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 bars[0].style.transform = 'none';
                 bars[1].style.opacity = '1';
                 bars[2].style.transform = 'none';
-            }
-        });
-    });
-    
-    // ========== التمرير السلس ==========
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
             }
         });
     });
@@ -134,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const current = parseInt(stat.textContent);
             
             if (isElementInViewport(stat) && current < target) {
-                // زيادة تدريجية
                 let increment = Math.ceil(target / 50);
                 let newValue = current + increment;
                 
@@ -142,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 stat.textContent = newValue;
                 
-                // استمرار حتى الوصول للهدف
                 if (newValue < target) {
                     setTimeout(() => {
                         animateStats();
@@ -163,78 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
     
-    // ========== علامات التبويب ==========
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    if (tabButtons.length > 0) {
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const tabId = this.getAttribute('data-tab');
-                
-                // إزالة النشط من جميع الأزرار
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                // إضافة النشط للزر المحدد
-                this.classList.add('active');
-                
-                // إخفاء جميع المحتويات
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-                // إظهار المحتوى المحدد
-                const targetPane = document.getElementById(tabId);
-                if (targetPane) {
-                    targetPane.classList.add('active');
-                }
-            });
-        });
-    }
-    
-    // ========== قائمة التدقيق ==========
-    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.querySelector('.progress-text');
-    const resetChecklist = document.getElementById('resetChecklist');
-    
-    if (checkboxes.length > 0) {
-        // تحديث شريط التقدم
-        function updateChecklistProgress() {
-            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-            const totalCount = checkboxes.length;
-            const percentage = (checkedCount / totalCount) * 100;
-            
-            if (progressFill) {
-                progressFill.style.width = `${percentage}%`;
-            }
-            
-            if (progressText) {
-                progressText.textContent = `${checkedCount}/${totalCount} مكتمل`;
-            }
-        }
-        
-        // إضافة مستمع لكل خانة اختيار
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateChecklistProgress);
-        });
-        
-        // زر إعادة تعيين القائمة
-        if (resetChecklist) {
-            resetChecklist.addEventListener('click', function() {
-                checkboxes.forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-                updateChecklistProgress();
-                
-                // تأثير بسيط
-                this.style.transform = 'rotate(360deg)';
-                setTimeout(() => {
-                    this.style.transform = 'rotate(0)';
-                }, 500);
-            });
-        }
-        
-        // تحديث التقدم في البداية
-        updateChecklistProgress();
-    }
-    
     // ========== تأثيرات للعناصر عند التمرير ==========
     const observerOptions = {
         threshold: 0.1,
@@ -247,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
                 
-                // إضافة تأثيرات خاصة للبطاقات
                 if (entry.target.classList.contains('artistic-card')) {
                     setTimeout(() => {
                         entry.target.classList.add('animated');
@@ -258,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // مراقبة العناصر لإضافة تأثيرات
-    document.querySelectorAll('.artistic-card, .reason-card, .tip-item, .stat-box').forEach(card => {
+    document.querySelectorAll('.artistic-card, .category-card, .portfolio-item, .pricing-card').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -266,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ========== تأثيرات التحويم ==========
-    const artisticElements = document.querySelectorAll('.artistic-btn, .artistic-card, .social-icon, .job-card');
+    const artisticElements = document.querySelectorAll('.artistic-btn, .artistic-card, .social-icon, .contact-method');
     
     artisticElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
@@ -276,8 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.boxShadow = '0 8px 25px rgba(205, 182, 172, 0.4)';
             } else if (this.classList.contains('gold-btn') || this.classList.contains('border-gold')) {
                 this.style.boxShadow = '0 8px 25px rgba(212, 175, 55, 0.3)';
-            } else if (this.classList.contains('border-brown')) {
-                this.style.boxShadow = '0 8px 25px rgba(139, 115, 85, 0.3)';
             }
         });
         
@@ -286,81 +185,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ========== النماذج ==========
-    const newsletterForm = document.getElementById('newsletterForm');
-    const modalForm = document.getElementById('modalForm');
+    // ========== نموذج الاتصال ==========
+    const contactForm = document.getElementById('contactForm');
     
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
             
-            if (email && validateEmail(email)) {
-                showNotification('شكراً لاشتراكك! ستتلقى آخر التحديثات والموارد القيّمة قريباً.', 'success');
-                emailInput.value = '';
-            } else {
-                showNotification('يرجى إدخال بريد إلكتروني صحيح.', 'error');
-            }
-        });
-    }
-    
-    if (modalForm) {
-        modalForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
+            // جمع بيانات النموذج
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
             
-            if (email && validateEmail(email)) {
-                showNotification('تم إرسال القوالب المجانية إلى بريدك الإلكتروني بنجاح! نوصي بالتحقق من مجلد الرسائل غير المرغوب فيها أيضاً.', 'success');
-                emailInput.value = '';
-                hideSubscribeModal();
-            } else {
-                showNotification('يرجى إدخال بريد إلكتروني صحيح.', 'error');
-            }
-        });
-    }
-    
-    // دالة التحقق من صحة البريد الإلكتروني
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-    
-    // ========== النافذة المنبثقة ==========
-    const subscribeModal = document.getElementById('subscribeModal');
-    const closeModal = document.querySelector('.close-modal');
-    
-    function showSubscribeModal() {
-        // التحقق مما إذا كان المستخدم قد شاهد النافذة من قبل
-        if (!localStorage.getItem('subscribeModalShown')) {
-            setTimeout(() => {
-                if (subscribeModal) {
-                    subscribeModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            }, 1000);
-        }
-    }
-    
-    function hideSubscribeModal() {
-        if (subscribeModal) {
-            subscribeModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            localStorage.setItem('subscribeModalShown', 'true');
-        }
-    }
-    
-    if (closeModal) {
-        closeModal.addEventListener('click', hideSubscribeModal);
-    }
-    
-    // إغلاق النافذة عند النقر خارجها
-    if (subscribeModal) {
-        subscribeModal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                hideSubscribeModal();
-            }
+            // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
+            // مثال: استخدام Fetch API
+            
+            // عرض رسالة نجاح
+            showNotification('تم إرسال طلبك بنجاح! سنتواصل معك في أقرب وقت لتأكيد التفاصيل.', 'success');
+            
+            // إعادة تعيين النموذج
+            this.reset();
         });
     }
     
@@ -370,7 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
         notification.className = `notification ${type}`;
         notification.textContent = message;
         
-        // إضافة أنماط للإشعار
         notification.style.position = 'fixed';
         notification.style.top = '25px';
         notification.style.right = '25px';
@@ -397,13 +242,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.body.appendChild(notification);
         
-        // ظهور الإشعار
         setTimeout(() => {
             notification.style.transform = 'translateY(0)';
             notification.style.opacity = '1';
         }, 100);
         
-        // إزالة الإشعار بعد 4 ثوانٍ
         setTimeout(() => {
             notification.style.transform = 'translateY(-100px)';
             notification.style.opacity = '0';
@@ -451,137 +294,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== تأثيرات الصوت (اختياري) ==========
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('artistic-btn') || 
-            e.target.closest('.artistic-btn') || 
-            e.target.classList.contains('tab-btn')) {
-            
-            // تأثير صوتي (يمكن إضافة صوت حقيقي)
-            playClickSound();
-        }
-    });
-    
-    function playClickSound() {
-        // في التطبيق الحقيقي، يمكنك إضافة صوت هنا
-        // const audio = new Audio('click-sound.mp3');
-        // audio.volume = 0.2;
-        // audio.play();
-    }
-    
-    // ========== تأثيرات الخلفية الديناميكية ==========
-    function createFloatingArtisticElements() {
-        const colors = ['beige', 'nude', 'gold'];
-        const section = document.querySelector('.artistic-section');
-        
-        if (!section) return;
-        
-        for (let i = 0; i < 12; i++) {
-            const element = document.createElement('div');
-            element.className = `floating-artistic artistic-${colors[Math.floor(Math.random() * colors.length)]}`;
-            
-            // مواضع عشوائية
-            const size = Math.random() * 15 + 8;
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            const duration = Math.random() * 20 + 20;
-            const delay = Math.random() * 5;
-            
-            element.style.width = `${size}px`;
-            element.style.height = `${size}px`;
-            element.style.right = `${posX}%`;
-            element.style.top = `${posY}%`;
-            element.style.animationDuration = `${duration}s`;
-            element.style.animationDelay = `${delay}s`;
-            element.style.position = 'absolute';
-            element.style.borderRadius = '50%';
-            element.style.opacity = '0.1';
-            element.style.zIndex = '0';
-            element.style.pointerEvents = 'none';
-            
-            if (element.className.includes('artistic-beige')) {
-                element.style.backgroundColor = 'var(--primary-beige)';
-            } else if (element.className.includes('artistic-nude')) {
-                element.style.backgroundColor = 'var(--primary-nude)';
-            } else if (element.className.includes('artistic-gold')) {
-                element.style.backgroundColor = 'var(--accent-gold)';
-            }
-            
-            section.appendChild(element);
-        }
-    }
-    
-    // استدعاء دالة العناصر العائمة
-    createFloatingArtisticElements();
-    
     // ========== رسالة ترحيب في الكونسول ==========
-    console.log('%c🎨 بورتفوليو فني - إصدار جيل Z 2025 🎨', 'background: linear-gradient(45deg, #E8E0D3, #CDB6AC, #8B7355, #D4AF37); color: #1A1A1A; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: bold;');
-    console.log('%c📚 منصة عربية لبناء بورتفوليو احترافي بمظهر فني عصري', 'color: #8B7355; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
-    
-    // ========== تحميل إضافي عند التمرير ==========
-    let isLoading = false;
-    
-    window.addEventListener('scroll', function() {
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const documentHeight = document.documentElement.scrollHeight;
-        
-        if (scrollPosition >= documentHeight - 100 && !isLoading) {
-            isLoading = true;
-            
-            // محاكاة تحميل المحتوى
-            const loadingIndicator = document.createElement('div');
-            loadingIndicator.className = 'loading-indicator';
-            loadingIndicator.innerHTML = `
-                <div class="loading-spinner"></div>
-                <span>جاري تحميل المزيد من المحتوى القيّم...</span>
-            `;
-            
-            // إضافة الأنماط
-            const loadingStyle = document.createElement('style');
-            loadingStyle.textContent = `
-                .loading-indicator {
-                    text-align: center;
-                    padding: 3rem;
-                    color: var(--text-muted);
-                    font-size: 1.1rem;
-                }
-                .loading-spinner {
-                    border: 3px solid rgba(139, 115, 85, 0.1);
-                    border-top: 3px solid var(--secondary-brown);
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
-                    animation: spin 1s linear infinite;
-                    margin: 0 auto 1.5rem;
-                }
-                @keyframes spin {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                }
-            `;
-            
-            document.head.appendChild(loadingStyle);
-            const tipsSection = document.querySelector('#tips');
-            if (tipsSection) {
-                tipsSection.appendChild(loadingIndicator);
-            }
-            
-            // محاكاة التأخير
-            setTimeout(() => {
-                if (tipsSection && tipsSection.contains(loadingIndicator)) {
-                    tipsSection.removeChild(loadingIndicator);
-                }
-                document.head.removeChild(loadingStyle);
-                isLoading = false;
-                
-                // رسالة أن كل المحتوى تم تحميله
-                showNotification('تم تحميل جميع المحتويات الإضافية بنجاح! استمر في الاستكشاف. 🎉', 'success');
-            }, 1500);
-        }
-    });
+    console.log('%c🎨 FolioCraft — فوليوكرافت 🎨', 'background: linear-gradient(45deg, #E8E0D3, #CDB6AC, #8B7355, #D4AF37); color: #1A1A1A; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: bold;');
+    console.log('%c📱 متخصصون في تصميم بورتفوليو احترافية للجميع', 'color: #8B7355; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
+    console.log('%c📧 للتواصل: aseeljalal45@gmail.com | واتساب: +962785094075', 'color: #D4AF37; font-size: 11px; margin-top: 5px;');
     
     // ========== تهيئة الأرقام المتحركة عند التحميل ==========
     setTimeout(() => {
         animateStats();
     }, 500);
+    
+    // ========== توليد عروض بورتفوليو عشوائية ==========
+    function generatePortfolioExamples() {
+        const examples = [
+            { name: 'أحمد - مصمم جرافيك', type: 'modern' },
+            { name: 'سارة - مبرمجة ويب', type: 'creative' },
+            { name: 'خالد - محلل بيانات', type: 'minimal' },
+            { name: 'نور - صانعة محتوى', type: 'interactive' }
+        ];
+        
+        const portfolioGrid = document.querySelector('.portfolio-grid');
+        if (!portfolioGrid) return;
+        
+        // يمكن إضافة أمثلة ديناميكية هنا إذا لزم الأمر
+    }
+    
+    generatePortfolioExamples();
 });
