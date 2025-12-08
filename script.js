@@ -1,309 +1,234 @@
-// ملف JavaScript لأسلوب إنستجرام 2025
+// ملف JavaScript للثيم النيون العصري
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========== تفاعل زر الإعجاب ==========
-    document.querySelectorAll('.like-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const icon = this.querySelector('i');
-            const likesCount = this.closest('.instagram-post').querySelector('.likes-count');
+    // ========== شاشة التحميل ==========
+    const loader = document.querySelector('.loader');
+    
+    setTimeout(() => {
+        loader.classList.add('fade-out');
+        
+        setTimeout(() => {
+            loader.style.display = 'none';
             
-            if (icon.classList.contains('far')) {
-                // إضافة إعجاب
-                icon.classList.remove('far');
-                icon.classList.add('fas');
-                this.classList.add('active');
-                
-                // زيادة عدد الإعجابات
-                const currentLikes = parseInt(likesCount.textContent.match(/\d+/)[0]);
-                likesCount.textContent = `${currentLikes + 1} إعجاب`;
-                
-                // تأثير النبض
-                this.style.transform = 'scale(1.3)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 300);
-            } else {
-                // إزالة الإعجاب
-                icon.classList.remove('fas');
-                icon.classList.add('far');
-                this.classList.remove('active');
-                
-                // تقليل عدد الإعجابات
-                const currentLikes = parseInt(likesCount.textContent.match(/\d+/)[0]);
-                if (currentLikes > 0) {
-                    likesCount.textContent = `${currentLikes - 1} إعجاب`;
-                }
-            }
-        });
-    });
-    
-    // ========== نشر تعليق جديد ==========
-    document.querySelectorAll('.post-comment-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const post = this.closest('.instagram-post');
-            const commentInput = post.querySelector('.add-comment input');
-            const commentsSection = post.querySelector('.post-comments');
-            
-            if (commentInput.value.trim() !== '') {
-                // إنشاء تعليق جديد
-                const newComment = document.createElement('div');
-                newComment.className = 'comment';
-                newComment.innerHTML = `
-                    <span class="comment-user">أنت</span>
-                    <span class="comment-text">${commentInput.value}</span>
-                `;
-                
-                // إضافة التعليق قبل رابط "عرض كل التعليقات"
-                const viewCommentsLink = commentsSection.querySelector('.view-comments');
-                commentsSection.insertBefore(newComment, viewCommentsLink);
-                
-                // زيادة عدد التعليقات
-                const viewCommentsText = viewCommentsLink.textContent;
-                const commentCount = parseInt(viewCommentsText.match(/\d+/)[0]);
-                viewCommentsLink.textContent = `عرض كل التعليقات (${commentCount + 1})`;
-                
-                // تفريغ حقل الإدخال
-                commentInput.value = '';
-                
-                // تأثير بسيط
-                newComment.style.opacity = '0';
-                newComment.style.transform = 'translateY(10px)';
-                
-                setTimeout(() => {
-                    newComment.style.transition = 'opacity 0.3s, transform 0.3s';
-                    newComment.style.opacity = '1';
-                    newComment.style.transform = 'translateY(0)';
-                }, 10);
-            }
-        });
-    });
-    
-    // ========== نشر تعليق بالضغط على Enter ==========
-    document.querySelectorAll('.add-comment input').forEach(input => {
-        input.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                this.closest('.add-comment').querySelector('.post-comment-btn').click();
-            }
-        });
-    });
-    
-    // ========== زر المتابعة في الاقتراحات ==========
-    document.querySelectorAll('.follow-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            if (this.textContent === 'متابعة') {
-                this.textContent = 'متابَع';
-                this.style.color = '#666';
-                
-                // تأثير بسيط
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
-            } else {
-                this.textContent = 'متابعة';
-                this.style.color = '';
-            }
-        });
-    });
-    
-    // ========== زر إنشاء منشور جديد ==========
-    const createPostBtn = document.querySelector('.create-post-btn');
-    if (createPostBtn) {
-        createPostBtn.addEventListener('click', function() {
-            // تأثير النبض
-            this.style.transform = 'scale(1.1)';
+            // عرض النافذة المنبثقة بعد 3 ثواني
             setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
+                showSubscribeModal();
+            }, 3000);
+        }, 500);
+    }, 2000);
+    
+    // ========== القائمة المتنقلة ==========
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
             
-            // إنشاء نافذة منبثقة (محاكاة)
-            const modal = document.createElement('div');
-            modal.className = 'create-post-modal';
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>إنشاء منشور جديد</h3>
-                        <button class="close-modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <textarea placeholder="ماذا تريد مشاركته عن البروفوليو؟"></textarea>
-                        <div class="modal-options">
-                            <button class="option-btn">
-                                <i class="fas fa-camera"></i>
-                                صورة
-                            </button>
-                            <button class="option-btn">
-                                <i class="fas fa-video"></i>
-                                فيديو
-                            </button>
-                            <button class="option-btn">
-                                <i class="fas fa-link"></i>
-                                رابط
-                            </button>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="cancel-btn">إلغاء</button>
-                        <button class="publish-btn">نشر</button>
-                    </div>
-                </div>
-            `;
+            // تحريك الأشرطة
+            const bars = this.querySelectorAll('.neon-bar');
+            if (this.classList.contains('active')) {
+                bars[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        });
+    }
+    
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
             
-            // إضافة الأنماط
-            const style = document.createElement('style');
-            style.textContent = `
-                .create-post-modal {
-                    position: fixed;
-                    top: 0;
-                    right: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.5);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 2000;
-                    backdrop-filter: blur(5px);
-                }
-                .modal-content {
-                    background: white;
-                    border-radius: 1rem;
-                    width: 90%;
-                    max-width: 500px;
-                    overflow: hidden;
-                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-                }
-                .modal-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 1.25rem;
-                    border-bottom: 1px solid #e5e5e5;
-                }
-                .modal-header h3 {
-                    font-family: 'IBM Plex Sans Arabic', sans-serif;
-                    font-weight: 600;
-                    margin: 0;
-                }
-                .close-modal {
-                    background: none;
-                    border: none;
-                    font-size: 1.5rem;
-                    cursor: pointer;
-                    color: #666;
-                }
-                .modal-body {
-                    padding: 1.25rem;
-                }
-                .modal-body textarea {
-                    width: 100%;
-                    height: 150px;
-                    border: 1px solid #e5e5e5;
-                    border-radius: 0.5rem;
-                    padding: 1rem;
-                    font-family: 'Rubik', sans-serif;
-                    resize: none;
-                    margin-bottom: 1.25rem;
-                }
-                .modal-body textarea:focus {
-                    outline: none;
-                    border-color: #0095f6;
-                }
-                .modal-options {
-                    display: flex;
-                    gap: 1rem;
-                    justify-content: center;
-                }
-                .option-btn {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 0.5rem;
-                    background: #f5f5f5;
-                    border: none;
-                    border-radius: 0.5rem;
-                    padding: 1rem;
-                    cursor: pointer;
-                    transition: background 0.2s;
-                }
-                .option-btn:hover {
-                    background: #e5e5e5;
-                }
-                .modal-footer {
-                    display: flex;
-                    justify-content: flex-end;
-                    gap: 1rem;
-                    padding: 1.25rem;
-                    border-top: 1px solid #e5e5e5;
-                }
-                .cancel-btn, .publish-btn {
-                    padding: 0.75rem 1.5rem;
-                    border-radius: 0.5rem;
-                    font-family: 'IBM Plex Sans Arabic', sans-serif;
-                    font-weight: 600;
-                    cursor: pointer;
-                    border: none;
-                }
-                .cancel-btn {
-                    background: #f5f5f5;
-                    color: #666;
-                }
-                .publish-btn {
-                    background: #0095f6;
-                    color: white;
-                }
-            `;
+            const bars = menuToggle.querySelectorAll('.neon-bar');
+            bars[0].style.transform = 'none';
+            bars[1].style.opacity = '1';
+            bars[2].style.transform = 'none';
+        });
+    });
+    
+    // ========== التمرير السلس ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            document.head.appendChild(style);
-            document.body.appendChild(modal);
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             
-            // إغلاق النافذة المنبثقة
-            modal.querySelector('.close-modal').addEventListener('click', () => {
-                document.body.removeChild(modal);
-                document.head.removeChild(style);
-            });
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // ========== إضافة فئة نشطة للروابط عند التمرير ==========
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
             
-            modal.querySelector('.cancel-btn').addEventListener('click', () => {
-                document.body.removeChild(modal);
-                document.head.removeChild(style);
-            });
-            
-            modal.querySelector('.publish-btn').addEventListener('click', () => {
-                const text = modal.querySelector('textarea').value;
-                if (text.trim() !== '') {
-                    // هنا يمكن إضافة منطق النشر الحقيقي
-                    alert('تم نشر منشورك بنجاح! (هذه محاكاة)');
-                    document.body.removeChild(modal);
-                    document.head.removeChild(style);
-                } else {
-                    alert('يرجى إضافة نص للمنشور');
-                }
+            if (window.pageYOffset >= (sectionTop - 150)) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+        
+        // زر العودة للأعلى
+        const backToTop = document.getElementById('backToTop');
+        if (window.pageYOffset > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+        
+        // تأثيرات التمرير للأرقام
+        animateStats();
+    });
+    
+    // ========== زر العودة للأعلى ==========
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     }
     
-    // ========== تأثيرات القصص ==========
-    document.querySelectorAll('.story-circle').forEach(circle => {
-        circle.addEventListener('click', function() {
-            if (!this.closest('.story').classList.contains('new-story')) {
-                // تأثير النقر على القصة
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
+    // ========== تأثيرات الأرقام المتحركة ==========
+    function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+        
+        statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            const current = parseInt(stat.textContent);
+            
+            if (isElementInViewport(stat) && current < target) {
+                // زيادة تدريجية
+                let increment = Math.ceil(target / 50);
+                let newValue = current + increment;
                 
-                // محاكاة فتح القصة
-                const storyType = this.closest('.story').querySelector('span').textContent;
-                alert(`تشغيل قصة ${storyType}... (هذه محاكاة)`);
+                if (newValue > target) newValue = target;
+                
+                stat.textContent = newValue;
+                
+                // استمرار حتى الوصول للهدف
+                if (newValue < target) {
+                    setTimeout(() => {
+                        stat.textContent = newValue;
+                        animateStats();
+                    }, 30);
+                }
             }
         });
-    });
+    }
     
-    // ========== تأثيرات التمرير والظهور ==========
+    // دالة التحقق من ظهور العنصر في الشاشة
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    // ========== علامات التبويب ==========
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    if (tabButtons.length > 0) {
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // إزالة النشط من جميع الأزرار
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // إضافة النشط للزر المحدد
+                this.classList.add('active');
+                
+                // إخفاء جميع المحتويات
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+                // إظهار المحتوى المحدد
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    }
+    
+    // ========== قائمة التدقيق ==========
+    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.querySelector('.progress-text');
+    const resetChecklist = document.getElementById('resetChecklist');
+    
+    if (checkboxes.length > 0) {
+        // تحديث شريط التقدم
+        function updateChecklistProgress() {
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const totalCount = checkboxes.length;
+            const percentage = (checkedCount / totalCount) * 100;
+            
+            if (progressFill) {
+                progressFill.style.width = `${percentage}%`;
+            }
+            
+            if (progressText) {
+                progressText.textContent = `${checkedCount}/${totalCount} مكتمل`;
+            }
+        }
+        
+        // إضافة مستمع لكل خانة اختيار
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateChecklistProgress);
+        });
+        
+        // زر إعادة تعيين القائمة
+        if (resetChecklist) {
+            resetChecklist.addEventListener('click', function() {
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                updateChecklistProgress();
+                
+                // تأثير بسيط
+                this.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    this.style.transform = 'rotate(0)';
+                }, 500);
+            });
+        }
+        
+        // تحديث التقدم في البداية
+        updateChecklistProgress();
+    }
+    
+    // ========== تأثيرات للعناصر عند التمرير ==========
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     };
     
     const observer = new IntersectionObserver(function(entries) {
@@ -311,70 +236,257 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                
+                // إضافة تأثيرات خاصة للبطاقات
+                if (entry.target.classList.contains('neon-card')) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                    }, 300);
+                }
             }
         });
     }, observerOptions);
     
-    // إضافة تأثير الظهور للبوستات
-    document.querySelectorAll('.instagram-post').forEach((post, index) => {
-        post.style.opacity = '0';
-        post.style.transform = 'translateY(20px)';
-        post.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        post.style.transitionDelay = `${index * 0.1}s`;
-        observer.observe(post);
+    // مراقبة العناصر لإضافة تأثيرات
+    document.querySelectorAll('.neon-card, .reason-card, .tip-item').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
     });
     
-    // ========== البحث في شريط التنقل ==========
-    const searchInput = document.querySelector('.nav-search input');
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const posts = document.querySelectorAll('.instagram-post');
+    // ========== تأثيرات النيون عند التحويم ==========
+    const neonElements = document.querySelectorAll('.neon-btn, .neon-card, .social-icon');
+    
+    neonElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            if (this.classList.contains('cyan-glow') || this.classList.contains('cyan-btn')) {
+                this.style.boxShadow = '0 0 20px rgba(0, 243, 255, 0.7)';
+            } else if (this.classList.contains('pink-glow') || this.classList.contains('pink-btn')) {
+                this.style.boxShadow = '0 0 20px rgba(255, 0, 255, 0.7)';
+            } else if (this.classList.contains('green-glow')) {
+                this.style.boxShadow = '0 0 20px rgba(0, 255, 157, 0.7)';
+            } else if (this.classList.contains('yellow-glow')) {
+                this.style.boxShadow = '0 0 20px rgba(255, 255, 0, 0.7)';
+            }
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '';
+        });
+    });
+    
+    // ========== النماذج ==========
+    const newsletterForm = document.getElementById('newsletterForm');
+    const modalForm = document.getElementById('modalForm');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
             
-            posts.forEach(post => {
-                const postTitle = post.querySelector('.post-title').textContent.toLowerCase();
-                const postText = post.querySelector('.post-text').textContent.toLowerCase();
-                const postTags = post.querySelector('.post-tags').textContent.toLowerCase();
-                
-                if (searchTerm === '' || postTitle.includes(searchTerm) || 
-                    postText.includes(searchTerm) || postTags.includes(searchTerm)) {
-                    post.style.display = 'block';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
+            if (email && validateEmail(email)) {
+                showNotification('شكراً لاشتراكك! ستتلقى آخر التحديثات قريباً.', 'success');
+                emailInput.value = '';
+            } else {
+                showNotification('يرجى إدخال بريد إلكتروني صحيح.', 'error');
+            }
         });
     }
     
-    // ========== التنقل النشط ==========
-    const navItems = document.querySelectorAll('.nav-icon, .mobile-nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            navItems.forEach(i => i.classList.remove('active'));
-            this.classList.add('active');
+    if (modalForm) {
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email && validateEmail(email)) {
+                showNotification('تم إرسال القوالب إلى بريدك! تحقق من مجلد الرسائل غير المرغوب فيها أيضاً.', 'success');
+                emailInput.value = '';
+                hideSubscribeModal();
+            } else {
+                showNotification('يرجى إدخال بريد إلكتروني صحيح.', 'error');
+            }
         });
+    }
+    
+    // دالة التحقق من صحة البريد الإلكتروني
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    // ========== النافذة المنبثقة ==========
+    const subscribeModal = document.getElementById('subscribeModal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    function showSubscribeModal() {
+        // التحقق مما إذا كان المستخدم قد شاهد النافذة من قبل
+        if (!localStorage.getItem('subscribeModalShown')) {
+            setTimeout(() => {
+                subscribeModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 1000);
+        }
+    }
+    
+    function hideSubscribeModal() {
+        subscribeModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        localStorage.setItem('subscribeModalShown', 'true');
+    }
+    
+    if (closeModal) {
+        closeModal.addEventListener('click', hideSubscribeModal);
+    }
+    
+    // إغلاق النافذة عند النقر خارجها
+    subscribeModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            hideSubscribeModal();
+        }
     });
     
-    // ========== تأثيرات الأزرار ==========
-    document.querySelectorAll('button').forEach(button => {
-        button.addEventListener('mousedown', function() {
-            this.style.transform = 'scale(0.98)';
+    // ========== إشعارات ==========
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        // إضافة أنماط للإشعار
+        notification.style.position = 'fixed';
+        notification.style.top = '20px';
+        notification.style.right = '20px';
+        notification.style.padding = '1rem 1.5rem';
+        notification.style.borderRadius = 'var(--radius-md)';
+        notification.style.color = 'white';
+        notification.style.fontFamily = 'var(--font-body)';
+        notification.style.zIndex = '9999';
+        notification.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+        notification.style.transition = 'all 0.3s ease';
+        notification.style.transform = 'translateY(-100px)';
+        notification.style.opacity = '0';
+        
+        if (type === 'success') {
+            notification.style.background = 'linear-gradient(45deg, var(--neon-green), var(--neon-cyan))';
+            notification.style.border = '1px solid var(--neon-cyan)';
+        } else {
+            notification.style.background = 'linear-gradient(45deg, #ff4444, #ff7700)';
+            notification.style.border = '1px solid #ff4444';
+        }
+        
+        document.body.appendChild(notification);
+        
+        // ظهور الإشعار
+        setTimeout(() => {
+            notification.style.transform = 'translateY(0)';
+            notification.style.opacity = '1';
+        }, 100);
+        
+        // إزالة الإشعار بعد 3 ثوانٍ
+        setTimeout(() => {
+            notification.style.transform = 'translateY(-100px)';
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+    
+    // ========== تأثيرات إضافية ==========
+    // تأثير الكتابة للعنوان
+    const neonTitle = document.querySelector('.neon-title');
+    if (neonTitle) {
+        const spans = neonTitle.querySelectorAll('span');
+        spans.forEach((span, index) => {
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                span.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                span.style.opacity = '1';
+                span.style.transform = 'translateY(0)';
+            }, index * 300);
+        });
+    }
+    
+    // تأثيرات للهاتف المحمول
+    const phoneMockup = document.querySelector('.phone-mockup');
+    if (phoneMockup) {
+        let rotation = 0;
+        
+        phoneMockup.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const rotateY = (x / rect.width - 0.5) * 10;
+            const rotateX = (0.5 - y / rect.height) * 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
         
-        button.addEventListener('mouseup', function() {
-            this.style.transform = 'scale(1)';
+        phoneMockup.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
         });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
+    }
+    
+    // ========== تأثيرات الصوت (اختياري) ==========
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('neon-btn') || 
+            e.target.closest('.neon-btn') || 
+            e.target.classList.contains('tab-btn')) {
+            
+            // تأثير صوتي (يمكن إضافة صوت حقيقي)
+            playClickSound();
+        }
     });
+    
+    function playClickSound() {
+        // في التطبيق الحقيقي، يمكنك إضافة صوت هنا
+        // const audio = new Audio('click-sound.mp3');
+        // audio.volume = 0.3;
+        // audio.play();
+    }
+    
+    // ========== تأثيرات الخلفية الديناميكية ==========
+    function createFloatingNeonElements() {
+        const colors = ['cyan', 'pink', 'green', 'yellow'];
+        const section = document.querySelector('.neon-section');
+        
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.className = `floating-neon neon-${colors[Math.floor(Math.random() * colors.length)]}`;
+            
+            // مواضع عشوائية
+            const size = Math.random() * 20 + 10;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            const duration = Math.random() * 20 + 20;
+            const delay = Math.random() * 5;
+            
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            element.style.right = `${posX}%`;
+            element.style.top = `${posY}%`;
+            element.style.animationDuration = `${duration}s`;
+            element.style.animationDelay = `${delay}s`;
+            
+            section.appendChild(element);
+        }
+    }
+    
+    // استدعاء دالة العناصر العائمة
+    createFloatingNeonElements();
     
     // ========== رسالة ترحيب في الكونسول ==========
-    console.log('%c✨ PortfolioGram - إصدار جيل Z 2025 ✨', 'background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); color: white; padding: 10px; border-radius: 5px; font-size: 14px;');
-    console.log('%c🎯 موقع يعرض أهمية البروفوليو بأسلوب إنستجرام عصري', 'color: #0095f6; font-size: 12px;');
+    console.log('%c✨ نيون بورت - إصدار جيل Z 2025 ✨', 'background: linear-gradient(45deg, #00f3ff, #ff00ff, #00ff9d, #ffff00); color: #0a0a0f; padding: 10px; border-radius: 5px; font-size: 14px; font-weight: bold;');
+    console.log('%c🎯 موقع لبناء بروفوليو قوي بمظهر نيون عصري', 'color: #00f3ff; font-size: 12px;');
     
-    // ========== تحميل محاكاة للمزيد من المحتوى عند التمرير ==========
+    // ========== تحميل إضافي عند التمرير ==========
     let isLoading = false;
     
     window.addEventListener('scroll', function() {
@@ -389,7 +501,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loadingIndicator.className = 'loading-indicator';
             loadingIndicator.innerHTML = `
                 <div class="loading-spinner"></div>
-                <span>جاري تحميل المزيد من المنشورات...</span>
+                <span>جاري تحميل المزيد...</span>
             `;
             
             // إضافة الأنماط
@@ -398,32 +510,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 .loading-indicator {
                     text-align: center;
                     padding: 2rem;
-                    color: #666;
+                    color: var(--text-muted);
                 }
                 .loading-spinner {
-                    border: 3px solid #f3f3f3;
-                    border-top: 3px solid #0095f6;
+                    border: 3px solid rgba(0, 243, 255, 0.1);
+                    border-top: 3px solid var(--neon-cyan);
                     border-radius: 50%;
                     width: 40px;
                     height: 40px;
                     animation: spin 1s linear infinite;
                     margin: 0 auto 1rem;
                 }
-                @keyframes spin {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                }
             `;
             
             document.head.appendChild(loadingStyle);
-            document.querySelector('.posts-grid').appendChild(loadingIndicator);
+            document.querySelector('#tips').appendChild(loadingIndicator);
             
             // محاكاة التأخير
             setTimeout(() => {
-                // في التطبيق الحقيقي، هنا ستقوم بجلب بيانات جديدة
-                document.querySelector('.posts-grid').removeChild(loadingIndicator);
+                document.querySelector('#tips').removeChild(loadingIndicator);
                 document.head.removeChild(loadingStyle);
                 isLoading = false;
+                
+                // رسالة أن كل المحتوى تم تحميله
+                showNotification('تم تحميل كل المحتوى! 🎉', 'success');
             }, 1500);
         }
     });
