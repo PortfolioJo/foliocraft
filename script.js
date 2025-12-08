@@ -1,24 +1,22 @@
-// ملف JavaScript
+// ملف JavaScript للثيم العربي الفني
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========== التنقل المتنقل ==========
+    // ========== التحكم في القائمة المتنقلة ==========
     const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
+    const arabicNav = document.querySelector('.arabic-nav');
     
     if (mobileToggle) {
         mobileToggle.addEventListener('click', function() {
-            navLinks.classList.t('active');
-            this.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            this.classList.toggle('active');
+            arabicNav.classList.toggle('active');
         });
     }
     
     // إغلاق القائمة عند النقر على رابط
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function() {
-            navLinks.classList.remove('active');
-            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            mobileToggle.classList.remove('active');
+            arabicNav.classList.remove('active');
         });
     });
     
@@ -40,10 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ========== إضافة فئة نشطة لروابط التنقل ==========
+    // ========== إضافة فئة نشطة للروابط عند التمرير ==========
     window.addEventListener('scroll', function() {
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        const navItems = document.querySelectorAll('.nav-item');
         
         let currentSection = '';
         
@@ -56,10 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${currentSection}`) {
+                item.classList.add('active');
             }
         });
         
@@ -83,69 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== علامات التبويب للفئات ==========
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    if (tabButtons.length > 0) {
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const tabId = this.getAttribute('data-tab');
-                
-                // إزالة النشط من جميع الأزرار
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                // إضافة النشط للزر المحدد
-                this.classList.add('active');
-                
-                // إخفاء جميع المحتويات
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-                // إظهار المحتوى المحدد
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-    }
-    
-    // ========== قائمة تدقيق البورتفوليو ==========
-    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.querySelector('.progress-text');
-    const checklistReset = document.getElementById('checklistReset');
-    
-    if (checkboxes.length > 0) {
-        // تحديث شريط التقدم
-        function updateProgress() {
-            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-            const totalCount = checkboxes.length;
-            const percentage = (checkedCount / totalCount) * 100;
-            
-            if (progressFill) {
-                progressFill.style.width = `${percentage}%`;
-            }
-            
-            if (progressText) {
-                progressText.textContent = `${checkedCount}/${totalCount} مكتمل`;
-            }
-        }
-        
-        // إضافة مستمع لكل خانة اختيار
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateProgress);
-        });
-        
-        // زر إعادة تعيين القائمة
-        if (checklistReset) {
-            checklistReset.addEventListener('click', function() {
-                checkboxes.forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-                updateProgress();
-            });
-        }
-        
-        // تحديث التقدم في البداية
-        updateProgress();
-    }
-    
     // ========== تأثيرات للبطاقات عند التمرير ==========
     const observerOptions = {
         threshold: 0.1,
@@ -155,17 +90,59 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, observerOptions);
     
-    // مراقبة العناصر لإضافة تأثيرات
-    document.querySelectorAll('.importance-card, .type-card, .other-card').forEach(card => {
+    // إضافة تأثيرات للبطاقات
+    document.querySelectorAll('.arabic-card, .profession-category').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
     
-    // ========== تأثيرات للخط الزمني ==========
+    // ========== تأثيرات للعناصر الفنية ==========
+    const artElements = document.querySelectorAll('.art-element');
+    artElements.forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.3}s`;
+    });
+    
+    // ========== تحديث السنة الهجرية في الفوتر ==========
+    function getHijriYear() {
+        // حساب تقريبي للسنة الهجرية (يمكن استبداله بحساب دقيق)
+        const currentYear = new Date().getFullYear();
+        const hijriYear = Math.floor((currentYear - 622) * (33/32));
+        return hijriYear.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+    }
+    
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = getHijriYear();
+    }
+    
+    // ========== تأثير الكتابة للعنوان الرئيسي ==========
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // بدء تأثير الكتابة بعد تأخير
+        setTimeout(typeWriter, 800);
+    }
+    
+    // ========== تأثيرات لعناصر الخط الزمني ==========
     const timelineItems = document.querySelectorAll('.timeline-item');
     const timelineObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
@@ -179,57 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
     timelineItems.forEach((item, index) => {
         item.style.opacity = '0';
         item.style.transform = 'translateX(50px)';
-        item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+        item.style.transition = `opacity 0.5s ease ${index * 0.2}s, transform 0.5s ease ${index * 0.2}s`;
         timelineObserver.observe(item);
     });
     
-    // ========== تأثيرات للبطاقات العائمة ==========
-    const floatingCards = document.querySelectorAll('.floating-card');
-    floatingCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.5}s`;
-    });
-    
-    // ========== تأثير الكتابة للهيرو ==========
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-        
-        // بدء الكتابة بعد تأخير بسيط
-        setTimeout(typeWriter, 500);
-    }
-    
-    // ========== تأثير التمرير للنافذة ==========
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                // تأثير الشفافية للهيدر
-                const header = document.querySelector('header');
-                if (window.pageYOffset > 100) {
-                    header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
-                    header.style.backdropFilter = 'blur(10px)';
-                } else {
-                    header.style.backgroundColor = '';
-                    header.style.backdropFilter = '';
-                }
-                
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-    
-    // ========== نماذج الاشتراك ==========
+    // ========== نموذج النشرة البريدية ==========
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
@@ -239,10 +170,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (email && validateEmail(email)) {
                 // هنا يمكنك إرسال البريد الإلكتروني إلى الخادم
-                alert('شكراً لاشتراكك! ستتلقى نصائحنا قريباً.');
+                showNotification('شكراً لاشتراكك! ستتلقى نصائحنا الفنية قريباً.', 'success');
                 emailInput.value = '';
             } else {
-                alert('يرجى إدخال بريد إلكتروني صحيح.');
+                showNotification('يرجى إدخال بريد إلكتروني صحيح.', 'error');
             }
         });
     }
@@ -253,8 +184,46 @@ document.addEventListener('DOMContentLoaded', function() {
         return re.test(email);
     }
     
-    // ========== تأثيرات إضافية للبطاقات ==========
-    const cards = document.querySelectorAll('.importance-card, .type-card, .other-card');
+    // دالة لعرض الإشعارات
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        // إضافة أنماط للإشعار
+        notification.style.position = 'fixed';
+        notification.style.top = '20px';
+        notification.style.right = '20px';
+        notification.style.padding = '1rem 1.5rem';
+        notification.style.borderRadius = '5px';
+        notification.style.color = 'white';
+        notification.style.fontFamily = 'var(--font-body)';
+        notification.style.zIndex = '9999';
+        notification.style.boxShadow = 'var(--shadow-md)';
+        notification.style.transition = 'all 0.3s ease';
+        
+        if (type === 'success') {
+            notification.style.background = 'var(--arabic-teal)';
+        } else {
+            notification.style.background = '#e74c3c';
+        }
+        
+        document.body.appendChild(notification);
+        
+        // إزالة الإشعار بعد 3 ثوانٍ
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+    
+    // ========== تأثيرات إضافية للبطاقات عند التحويم ==========
+    const cards = document.querySelectorAll('.arabic-card, .profession-category');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px)';
@@ -265,39 +234,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ========== تهيئة تأثيرات AOS بديلة ==========
-    function initScrollAnimations() {
-        const elements = document.querySelectorAll('.importance-card, .type-card, .other-card, .category-card, .resource, .step');
-        
-        elements.forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        });
-        
-        const scrollObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        elements.forEach(el => scrollObserver.observe(el));
-    }
+    // ========== تأثير التمرير للهيدر ==========
+    let lastScroll = 0;
+    const header = document.querySelector('.arabic-header');
     
-    // استدعاء دالة تأثيرات التمرير
-    initScrollAnimations();
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.style.boxShadow = 'var(--shadow-md)';
+            header.style.background = 'var(--gradient-primary)';
+        } else if (currentScroll > lastScroll) {
+            // التمرير لأسفل
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // التمرير لأعلى
+            header.style.transform = 'translateY(0)';
+            header.style.boxShadow = 'var(--shadow-lg)';
+            header.style.background = 'rgba(44, 62, 80, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        }
+        
+        lastScroll = currentScroll;
+    });
     
-    // ========== رسائل الترحيب في الكونسول ==========
-    console.log('%c🎨 مرحباً بك في موقع بورتفوليو PRO!', 'color: #3498db; font-size: 18px; font-weight: bold;');
-    console.log('%c💼 هذا الموقع يقدم دليلاً شاملاً لأهمية البورتفوليو في 2025', 'color: #2c3e50; font-size: 14px;');
+    // ========== تحميل الصفحة ==========
+    window.addEventListener('load', function() {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+        
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
+    });
     
-    // ========== تحديث التاريخ في الفوتر ==========
-    const currentYear = new Date().getFullYear();
-    const yearElement = document.querySelector('.copyright p');
-    if (yearElement) {
-        yearElement.textContent = yearElement.textContent.replace('2025', currentYear);
-    }
+    // ========== رسالة ترحيب في الكونسول ==========
+    console.log('%c🎨 مرحباً بك في موقع البروفوليو الفني!', 'color: #1a5276; font-size: 18px; font-weight: bold;');
+    console.log('%c🕌 تم تصميم هذا الموقع بلمسة فنية عربية بألوان باردة ومحايدة', 'color: #117864; font-size: 14px;');
 });
