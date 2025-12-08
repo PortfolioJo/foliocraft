@@ -1,4 +1,4 @@
-// ملف JavaScript للثيم النيون العصري
+// ملف JavaScript للثيم الراقي
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========== شاشة التحميل ==========
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.toggle('active');
             
             // تحريك الأشرطة
-            const bars = this.querySelectorAll('.neon-bar');
+            const bars = this.querySelectorAll('.menu-bar');
             if (this.classList.contains('active')) {
                 bars[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
                 bars[1].style.opacity = '0';
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.classList.remove('active');
             navLinks.classList.remove('active');
             
-            const bars = menuToggle.querySelectorAll('.neon-bar');
+            const bars = menuToggle.querySelectorAll('.menu-bar');
             bars[0].style.transform = 'none';
             bars[1].style.opacity = '1';
             bars[2].style.transform = 'none';
@@ -236,38 +236,31 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-                
-                // إضافة تأثيرات خاصة للبطاقات
-                if (entry.target.classList.contains('neon-card')) {
-                    setTimeout(() => {
-                        entry.target.classList.add('animated');
-                    }, 300);
-                }
             }
         });
     }, observerOptions);
     
     // مراقبة العناصر لإضافة تأثيرات
-    document.querySelectorAll('.neon-card, .reason-card, .tip-item').forEach(card => {
+    document.querySelectorAll('.premium-card, .reason-card, .tip-item').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
     
-    // ========== تأثيرات النيون عند التحويم ==========
-    const neonElements = document.querySelectorAll('.neon-btn, .neon-card, .social-icon');
+    // ========== تأثيرات راقية عند التحويم ==========
+    const premiumElements = document.querySelectorAll('.premium-btn, .premium-card, .social-icon');
     
-    neonElements.forEach(element => {
+    premiumElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
-            if (this.classList.contains('cyan-glow') || this.classList.contains('cyan-btn')) {
-                this.style.boxShadow = '0 0 20px rgba(0, 243, 255, 0.7)';
-            } else if (this.classList.contains('pink-glow') || this.classList.contains('pink-btn')) {
-                this.style.boxShadow = '0 0 20px rgba(255, 0, 255, 0.7)';
-            } else if (this.classList.contains('green-glow')) {
-                this.style.boxShadow = '0 0 20px rgba(0, 255, 157, 0.7)';
-            } else if (this.classList.contains('yellow-glow')) {
-                this.style.boxShadow = '0 0 20px rgba(255, 255, 0, 0.7)';
+            if (this.classList.contains('gold-glow') || this.classList.contains('gold-btn')) {
+                this.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.4)';
+            } else if (this.classList.contains('silver-glow') || this.classList.contains('silver-btn')) {
+                this.style.boxShadow = '0 0 20px rgba(192, 192, 192, 0.4)';
+            } else if (this.classList.contains('bronze-glow')) {
+                this.style.boxShadow = '0 0 20px rgba(205, 127, 50, 0.4)';
+            } else if (this.classList.contains('platinum-glow')) {
+                this.style.boxShadow = '0 0 20px rgba(229, 228, 226, 0.4)';
             }
         });
         
@@ -369,8 +362,9 @@ document.addEventListener('DOMContentLoaded', function() {
         notification.style.opacity = '0';
         
         if (type === 'success') {
-            notification.style.background = 'linear-gradient(45deg, var(--neon-green), var(--neon-cyan))';
-            notification.style.border = '1px solid var(--neon-cyan)';
+            notification.style.background = 'var(--gold-gradient)';
+            notification.style.border = '1px solid var(--gold)';
+            notification.style.color = 'var(--dark-blue)';
         } else {
             notification.style.background = 'linear-gradient(45deg, #ff4444, #ff7700)';
             notification.style.border = '1px solid #ff4444';
@@ -398,9 +392,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ========== تأثيرات إضافية ==========
     // تأثير الكتابة للعنوان
-    const neonTitle = document.querySelector('.neon-title');
-    if (neonTitle) {
-        const spans = neonTitle.querySelectorAll('span');
+    const premiumTitle = document.querySelector('.premium-title');
+    if (premiumTitle) {
+        const spans = premiumTitle.querySelectorAll('span');
         spans.forEach((span, index) => {
             span.style.opacity = '0';
             span.style.transform = 'translateY(20px)';
@@ -413,78 +407,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // تأثيرات للهاتف المحمول
-    const phoneMockup = document.querySelector('.phone-mockup');
-    if (phoneMockup) {
-        let rotation = 0;
-        
-        phoneMockup.addEventListener('mousemove', function(e) {
+    // تأثيرات للابتوب
+    const laptopMockup = document.querySelector('.laptop-mockup');
+    if (laptopMockup) {
+        laptopMockup.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            const rotateY = (x / rect.width - 0.5) * 10;
-            const rotateX = (0.5 - y / rect.height) * 10;
+            const rotateY = (x / rect.width - 0.5) * 5;
+            const rotateX = (0.5 - y / rect.height) * 5;
             
             this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
         
-        phoneMockup.addEventListener('mouseleave', function() {
+        laptopMockup.addEventListener('mouseleave', function() {
             this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
         });
     }
     
-    // ========== تأثيرات الصوت (اختياري) ==========
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('neon-btn') || 
-            e.target.closest('.neon-btn') || 
-            e.target.classList.contains('tab-btn')) {
-            
-            // تأثير صوتي (يمكن إضافة صوت حقيقي)
-            playClickSound();
-        }
-    });
-    
-    function playClickSound() {
-        // في التطبيق الحقيقي، يمكنك إضافة صوت هنا
-        // const audio = new Audio('click-sound.mp3');
-        // audio.volume = 0.3;
-        // audio.play();
-    }
-    
-    // ========== تأثيرات الخلفية الديناميكية ==========
-    function createFloatingNeonElements() {
-        const colors = ['cyan', 'pink', 'green', 'yellow'];
-        const section = document.querySelector('.neon-section');
+    // ========== تأثيرات خلفية ديناميكية ==========
+    function createFloatingElements() {
+        const colors = ['gold', 'silver', 'bronze', 'platinum'];
+        const sections = document.querySelectorAll('.premium-section');
         
-        for (let i = 0; i < 15; i++) {
-            const element = document.createElement('div');
-            element.className = `floating-neon neon-${colors[Math.floor(Math.random() * colors.length)]}`;
-            
-            // مواضع عشوائية
-            const size = Math.random() * 20 + 10;
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            const duration = Math.random() * 20 + 20;
-            const delay = Math.random() * 5;
-            
-            element.style.width = `${size}px`;
-            element.style.height = `${size}px`;
-            element.style.right = `${posX}%`;
-            element.style.top = `${posY}%`;
-            element.style.animationDuration = `${duration}s`;
-            element.style.animationDelay = `${delay}s`;
-            
-            section.appendChild(element);
-        }
+        sections.forEach(section => {
+            for (let i = 0; i < 10; i++) {
+                const element = document.createElement('div');
+                element.className = `floating-element ${colors[Math.floor(Math.random() * colors.length)]}`;
+                
+                // مواضع عشوائية
+                const size = Math.random() * 15 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = Math.random() * 20 + 20;
+                const delay = Math.random() * 5;
+                
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.right = `${posX}%`;
+                element.style.top = `${posY}%`;
+                element.style.animationDuration = `${duration}s`;
+                element.style.animationDelay = `${delay}s`;
+                
+                section.appendChild(element);
+            }
+        });
     }
     
     // استدعاء دالة العناصر العائمة
-    createFloatingNeonElements();
+    createFloatingElements();
     
     // ========== رسالة ترحيب في الكونسول ==========
-    console.log('%c✨ نيون بورت - إصدار جيل Z 2025 ✨', 'background: linear-gradient(45deg, #00f3ff, #ff00ff, #00ff9d, #ffff00); color: #0a0a0f; padding: 10px; border-radius: 5px; font-size: 14px; font-weight: bold;');
-    console.log('%c🎯 موقع لبناء بروفوليو قوي بمظهر نيون عصري', 'color: #00f3ff; font-size: 12px;');
+    console.log('%c✨ بورتفوليو الذهبية - إصدار الجيل الجديد 2025 ✨', 'background: linear-gradient(45deg, #D4AF37, #C0C0C0, #CD7F32, #E5E4E2); color: #0A1929; padding: 10px; border-radius: 5px; font-size: 14px; font-weight: bold;');
+    console.log('%c🎯 موقع لبناء بورتفوليو قوي بمظهر راقي وعصري', 'color: #D4AF37; font-size: 12px;');
     
     // ========== تحميل إضافي عند التمرير ==========
     let isLoading = false;
@@ -513,8 +489,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     color: var(--text-muted);
                 }
                 .loading-spinner {
-                    border: 3px solid rgba(0, 243, 255, 0.1);
-                    border-top: 3px solid var(--neon-cyan);
+                    border: 3px solid rgba(212, 175, 55, 0.1);
+                    border-top: 3px solid var(--gold);
                     border-radius: 50%;
                     width: 40px;
                     height: 40px;
