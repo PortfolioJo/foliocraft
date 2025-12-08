@@ -3,770 +3,1033 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم النخيل الذهبي | تجربة طعام استثنائية</title>
+    <title>بورتفوليو | سيرتك الذاتية البصرية في العصر الرقمي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- تأثيرات الخلفية -->
-    <div class="spices-background" id="spicesBackground"></div>
-    <div class="kitchen-smoke" id="kitchenSmoke"></div>
-    
-    <!-- شريط التنقل -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <!-- الشعار -->
-            <a href="#" class="navbar-logo">
-                <i class="fas fa-utensils"></i>
-                <span class="logo-text" data-key="logo">النخيل الذهبي</span>
-            </a>
-            
-            <!-- قائمة التنقل -->
-            <ul class="navbar-menu" id="navbarMenu">
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link active" data-page="home" data-key="navHome">
-                        <i class="fas fa-home"></i>
-                        <span>الرئيسية</span>
-                    </a>
-                </li>
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link" data-page="menu" data-key="navMenu">
-                        <i class="fas fa-book-open"></i>
-                        <span>قائمة الطعام</span>
-                    </a>
-                </li>
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link" data-page="about" data-key="navAbout">
-                        <i class="fas fa-store"></i>
-                        <span>عن المطعم</span>
-                    </a>
-                </li>
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link" data-page="order" data-key="navOrder">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>الطلبات</span>
-                    </a>
-                </li>
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link" data-page="contact" data-key="navContact">
-                        <i class="fas fa-envelope"></i>
-                        <span>اتصل بنا</span>
-                    </a>
-                </li>
-            </ul>
-            
-            <!-- عناصر الجانب الأيمن -->
-            <div class="navbar-right">
-                <!-- زر اللغة -->
-                <div class="language-switcher">
-                    <button class="language-btn" id="languageBtn">
-                        <span class="language-text" data-key="language">EN</span>
-                        <i class="fas fa-globe"></i>
-                    </button>
-                    <div class="language-dropdown" id="languageDropdown">
-                        <button class="language-option active" data-lang="ar">
-                            <i class="fas fa-check"></i>
-                            <span>العربية</span>
-                        </button>
-                        <button class="language-option" data-lang="en">
-                            <i class="fas fa-check"></i>
-                            <span>English</span>
-                        </button>
-                    </div>
+    <!-- Dynamic Background -->
+    <div class="background-animation">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-briefcase"></i>
+                    <span>بورتفوليو<span class="logo-highlight">PRO</span></span>
                 </div>
                 
-                <!-- زر القائمة للموبايل -->
-                <button class="navbar-toggle" id="navbarToggle">
+                <div class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
-                </button>
+                </div>
+                
+                <nav class="nav-links" id="navLinks">
+                    <a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a>
+                    <a href="#definition"><i class="fas fa-info-circle"></i> تعريف البورتفوليو</a>
+                    <a href="#importance"><i class="fas fa-star"></i> الأهمية والمزايا</a>
+                    <a href="#categories"><i class="fas fa-users"></i> الفئات المستهدفة</a>
+                    <a href="#types"><i class="fas fa-folder-open"></i> أنواع البورتفوليو</a>
+                    <a href="#tips"><i class="fas fa-lightbulb"></i> نصائح احترافية</a>
+                </nav>
             </div>
         </div>
-    </nav>
-    
-    <!-- زر الطلب السريع -->
-    <button class="quick-order-btn" id="quickOrderBtn">
-        <i class="fas fa-bolt"></i>
-        <span>طلب سريع</span>
-    </button>
-    
-    <!-- الصفحة الرئيسية -->
-    <div class="page active" id="home">
-        <div class="restaurant-hero">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
             <div class="hero-content">
-                <div class="restaurant-badge">
-                    <span data-key="heroBadge">★ منذ 1985 ★</span>
-                </div>
-                <h1 class="hero-title" data-key="heroTitle">
-                    <span class="hero-title-line">نكهات لا تُنسى</span>
-                    <span class="hero-title-line">تجربة لا تُعوَّض</span>
-                </h1>
-                <p class="hero-description" data-key="heroDescription">
-                    نقدم لكم أجود المأكولات العربية والعالمية بطابع عصري وأنيق. كل طبق يحمل قصة وكل نكهة تحمل ذكريات.
-                </p>
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
+                <div class="hero-text">
+                    <h1 class="hero-title">بورتفوليو: <span class="highlight">واجهتك المهنية</span> في العالم الرقمي</h1>
+                    <p class="hero-subtitle">في عصر التميز الرقمي، البورتفوليو هو جواز سفرك إلى عالم الفرص المهنية. هو ليس مجرد مجموعة أعمال، بل هو قصة نجاحك المهني المصورة.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-text">زيادة في فرص التوظيف</span>
                         </div>
-                        <span class="feature-text" data-key="feature1">خدمة 24/7</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-truck"></i>
+                        <div class="stat">
+                            <span class="stat-number">3x</span>
+                            <span class="stat-text">أكثر فعالية من السيرة الذاتية</span>
                         </div>
-                        <span class="feature-text" data-key="feature2">توصيل سريع</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <span class="feature-text" data-key="feature3">جودة مميزة</span>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary" data-page="menu" data-key="viewMenu">
-                        <i class="fas fa-book-open"></i> تصفح القائمة
-                    </a>
-                    <a href="#" class="btn btn-secondary" data-page="order" data-key="orderNow">
-                        <i class="fas fa-shopping-cart"></i> اطلب الآن
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="dish-frame">
-                    <div class="dish-animation">
-                        <div class="dish-content">
-                            <i class="fas fa-utensils"></i>
+                        <div class="stat">
+                            <span class="stat-number">68%</span>
+                            <span class="stat-text">من أصحاب العمل يفضلون المرشحين ذوي البورتفوليو</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- الأطباق المميزة -->
-        <div class="featured-dishes">
-            <h2 class="section-title" data-key="featuredTitle">أطباقنا المميزة</h2>
-            <div class="dishes-grid">
-                <div class="dish-card">
-                    <div class="dish-image">
-                        <div class="dish-price">65 ريال</div>
-                    </div>
-                    <div class="dish-info">
-                        <h3 data-key="dish1Title">كبسة لحم معتمدة</h3>
-                        <p data-key="dish1Desc">كبسة لحم عربية أصيلة مع أرز بسمتي وخلطة توابل سرية</p>
-                        <div class="dish-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="dish-tags">
-                            <span>وجبة رئيسية</span>
-                            <span>عربي</span>
-                            <span>حار</span>
-                        </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#definition" class="cta-button primary-btn">ابدأ رحلتك <i class="fas fa-arrow-down"></i></a>
+                        <a href="#types" class="cta-button secondary-btn">أنواع البورتفوليو <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
                 
-                <div class="dish-card">
-                    <div class="dish-image">
-                        <div class="dish-price">45 ريال</div>
-                    </div>
-                    <div class="dish-info">
-                        <h3 data-key="dish2Title">شيش طاووق مشوي</h3>
-                        <p data-key="dish2Desc">دجاج مشوي على الفحم مع صلصة الثوم والأعشاب</p>
-                        <div class="dish-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="dish-tags">
-                            <span>مشويات</span>
-                            <span>وجبة رئيسية</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="dish-card">
-                    <div class="dish-image">
-                        <div class="dish-price">35 ريال</div>
-                    </div>
-                    <div class="dish-info">
-                        <h3 data-key="dish3Title">سلطة النخيل الخاصة</h3>
-                        <p data-key="dish3Desc">سلطة طازجة مع خضروات عضوية وصلصة زيت الزيتون</p>
-                        <div class="dish-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="dish-tags">
-                            <span>مقبلات</span>
-                            <span>صحي</span>
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="card-user-info">
+                                    <h3>أحمد المصمم</h3>
+                                    <span>مصمم UI/UX • معدل توظيف 92%</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p>"بورتفوليوي ساعدني في الحصول على 3 عروض عمل خلال أسبوعين فقط!"</p>
+                                <div class="card-tags">
+                                    <span class="tag">تصميم واجهات</span>
+                                    <span class="tag">تجربة المستخدم</span>
+                                    <span class="tag">بروتوتايب</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span><i class="fas fa-eye"></i> 2.4k مشاهدة</span>
+                                <span><i class="fas fa-briefcase"></i> 12 عرض عمل</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- تصنيفات القائمة -->
-        <div class="menu-categories">
-            <h2 class="section-title" data-key="categoriesTitle">تصنيفات القائمة</h2>
-            <div class="categories-grid">
-                <div class="category-card" data-category="main">
-                    <div class="category-icon">
-                        <i class="fas fa-drumstick-bite"></i>
-                    </div>
-                    <h3 data-key="category1Title">الوجبات الرئيسية</h3>
-                    <p data-key="category1Desc">أشهى المأكولات العربية والعالمية</p>
-                </div>
-                
-                <div class="category-card" data-category="appetizers">
-                    <div class="category-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3 data-key="category2Title">المقبلات والسلطات</h3>
-                    <p data-key="category2Desc">تشكيلة متنوعة من المقبلات الطازجة</p>
-                </div>
-                
-                <div class="category-card" data-category="grill">
-                    <div class="category-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3 data-key="category3Title">المشويات</h3>
-                    <p data-key="category3Desc">مشويات على الفحم بوصفاتنا السرية</p>
-                </div>
-                
-                <div class="category-card" data-category="desserts">
-                    <div class="category-icon">
-                        <i class="fas fa-ice-cream"></i>
-                    </div>
-                    <h3 data-key="category4Title">الحلويات</h3>
-                    <p data-key="category4Desc">أشهى الحلويات الشرقية والغربية</p>
-                </div>
-                
-                <div class="category-card" data-category="drinks">
-                    <div class="category-icon">
-                        <i class="fas fa-wine-glass-alt"></i>
-                    </div>
-                    <h3 data-key="category5Title">المشروبات</h3>
-                    <p data-key="category5Desc">مشروبات باردة وساخنة وعصائر طازجة</p>
-                </div>
-                
-                <div class="category-card" data-category="kids">
-                    <div class="category-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <h3 data-key="category6Title">قائمة الأطفال</h3>
-                    <p data-key="category6Desc">وجبات خاصة وممتعة للأطفال</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- صفحة القائمة -->
-    <div class="page" id="menu">
-        <div class="page-header">
-            <h1 class="page-title" data-key="menuTitle">قائمة الطعام</h1>
-            <p class="page-description" data-key="menuDescription">استمتع بتجربة طعام لا تُنسى مع قائمتنا المميزة من الأطباق العربية والعالمية</p>
-        </div>
-        
-        <div class="menu-container">
-            <div class="menu-filter">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="main">الوجبات الرئيسية</button>
-                <button class="filter-btn" data-filter="appetizers">المقبلات</button>
-                <button class="filter-btn" data-filter="grill">المشويات</button>
-                <button class="filter-btn" data-filter="desserts">الحلويات</button>
-                <button class="filter-btn" data-filter="drinks">المشروبات</button>
+    </section>
+
+    <!-- Definition Section -->
+    <section class="section" id="definition">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ما هو <span class="highlight">البورتفوليو</span>؟</h2>
+                <p class="section-subtitle">أكثر من مجرد مجموعة أعمال.. إنه هويتك المهنية الرقمية</p>
             </div>
             
-            <div class="menu-grid">
-                <!-- وجبات رئيسية -->
-                <div class="menu-item" data-category="main">
-                    <div class="menu-item-image">
-                        <div class="menu-item-badge" data-key="popular">الأكثر طلباً</div>
-                    </div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem1Title">كبسة لحم معتمدة</h3>
-                            <span class="menu-item-price">65 ريال</span>
-                        </div>
-                        <p class="menu-item-description" data-key="menuItem1Desc">كبسة لحم عربية أصيلة مع أرز بسمتي وخلطة توابل سرية، تقدم مع صلصة الطماطم والزبادي</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.5</span>
+            <div class="definition-content">
+                <div class="definition-text">
+                    <p>البورتفوليو (Portfolio) هو مجموعة منظمة ومدروسة تعرض أفضل أعمالك وإنجازاتك ومهاراتك في مجال معين. يعتبر وسيلة تواصل بصرية وتفاعلية تقدم صورة شاملة عن قدراتك المهنية.</p>
+                    
+                    <div class="definition-points">
+                        <div class="point">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>عرض عملي لمهاراتك</h3>
+                                <p>يظهر ما يمكنك إنجازه بشكل ملموس بدلاً من مجرد وصفه.</p>
                             </div>
-                            <button class="add-to-cart-btn" data-item="1">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
                         </div>
+                        <div class="point">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>سيرة ذاتية بصرية تفاعلية</h3>
+                                <p>يجمع بين المحتوى النصي والمرئي لتقديم تجربة شاملة.</p>
+                            </div>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>أداة تسويقية شخصية</h3>
+                                <p>يسوق لخدماتك ومهاراتك بطريقة احترافية وجذابة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-history">
+                        <h3><i class="fas fa-history"></i> تطور مفهوم البورتفوليو</h3>
+                        <p>بدأ البورتفوليو تقليدياً كحافظة ورقية تحتوي على أعمال الفنانين والمصممين. مع التطور التكنولوجي، تحول إلى نماذج رقمية تفاعلية أصبحت اليوم ضرورية في معظم المجالات المهنية.</p>
                     </div>
                 </div>
                 
-                <div class="menu-item" data-category="main">
-                    <div class="menu-item-image">
-                        <div class="menu-item-badge" data-key="new">جديد</div>
-                    </div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem2Title">شيش طاووق مشوي</h3>
-                            <span class="menu-item-price">45 ريال</span>
+                <div class="definition-visual">
+                    <div class="visual-container">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-paint-brush"></i>
+                            <h4>نماذج الأعمال</h4>
+                            <p>أفضل مشاريعك السابقة</p>
                         </div>
-                        <p class="menu-item-description" data-key="menuItem2Desc">دجاج مشوي على الفحم مع صلصة الثوم والأعشاب، يقدم مع أرص وبطاطس</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>5.0</span>
-                            </div>
-                            <button class="add-to-cart-btn" data-item="2">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-certificate"></i>
+                            <h4>الشهادات</h4>
+                            <p>إثباتات خبرتك</p>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- مقبلات -->
-                <div class="menu-item" data-category="appetizers">
-                    <div class="menu-item-image"></div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem3Title">سلطة النخيل الخاصة</h3>
-                            <span class="menu-item-price">35 ريال</span>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>الإنجازات</h4>
+                            <p>قصة نجاحك المهني</p>
                         </div>
-                        <p class="menu-item-description" data-key="menuItem3Desc">سلطة طازجة مع خضروات عضوية وصلصة زيت الزيتون والليمون</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.0</span>
-                            </div>
-                            <button class="add-to-cart-btn" data-item="3">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="menu-item" data-category="appetizers">
-                    <div class="menu-item-image"></div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem4Title">حمص بطحينة</h3>
-                            <span class="menu-item-price">25 ريال</span>
-                        </div>
-                        <p class="menu-item-description" data-key="menuItem4Desc">حمص طازج مع طحينة وزيت زيتون وليمون، يقدم مع خبز ساخن</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.5</span>
-                            </div>
-                            <button class="add-to-cart-btn" data-item="4">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- مشويات -->
-                <div class="menu-item" data-category="grill">
-                    <div class="menu-item-image"></div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem5Title">مشكل مشاوي</h3>
-                            <span class="menu-item-price">85 ريال</span>
-                        </div>
-                        <p class="menu-item-description" data-key="menuItem5Desc">تشكيلة من اللحم والدجاج والكباب المشوي على الفحم</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.8</span>
-                            </div>
-                            <button class="add-to-cart-btn" data-item="5">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- حلويات -->
-                <div class="menu-item" data-category="desserts">
-                    <div class="menu-item-image"></div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem6Title">كنافة بالنوكا</h3>
-                            <span class="menu-item-price">30 ريال</span>
-                        </div>
-                        <p class="menu-item-description" data-key="menuItem6Desc">كنافة محشية بالقشطة والمكسرات، تقدم ساخنة</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.7</span>
-                            </div>
-                            <button class="add-to-cart-btn" data-item="6">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- مشروبات -->
-                <div class="menu-item" data-category="drinks">
-                    <div class="menu-item-image"></div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem7Title">عصير فرش مانجو</h3>
-                            <span class="menu-item-price">20 ريال</span>
-                        </div>
-                        <p class="menu-item-description" data-key="menuItem7Desc">عصير مانجو طازج مع قطع الفواكه</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.3</span>
-                            </div>
-                            <button class="add-to-cart-btn" data-item="7">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="menu-item" data-category="drinks">
-                    <div class="menu-item-image"></div>
-                    <div class="menu-item-info">
-                        <div class="menu-item-header">
-                            <h3 data-key="menuItem8Title">قهوة عربية</h3>
-                            <span class="menu-item-price">15 ريال</span>
-                        </div>
-                        <p class="menu-item-description" data-key="menuItem8Desc">قهوة عربية أصيلة مع هيل</p>
-                        <div class="menu-item-footer">
-                            <div class="menu-item-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.9</span>
-                            </div>
-                            <button class="add-to-cart-btn" data-item="8">
-                                <i class="fas fa-plus"></i>
-                                <span data-key="addToCart">أضف للسلة</span>
-                            </button>
+                        <div class="main-visual">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>بورتفوليو</h3>
+                            <p>هويتك المهنية الرقمية</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- صفحة عن المطعم -->
-    <div class="page" id="about">
-        <div class="page-header">
-            <h1 class="page-title" data-key="aboutTitle">عن مطعم النخيل الذهبي</h1>
-            <p class="page-description" data-key="aboutDescription">قصة تمتد لأكثر من 35 عاماً من العطاء والتميز في عالم المأكولات العربية</p>
+    </section>
+
+    <!-- Importance Section -->
+    <section class="section dark-section" id="importance">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لماذا <span class="highlight">البورتفوليو</span> ضروري اليوم؟</h2>
+                <p class="section-subtitle">8 أسباب تجعلك تحتاج بورتفوليو احترافي في 2025</p>
+            </div>
+            
+            <div class="importance-grid">
+                <!-- Importance Card 1 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>التميز في سوق العمل</h3>
+                    <p>في سوق تنافسي يضم ملايين الباحثين عن عمل، البورتفوليو يميزك ويسلط الضوء على مهاراتك الفريدة.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> 87% من المدراء يفضلون مرشحين لديهم بورتفوليو</span>
+                    </div>
+                </div>
+                
+                <!-- Importance Card 2 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>بناء الثقة والمصداقية</h3>
+                    <p>العملاء وأصحاب العمل يثقون أكثر في محترف يعرض أعماله السابقة بشكل منظم وشفاف.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> زيادة 65% في معدل الثقة</span>
+                    </div>
+                </div>
+                
+                <!-- Importance Card 3 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>زيادة فرص العمل الحر</h3>
+                    <p>المستقلون ذوو البورتفوليو الجيد يحصلون على مشاريع أكثر وبأسعار أعلى بنسبة 40% في المتوسط.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> 73% من العملاء يطلبون بورتفوليو قبل التعاقد</span>
+                    </div>
+                </div>
+                
+                <!-- Importance Card 4 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>التواصل الشبكي الفعال</h3>
+                    <p>البورتفوليو يسهل مشاركة مهاراتك مع شبكة أوسع من المحترفين وفرص العمل.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> 3x زيادة في الاتصالات المهنية</span>
+                    </div>
+                </div>
+                
+                <!-- Importance Card 5 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>تتبع التطور المهني</h3>
+                    <p>يساعدك على تتبع رحلتك المهنية، وتحديد نقاط القوة والضعف، والتخطيط للتطوير المستقبلي.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> 92% من أصحاب البورتفوليو يشعرون بتطور واضح</span>
+                    </div>
+                </div>
+                
+                <!-- Importance Card 6 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>عالمية ووصول دائم</h3>
+                    <p>بورتفوليو رقمي متاح 24/7 من أي مكان في العالم، يوسع فرصك محلياً وعالمياً.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> متاح لـ 100% من أرباب العمل حول العالم</span>
+                    </div>
+                </div>
+                
+                <!-- Importance Card 7 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>عرض عملية التفكير</h3>
+                    <p>لا يعرض النتائج النهائية فقط، بل يوضح منهجيتك في العمل وحل المشكلات والإبداع.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> 78% من المدراء يقدرون رؤية عملية التفكير</span>
+                    </div>
+                </div>
+                
+                <!-- Importance Card 8 -->
+                <div class="importance-card">
+                    <div class="importance-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>زيادة الدخل والأرباح</h3>
+                    <p>المحترفون ذوو البورتفوليو الجيد يحققون دخلاً أعلى بمتوسط 30% من غيرهم.</p>
+                    <div class="importance-stats">
+                        <span><i class="fas fa-chart-bar"></i> زيادة 30% في متوسط الدخل</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="importance-conclusion">
+                <div class="conclusion-card">
+                    <i class="fas fa-crown"></i>
+                    <h3>البورتفوليو لم يعد رفاهية.. إنه ضرورة!</h3>
+                    <p>في عام 2025، أصبح البورتفوليو معياراً أساسياً للتقييم المهني في معظم المجالات. هو الاستثمار الأهم في مستقبلك المهني.</p>
+                    <a href="#categories" class="cta-button primary-btn">اكتشف إذا كنت تحتاج بورتفوليو <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
         </div>
-        
-        <div class="profile-content">
-            <div class="about-grid">
-                <div class="about-image">
-                    <div class="image-container">
-                        <div class="image-frame"></div>
-                        <div class="image-overlay">
-                            <i class="fas fa-utensils"></i>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">من <span class="highlight">يحتاج</span> بورتفوليو؟</h2>
+                <p class="section-subtitle">اكتشف إذا كان مجالك المهني يحتاج إلى بورتفوليو مميز</p>
+            </div>
+            
+            <div class="categories-tabs">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="design">التصميم والفنون</button>
+                    <button class="tab-button" data-tab="tech">التقنية والبرمجة</button>
+                    <button class="tab-button" data-tab="media">الإعلام والإبداع</button>
+                    <button class="tab-button" data-tab="business">الأعمال والاستشارات</button>
+                </div>
+                
+                <div class="tabs-content">
+                    <!-- Design Tab -->
+                    <div class="tab-pane active" id="design">
+                        <div class="category-detail">
+                            <div class="category-info">
+                                <h3><i class="fas fa-palette"></i> مجال التصميم والفنون</h3>
+                                <p>المجال الأكثر ارتباطاً بمفهوم البورتفوليو منذ بدايته. المصممون والفنانون يعتمدون بشكل كلي على عرض أعمالهم المرئية.</p>
+                                
+                                <div class="category-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">100%</span>
+                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">95%</span>
+                                        <span class="stat-text">من الفرص تتطلب بورتفوليو</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">#1</span>
+                                        <span class="stat-text">أهم معيار للتقييم</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="category-professions">
+                                <h4>المهن في هذا المجال:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> مصمم الجرافيك</li>
+                                    <li><i class="fas fa-check"></i> مصمم UI/UX</li>
+                                    <li><i class="fas fa-check"></i> فنان رقمي</li>
+                                    <li><i class="fas fa-check"></i> مصور فوتوغرافي</li>
+                                    <li><i class="fas fa-check"></i> رسام وموهوب فني</li>
+                                    <li><i class="fas fa-check"></i> مصمم أزياء</li>
+                                    <li><i class="fas fa-check"></i> مصمم ديكور داخلي</li>
+                                    <li><i class="fas fa-check"></i> مصمم رسوم متحركة</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tech Tab -->
+                    <div class="tab-pane" id="tech">
+                        <div class="category-detail">
+                            <div class="category-info">
+                                <h3><i class="fas fa-laptop-code"></i> مجال التقنية والبرمجة</h3>
+                                <p>مع تطور المجال التقني، أصبح البورتفوليو ضرورة للمبرمجين والمطورين لعرض مشاريعهم وأكوادهم وحلولهم التقنية.</p>
+                                
+                                <div class="category-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">85%</span>
+                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">90%</span>
+                                        <span class="stat-text">من شركات التقنية تطلبه</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">2x</span>
+                                        <span class="stat-text">زيادة في فرص التوظيف</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="category-professions">
+                                <h4>المهن في هذا المجال:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> مطور الويب (Front-end)</li>
+                                    <li><i class="fas fa-check"></i> مطور الويب (Back-end)</li>
+                                    <li><i class="fas fa-check"></i> مطور التطبيقات</li>
+                                    <li><i class="fas fa-check"></i> مهندس البرمجيات</li>
+                                    <li><i class="fas fa-check"></i> مختبر برمجيات (QA)</li>
+                                    <li><i class="fas fa-check"></i> مهندس DevOps</li>
+                                    <li><i class="fas fa-check"></i> مطور الألعاب</li>
+                                    <li><i class="fas fa-check"></i> متخصص الذكاء الاصطناعي</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Media Tab -->
+                    <div class="tab-pane" id="media">
+                        <div class="category-detail">
+                            <div class="category-info">
+                                <h3><i class="fas fa-film"></i> مجال الإعلام والإبداع</h3>
+                                <p>المحتوى الإبداعي يحتاج إلى عرض جذاب يظهر الإبداع والمهارات التقنية والإنتاجية في هذا المجال التنافسي.</p>
+                                
+                                <div class="category-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">95%</span>
+                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">88%</span>
+                                        <span class="stat-text">من الفرص تتطلبه</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">70%</span>
+                                        <span class="stat-text">يعتمد عليه في القرار</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="category-professions">
+                                <h4>المهن في هذا المجال:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> صانع محتوى رقمي</li>
+                                    <li><i class="fas fa-check"></i> منتج فيديو وصوتيات</li>
+                                    <li><i class="fas fa-check"></i> مخرج أفلام وفيديو</li>
+                                    <li><i class="fas fa-check"></i> كاتب ومحرر محتوى</li>
+                                    <li><i class="fas fa-check"></i> مسوق إلكتروني</li>
+                                    <li><i class="fas fa-check"></i> مدير وسائل التواصل</li>
+                                    <li><i class="fas fa-check"></i> مذيع ومقدم برامج</li>
+                                    <li><i class="fas fa-check"></i> متخصص دعاية وإعلان</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Business Tab -->
+                    <div class="tab-pane" id="business">
+                        <div class="category-detail">
+                            <div class="category-info">
+                                <h3><i class="fas fa-chart-line"></i> مجال الأعمال والاستشارات</h3>
+                                <p>حتى المجالات غير التقليدية تحتاج الآن إلى بورتفوليو يظهر الخبرة العملية والإنجازات والنتائج الملموسة.</p>
+                                
+                                <div class="category-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">75%</span>
+                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">65%</span>
+                                        <span class="stat-text">يزيد من المصداقية</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">3x</span>
+                                        <span class="stat-text">جذب للعملاء المحتملين</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="category-professions">
+                                <h4>المهن في هذا المجال:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> مستشار أعمال</li>
+                                    <li><i class="fas fa-check"></i> مدير مشاريع</li>
+                                    <li><i class="fas fa-check"></i> محلل أعمال</li>
+                                    <li><i class="fas fa-check"></i> مدير تسويق</li>
+                                    <li><i class="fas fa-check"></i> خبير استراتيجية</li>
+                                    <li><i class="fas fa-check"></i> مستشار مالي</li>
+                                    <li><i class="fas fa-check"></i> مدرب وموجه مهني</li>
+                                    <li><i class="fas fa-check"></i> رائد أعمال</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-info">
-                    <h2 data-key="aboutStoryTitle">قصة بدأت بحب للطعام</h2>
-                    <p data-key="aboutStoryDesc">
-                        تأسس مطعم النخيل الذهبي عام 1985 على يد الشيف أحمد العتيبي، الذي بدأ بمطعم صغير في قلب الرياض. بفضل الجودة والطعم الأصيل، توسع المطعم ليصبح أحد أشهر المطاعم في المملكة.
-                    </p>
+            </div>
+            
+            <div class="categories-other">
+                <h3>مجالات أخرى تحتاج بورتفوليو:</h3>
+                <div class="other-grid">
+                    <div class="other-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>التعليم والتدريس</h4>
+                        <p>عرض المناهج، الدروس النموذجية، تقييمات الطلاب</p>
+                    </div>
+                    <div class="other-card">
+                        <i class="fas fa-stethoscope"></i>
+                        <h4>القطاع الصحي</h4>
+                        <p>الأبحاث، الحالات الناجحة، التخصصات الدقيقة</p>
+                    </div>
+                    <div class="other-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h4>المحاماة والقانون</h4>
+                        <p>القضايا الناجحة، التخصصات القانونية، الشهادات</p>
+                    </div>
+                    <div class="other-card">
+                        <i class="fas fa-hard-hat"></i>
+                        <h4>الهندسة والعمارة</h4>
+                        <p>المشاريع، التصاميم، الابتكارات الهندسية</p>
+                    </div>
+                </div>
+                
+                <div class="conclusion-note">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p><strong>ملاحظة:</strong> في عام 2025، أصبح البورتفوليو مفيداً في جميع المجالات تقريباً. حتى الوظائف التقليدية تستفيد من عرض الإنجازات والمهارات بشكل مرئي ومنظم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Types Section -->
+    <section class="section dark-section" id="types">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">أنواع <span class="highlight">البورتفوليو</span> في 2025</h2>
+                <p class="section-subtitle">اختر النوع المناسب لمجال عملك واحتياجاتك</p>
+            </div>
+            
+            <div class="types-grid">
+                <!-- Type 1 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="type-badge popular">الأكثر شيوعاً</div>
+                    </div>
+                    <h3>البورتفوليو الرقمي (الويب)</h3>
+                    <p>موقع ويب شخصي تفاعلي يعرض أعمالك ومهاراتك. الأكثر احترافية وانتشاراً في 2025.</p>
                     
-                    <div class="specialties">
-                        <h3 data-key="aboutValuesTitle">قيمنا</h3>
+                    <div class="type-features">
+                        <h4>المميزات:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> احترافية عالية وتخصيص كامل</li>
+                            <li><i class="fas fa-check"></i> تحسين لمحركات البحث (SEO)</li>
+                            <li><i class="fas fa-check"></i> إحصائيات تفصيلية للزوار</li>
+                            <li><i class="fas fa-check"></i> متوافق مع جميع الأجهزة</li>
+                            <li><i class="fas fa-check"></i> إمكانية البيع المباشر للخدمات</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="type-suitability">
+                        <h4>يناسب:</h4>
                         <div class="tags">
-                            <span class="tag">الجودة أولاً</span>
-                            <span class="tag">النظافة</span>
-                            <span class="tag">الطعم الأصيل</span>
-                            <span class="tag">خدمة العملاء</span>
-                            <span class="tag">الابتكار</span>
-                            <span class="tag">الاستدامة</span>
+                            <span class="tag">المصممين</span>
+                            <span class="tag">المطورين</span>
+                            <span class="tag">مسوقين</span>
+                            <span class="tag">الجميع</span>
                         </div>
                     </div>
                     
-                    <div class="specialties">
-                        <h3 data-key="aboutAchievementsTitle">إنجازاتنا</h3>
+                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- Type 2 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="type-badge">تقليدي ومهم</div>
+                    </div>
+                    <h3>البورتفوليو الورقي/PDF</h3>
+                    <p>مستند رقمي (PDF) يمكن طباعته أو إرساله بالبريد الإلكتروني. لا يزال مفيداً في مقابلات العمل.</p>
+                    
+                    <div class="type-features">
+                        <h4>المميزات:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> سهل الإرسال والمشاركة</li>
+                            <li><i class="fas fa-check"></i> لا يحتاج اتصال إنترنت</li>
+                            <li><i class="fas fa-check"></i> مناسب للمقابلات الشخصية</li>
+                            <li><i class="fas fa-check"></i> سريع التصفح والتنقل</li>
+                            <li><i class="fas fa-check"></i> منخفض التكلفة</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="type-suitability">
+                        <h4>يناسب:</h4>
                         <div class="tags">
-                            <span class="tag">أفضل مطعم عربي 2023</span>
-                            <span class="tag">جائزة التميز في الخدمة</span>
-                            <span class="tag">شهادة الجودة العالمية</span>
-                            <span class="tag">أكثر المطاعم زيارة</span>
+                            <span class="tag">المقابلات</span>
+                            <span class="tag">العروض</span>
+                            <span class="tag">المستقلين</span>
+                            <span class="tag">الطلاب</span>
                         </div>
                     </div>
+                    
+                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- Type 3 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="type-badge trending">الأكثر تطوراً</div>
+                    </div>
+                    <h3>البورتفوليو التفاعلي/المرئي</h3>
+                    <p>فيديو أو عرض تفاعلي يظهر شخصيتك ومهاراتك بطريقة ديناميكية وجذابة.</p>
+                    
+                    <div class="type-features">
+                        <h4>المميزات:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> جذب انتباه عالي</li>
+                            <li><i class="fas fa-check"></i> إظهار الشخصية والثقة</li>
+                            <li><i class="fas fa-check"></i> مناسب للمقابلات عن بعد</li>
+                            <li><i class="fas fa-check"></i> مشاركة سهلة عبر الوسائط</li>
+                            <li><i class="fas fa-check"></i> مبتكر ومميز</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="type-suitability">
+                        <h4>يناسب:</h4>
+                        <div class="tags">
+                            <span class="tag">المؤثرين</span>
+                            <span class="tag">المتحدثين</span>
+                            <span class="tag">المبدعين</span>
+                            <span class="tag">المدربين</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- Type 4 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="type-badge essential">أساسي</div>
+                    </div>
+                    <h3>بورتفوليو الوسائط الاجتماعية</h3>
+                    <p>استخدام منصات مثل LinkedIn، Behance، Dribbble كبورتفوليو تفاعلي مع جمهور جاهز.</p>
+                    
+                    <div class="type-features">
+                        <h4>المميزات:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> وصول لمجتمع مهني جاهز</li>
+                            <li><i class="fas fa-check"></i> تحديثات وتفاعل مستمر</li>
+                            <li><i class="fas fa-check"></i> شبكة اتصالات مهنية</li>
+                            <li><i class="fas fa-check"></i> مجاني أو منخفض التكلفة</li>
+                            <li><i class="fas fa-check"></i> مناسب للتوظيف السريع</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="type-suitability">
+                        <h4>يناسب:</h4>
+                        <div class="tags">
+                            <span class="tag">المستقلين</span>
+                            <span class="tag">الخريجين</span>
+                            <span class="tag">الجميع</span>
+                            <span class="tag">مسوقين</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- فريق العمل -->
-            <div class="philosophy">
-                <h2 data-key="teamTitle">فريقنا المميز</h2>
-                <div class="philosophy-grid">
-                    <div class="philosophy-card">
-                        <div class="philosophy-number">01</div>
-                        <h3 data-key="chefTitle">شيف أحمد العتيبي</h3>
-                        <p data-key="chefDesc">مؤسس المطعم وأحد أشهر الطهاة في المملكة بخبرة تزيد عن 40 عاماً</p>
+            <div class="type-selection-guide">
+                <h3><i class="fas fa-compass"></i> كيف تختار النوع المناسب؟</h3>
+                <div class="guide-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>حدد هدفك</h4>
+                            <p>هل تبحث عن وظيفة، عمل حر، تعزيز للعلامة الشخصية، أو جذب عملاء؟</p>
+                        </div>
                     </div>
-                    <div class="philosophy-card">
-                        <div class="philosophy-number">02</div>
-                        <h3 data-key="team1Title">فريق الطهي</h3>
-                        <p data-key="team1Desc">فريق من الطهاة المحترفين المدربين على أعلى المستويات</p>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>اعرف جمهورك</h4>
+                            <p>من سيشاهد بورتفوليوك؟ مدراء توظيف، عملاء، شركاء محتملين؟</p>
+                        </div>
                     </div>
-                    <div class="philosophy-card">
-                        <div class="philosophy-number">03</div>
-                        <h3 data-key="team2Title">فريق الخدمة</h3>
-                        <p data-key="team2Desc">فريق متخصص في خدمة العملاء وتقديم تجربة طعام استثنائية</p>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>قيّم مهاراتك التقنية</h4>
+                            <p>هل يمكنك إنشاء موقع ويب، أو تحتاج لاستخدام منصات جاهزة؟</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h4>فكر في الميزانية</h4>
+                            <p>ما هو ميزانيتك لإنشاء وتطوير البورتفوليو؟</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="type-recommendation">
+                    <div class="recommendation-card">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <h4>التوصية الذهبية لعام 2025</h4>
+                            <p><strong>الموقع الإلكتروني + لينكدإن + ملف PDF</strong> - هذه التركيبة تضمن لك تغطية جميع الاحتياجات والقنوات المهنية.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- صفحة الطلبات -->
-    <div class="page" id="order">
-        <div class="page-header">
-            <h1 class="page-title" data-key="orderTitle">طلباتك</h1>
-            <p class="page-description" data-key="orderDescription">أضف وجباتك المفضلة إلى السلة واطلبها الآن</p>
-        </div>
-        
-        <div class="order-container">
-            <div class="order-items">
-                <div class="order-item" data-item="1">
-                    <div class="order-item-image"></div>
-                    <div class="order-item-info">
-                        <div class="order-item-header">
-                            <h3>كبسة لحم معتمدة</h3>
-                            <span class="order-item-price">65 ريال</span>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="section" id="tips">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">نصائح <span class="highlight">احترافية</span> لبورتفوليو مميز</h2>
+                <p class="section-subtitle">10 نصائح من الخبراء لإنشاء بورتفوليو يلفت الانتباه في 2025</p>
+            </div>
+            
+            <div class="tips-container">
+                <div class="tips-timeline">
+                    <!-- Tip 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>1</span>
                         </div>
-                        <p class="order-item-description">كبسة لحم عربية أصيلة مع أرز بسمتي وخلطة توابل سرية</p>
-                        <div class="order-item-controls">
-                            <div class="quantity-control">
-                                <button class="quantity-btn minus">-</button>
-                                <span class="quantity-value">1</span>
-                                <button class="quantity-btn plus">+</button>
+                        <div class="timeline-content">
+                            <h3>ابدأ بقوي</h3>
+                            <p>ضع أفضل أعمالك وأكثرها إثارة للإعجاب في البداية. أول 15 ثانية هي الأهم لجذب انتباه الزائر.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اختر 3-5 من أفضل مشاريعك</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدم صوراً عالية الجودة</span>
                             </div>
-                            <button class="remove-item-btn">
-                                <i class="fas fa-trash"></i>
-                                <span>إزالة</span>
-                            </button>
                         </div>
                     </div>
-                </div>
-                
-                <div class="order-item" data-item="2">
-                    <div class="order-item-image"></div>
-                    <div class="order-item-info">
-                        <div class="order-item-header">
-                            <h3>شيش طاووق مشوي</h3>
-                            <span class="order-item-price">45 ريال</span>
+                    
+                    <!-- Tip 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>2</span>
                         </div>
-                        <p class="order-item-description">دجاج مشوي على الفحم مع صلصة الثوم والأعشاب</p>
-                        <div class="order-item-controls">
-                            <div class="quantity-control">
-                                <button class="quantity-btn minus">-</button>
-                                <span class="quantity-value">2</span>
-                                <button class="quantity-btn plus">+</button>
+                        <div class="timeline-content">
+                            <h3>احكي قصة كل مشروع</h3>
+                            <p>لا تكتف بعرض العمل النهائي. اشرح التحدي، الحل، الأدوات المستخدمة، والنتائج المتحققة.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدم طريقة "قبل-بعد"</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف شهادات العملاء</span>
                             </div>
-                            <button class="remove-item-btn">
-                                <i class="fas fa-trash"></i>
-                                <span>إزالة</span>
-                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>3</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>بساطة التصميم</h3>
+                            <p>تصميم نظيف وبسيط يركز على المحتوى. تجنب التصميمات المعقدة التي تشتت الانتباه عن أعمالك.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدم 2-3 ألوان رئيسية فقط</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اختر خطاً واضحاً وسهل القراءة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>4</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>التوافق مع الجوال أولاً</h3>
+                            <p>أكثر من 70% من زوار المواقع يستخدمون الهواتف الذكية. تأكد من أن بورتفوليوك متميز على جميع الأجهزة.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اختبر على أحجام شاشات مختلفة</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> تأكد من سرعة التحميل</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>5</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>سهولة التواصل</h3>
+                            <p>اجعل معلومات التواصل واضحة وسهلة الوصول. أضف أزرار اتصال مباشرة في مواقع بارزة.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف نموذج اتصال مباشر</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> وفر أكثر من طريقة اتصال</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>6</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>أضف لمستك الشخصية</h3>
+                            <p>البورتفوليو ليس مجرد أعمال، بل هو انعكاس لشخصيتك المهنية. أضف قسم "عنّي" يعرّف بك.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف صورة شخصية احترافية</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> شارك قصة شخصية ملهمة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 7 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>7</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>استخدم الكلمات المفتاحية</h3>
+                            <p>استخدم مصطلحات البحث الشائعة في مجالك لتحسين ظهور بورتفوليوك في محركات البحث.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> ابحث عن الكلمات المفتاحية في مجالك</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدمها بشكل طبيعي في المحتوى</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 8 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>8</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>اطلب التغذية الراجعة</h3>
+                            <p>اطلب رأي زملائك أو مرشديك المهنيين قبل الإطلاق النهائي. النقد البناء يساعد على التحسين.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اطلب رأي 3-5 أشخاص موثوقين</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> ركز على نقاط الضوء والتحسين</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 9 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>9</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>حدث باستمرار</h3>
+                            <p>بورتفوليو قديم يعطي انطباعاً سلبياً. أضف مشاريعك الجديدة بانتظام، وأزل القديمة الأقل تميزاً.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> حدد وقتاً شهرياً للتحديث</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> تابع إحصائيات الزوار</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 10 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>10</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>شاركه بفعالية</h3>
+                            <p>لا تكتف بإنشاء البورتفوليو، بل شاركه على منصات التواصل المهنية، في توقيع البريد، وفي السيرة الذاتية.</p>
+                            <div class="timeline-tips">
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف الرابط في جميع ملفاتك الشخصية</span>
+                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> شاركه مع شبكتك المهنية</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tips-checklist">
+                    <div class="checklist-card">
+                        <h3><i class="fas fa-clipboard-check"></i> قائمة تدقيق البورتفوليو</h3>
+                        <p>استخدم هذه القائمة للتأكد من اكتمال بورتفوليوك:</p>
+                        
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check1">
+                                <label for="check1">الصفحة الرئيسية جذابة وتوضح تخصصك</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check2">
+                                <label for="check2">قسم الأعمال يحتوي على 5-10 من أفضل مشاريعك</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check3">
+                                <label for="check3">معلومات التواصل واضحة وسهلة الوصول</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check4">
+                                <label for="check4">قسم "عنّي" يعرّف بك وبخبرتك</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check5">
+                                <label for="check5">الموقع سريع ويعمل على جميع الأجهزة</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check6">
+                                <label for="check6">لا توجد أخطاء إملائية أو لغوية</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check7">
+                                <label for="check7">الصور عالية الجودة ومناسبة</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check8">
+                                <label for="check8">الروابط تعمل بشكل صحيح</label>
+                            </div>
+                        </div>
+                        
+                        <div class="checklist-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <span class="progress-text">0/8 مكتمل</span>
+                        </div>
+                        
+                        <button class="checklist-button" id="checklistReset">إعادة تعيين القائمة</button>
+                    </div>
+                    
+                    <div class="tips-resources">
+                        <h3><i class="fas fa-toolbox"></i> أدوات لإنشاء بورتفوليو</h3>
+                        <div class="resources-list">
+                            <div class="resource">
+                                <i class="fab fa-figma"></i>
+                                <h4>Figma</h4>
+                                <p>لتصميم بورتفوليو تفاعلي</p>
+                            </div>
+                            <div class="resource">
+                                <i class="fab fa-wordpress"></i>
+                                <h4>WordPress</h4>
+                                <p>أنظمة إدارة محتوى سهلة</p>
+                            </div>
+                            <div class="resource">
+                                <i class="fab fa-behance"></i>
+                                <h4>Behance</h4>
+                                <p>للمصممين والفنانين</p>
+                            </div>
+                            <div class="resource">
+                                <i class="fab fa-github"></i>
+                                <h4>GitHub Pages</h4>
+                                <p>للمطورين والمبرمجين</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="order-summary">
-                <h2 data-key="orderSummary">ملخص الطلب</h2>
-                <div class="summary-item">
-                    <span data-key="subtotal">المجموع الفرعي</span>
-                    <span>155 ريال</span>
-                </div>
-                <div class="summary-item">
-                    <span data-key="delivery">رسوم التوصيل</span>
-                    <span>15 ريال</span>
-                </div>
-                <div class="summary-item">
-                    <span data-key="tax">الضريبة</span>
-                    <span>8 ريال</span>
-                </div>
-                <div class="summary-item total">
-                    <span data-key="total">المجموع الكلي</span>
-                    <span>178 ريال</span>
-                </div>
-                <button class="btn btn-primary checkout-btn" data-key="checkout">
-                    <i class="fas fa-credit-card"></i> اتمام الطلب
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- صفحة الاتصال -->
-    <div class="page" id="contact">
-        <div class="page-header">
-            <h1 class="page-title" data-key="contactTitle">اتصل بنا</h1>
-            <p class="page-description" data-key="contactDescription">نحن هنا لخدمتك في أي وقت، اتصل بنا أو زُر فرعنا</p>
-        </div>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-content">
-                        <h3 data-key="locationTitle">العنوان</h3>
-                        <p data-key="locationText">حي العليا، شارع الملك فهد، الرياض 12211</p>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-content">
-                        <h3 data-key="phoneTitle">الهاتف</h3>
-                        <p>+966 11 123 4567</p>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-content">
-                        <h3 data-key="emailTitle">البريد الإلكتروني</h3>
-                        <p>info@goldenpalm.com</p>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-content">
-                        <h3 data-key="hoursTitle">ساعات العمل</h3>
-                        <p data-key="hoursText">الأحد - الخميس: 10 ص - 12 ص</p>
-                        <p data-key="weekendHours">الجمعة - السبت: 1 م - 1 ص</p>
-                    </div>
-                </div>
-                
-                <div class="map-container">
-                    <h3 data-key="mapTitle">موقعنا على الخريطة</h3>
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <span>خريطة الموقع</span>
+            <div class="tips-conclusion">
+                <div class="conclusion-message">
+                    <i class="fas fa-gem"></i>
+                    <div>
+                        <h3>تذكر: البورتفوليو استثمار في مستقبلك المهني</h3>
+                        <p>الوقت والجهد الذي تبذله في إنشاء بورتفوليو مميز سيعود عليك بأضعاف الفوائد. ابدأ الآن، ولو بخطوات صغيرة.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name" data-key="formName">الاسم *</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" data-key="formEmail">البريد الإلكتروني *</label>
-                            <input type="email" id="email" class="form-control" required>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-briefcase"></i>
+                        <span>بورتفوليو<span class="logo-highlight">PRO</span></span>
+                    </div>
+                    <p class="footer-description">دليلك الشامل لفهم أهمية البورتفوليو في العصر الرقمي. نقدم معلومات ونصائح احترافية لإنشاء بورتفوليو يميزك في سوق العمل.</p>
+                    
+                    <div class="footer-newsletter">
+                        <h4>اشترك في نشرتنا</h4>
+                        <p>احصل على نصائح حصرية وأفكار إبداعية مباشرة إلى بريدك.</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="بريدك الإلكتروني">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="phone" data-key="formPhone">رقم الهاتف *</label>
-                        <input type="tel" id="phone" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject" data-key="formSubject">الموضوع *</label>
-                        <select id="subject" class="form-control" required>
-                            <option value="">اختر الموضوع</option>
-                            <option value="reservation">حجز طاولة</option>
-                            <option value="complaint">شكوى</option>
-                            <option value="suggestion">اقتراح</option>
-                            <option value="other">أخرى</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" data-key="formMessage">الرسالة *</label>
-                        <textarea id="message" class="form-control" required placeholder="اكتب رسالتك هنا..." data-key="formMessagePlaceholder"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" data-key="formSubmit">
-                        <i class="fas fa-paper-plane"></i> إرسال الرسالة
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <!-- التذييل -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3 data-key="footerAbout">عن المطعم</h3>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
                     <ul class="footer-links">
-                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerAboutUs">عن النخيل الذهبي</span></a></li>
-                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerOurStory">قصتنا</span></a></li>
-                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerTeam">فريق العمل</span></a></li>
-                        <li><a href="#" data-page="about"><i class="fas fa-chevron-left"></i> <span data-key="footerValues">قيمنا</span></a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#definition"><i class="fas fa-chevron-left"></i> ما هو البورتفوليو</a></li>
+                        <li><a href="#importance"><i class="fas fa-chevron-left"></i> أهمية البورتفوليو</a></li>
+                        <li><a href="#categories"><i class="fas fa-chevron-left"></i> الفئات المستهدفة</a></li>
+                        <li><a href="#types"><i class="fas fa-chevron-left"></i> أنواع البورتفوليو</a></li>
+                        <li><a href="#tips"><i class="fas fa-chevron-left"></i> نصائح احترافية</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3 data-key="footerMenu">القائمة</h3>
+                <div class="footer-section">
+                    <h3>موارد مفيدة</h3>
                     <ul class="footer-links">
-                        <li><a href="#" data-page="menu" data-filter="main"><i class="fas fa-chevron-left"></i> <span data-key="footerMainDishes">الوجبات الرئيسية</span></a></li>
-                        <li><a href="#" data-page="menu" data-filter="appetizers"><i class="fas fa-chevron-left"></i> <span data-key="footerAppetizers">المقبلات</span></a></li>
-                        <li><a href="#" data-page="menu" data-filter="grill"><i class="fas fa-chevron-left"></i> <span data-key="footerGrill">المشويات</span></a></li>
-                        <li><a href="#" data-page="menu" data-filter="desserts"><i class="fas fa-chevron-left"></i> <span data-key="footerDesserts">الحلويات</span></a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> قوالب بورتفوليو جاهزة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> أمثلة بورتفوليو ناجحة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> أدوات إنشاء بورتفوليو</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> دورات تدريبية مجانية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> كتابة محتوى احترافي</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> أسئلة شائعة (FAQ)</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3 data-key="footerContact">تواصل معنا</h3>
-                    <div class="opening-hours">
-                        <p><strong data-key="footerAddress">العنوان:</strong> حي العليا، الرياض</p>
-                        <p><strong data-key="footerPhone">الهاتف:</strong> +966 11 123 4567</p>
-                        <p><strong data-key="footerEmail">البريد:</strong> info@goldenpalm.com</p>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 data-key="footerHours">ساعات العمل</h3>
-                    <div class="opening-hours">
-                        <p><strong>الأحد - الخميس:</strong> 10 ص - 12 ص</p>
-                        <p><strong>الجمعة - السبت:</strong> 1 م - 1 ص</p>
-                        <p><em data-key="footerDelivery">التوصيل متاح 24/7</em></p>
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i> info@portfolio-pro.com</li>
+                        <li><i class="fas fa-phone"></i> +966 500 123 456</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                    
+                    <div class="footer-social">
+                        <h4>تابعنا على</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p data-key="footerCopyright">© 2024 مطعم النخيل الذهبي. جميع الحقوق محفوظة.</p>
+                <div class="copyright">
+                    <p>© 2025 بورتفوليو PRO. جميع الحقوق محفوظة. تصميم بتقنيات الويب الحديثة.</p>
+                </div>
+                
+                <div class="footer-extra">
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">شروط الاستخدام</a>
+                    <a href="#">خريطة الموقع</a>
+                </div>
             </div>
         </div>
     </footer>
-    
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
