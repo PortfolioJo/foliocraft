@@ -3,97 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتفوليو | سيرتك الذاتية البصرية في العصر الرقمي</title>
+    <title>البروفوليــو | فن عرض الإنجازات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Changa:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <!-- Dynamic Background -->
-    <div class="background-animation">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
+    <!-- خلفية فنية عربية -->
+    <div class="arabic-background">
+        <div class="arabic-pattern pattern-1"></div>
+        <div class="arabic-pattern pattern-2"></div>
+        <div class="arabic-pattern pattern-3"></div>
+        <div class="arabic-pattern pattern-4"></div>
     </div>
 
-    <!-- Header -->
-    <header>
+    <!-- رأس الصفحة -->
+    <header class="arabic-header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-briefcase"></i>
-                    <span>بورتفوليو<span class="logo-highlight">PRO</span></span>
+                <div class="logo-arabic">
+                    <div class="logo-symbol">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">البروفوليـــو</span>
+                        <span class="logo-sub">فنّ عرض الإنجازات</span>
+                    </div>
                 </div>
                 
-                <div class="mobile-toggle" id="mobileToggle">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 
-                <nav class="nav-links" id="navLinks">
-                    <a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a>
-                    <a href="#definition"><i class="fas fa-info-circle"></i> تعريف البورتفوليو</a>
-                    <a href="#importance"><i class="fas fa-star"></i> الأهمية والمزايا</a>
-                    <a href="#categories"><i class="fas fa-users"></i> الفئات المستهدفة</a>
-                    <a href="#types"><i class="fas fa-folder-open"></i> أنواع البورتفوليو</a>
-                    <a href="#tips"><i class="fas fa-lightbulb"></i> نصائح احترافية</a>
+                <nav class="nav-links arabic-nav">
+                    <a href="#home" class="nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>الرئيسية</span>
+                    </a>
+                    <a href="#meaning" class="nav-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>المعنى والمفهوم</span>
+                    </a>
+                    <a href="#importance" class="nav-item">
+                        <i class="fas fa-star-and-crescent"></i>
+                        <span>الأهمية</span>
+                    </a>
+                    <a href="#who" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>لمن يناسب؟</span>
+                    </a>
+                    <a href="#types" class="nav-item">
+                        <i class="fas fa-palette"></i>
+                        <span>أنواع البروفوليو</span>
+                    </a>
+                    <a href="#tips" class="nav-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>نصائح فنية</span>
+                    </a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- القسم الرئيسي -->
+    <section class="hero-section arabic-hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">بورتفوليو: <span class="highlight">واجهتك المهنية</span> في العالم الرقمي</h1>
-                    <p class="hero-subtitle">في عصر التميز الرقمي، البورتفوليو هو جواز سفرك إلى عالم الفرص المهنية. هو ليس مجرد مجموعة أعمال، بل هو قصة نجاحك المهني المصورة.</p>
+                    <div class="arabic-decoration">
+                        <span class="decoration-text">بسم الله الرحمن الرحيم</span>
+                        <div class="decoration-line"></div>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line">البروفوليـــو</span>
+                        <span class="title-line">بين <span class="highlight">الفن</span> والإتقان</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        "ليس مجرد مجموعة أعمال، بل هو مرآة تعكس جمال إتقانك وأصالة فنك"
+                    </p>
                     
                     <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">94%</span>
-                            <span class="stat-text">زيادة في فرص التوظيف</span>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-mosque"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">٩٨٪</span>
+                                <span class="stat-text">زيادة في فرص النجاح</span>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">3x</span>
-                            <span class="stat-text">أكثر فعالية من السيرة الذاتية</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">68%</span>
-                            <span class="stat-text">من أصحاب العمل يفضلون المرشحين ذوي البورتفوليو</span>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">٨٧٪</span>
+                                <span class="stat-text">من أرباب العمل يفضلونه</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="hero-buttons">
-                        <a href="#definition" class="cta-button primary-btn">ابدأ رحلتك <i class="fas fa-arrow-down"></i></a>
-                        <a href="#types" class="cta-button secondary-btn">أنواع البورتفوليو <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#meaning" class="cta-button arabic-btn">
+                            <i class="fas fa-book-reader"></i>
+                            ابدأ الرحلة
+                        </a>
+                        <a href="#who" class="cta-button arabic-btn outline">
+                            <i class="fas fa-user-check"></i>
+                            هل أنت من أهل البروفوليو؟
+                        </a>
                     </div>
                 </div>
                 
                 <div class="hero-visual">
-                    <div class="visual-card">
-                        <div class="card-content">
-                            <div class="card-header">
-                                <div class="card-avatar">
-                                    <i class="fas fa-user-tie"></i>
+                    <div class="arabic-frame">
+                        <div class="frame-content">
+                            <div class="frame-header">
+                                <div class="frame-title">
+                                    <i class="fas fa-crown"></i>
+                                    مثال بروفوليو فني
                                 </div>
-                                <div class="card-user-info">
-                                    <h3>أحمد المصمم</h3>
-                                    <span>مصمم UI/UX • معدل توظيف 92%</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p>"بورتفوليوي ساعدني في الحصول على 3 عروض عمل خلال أسبوعين فقط!"</p>
-                                <div class="card-tags">
-                                    <span class="tag">تصميم واجهات</span>
-                                    <span class="tag">تجربة المستخدم</span>
-                                    <span class="tag">بروتوتايب</span>
+                                <div class="frame-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    ١٤٤٦ هـ
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <span><i class="fas fa-eye"></i> 2.4k مشاهدة</span>
-                                <span><i class="fas fa-briefcase"></i> 12 عرض عمل</span>
+                            <div class="frame-body">
+                                <div class="arabic-art">
+                                    <div class="art-element e1"></div>
+                                    <div class="art-element e2"></div>
+                                    <div class="art-element e3"></div>
+                                    <div class="art-center">
+                                        <i class="fas fa-gem"></i>
+                                    </div>
+                                </div>
+                                <p class="art-text">
+                                    "الإتقان في العمل فن، وعرضه فن آخر"
+                                </p>
+                            </div>
+                            <div class="frame-footer">
+                                <div class="artist-signature">
+                                    <i class="fas fa-signature"></i>
+                                    فنان عربي
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,934 +159,685 @@
         </div>
     </section>
 
-    <!-- Definition Section -->
-    <section class="section" id="definition">
+    <!-- قسم المعنى والمفهوم -->
+    <section class="section arabic-section" id="meaning">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">ما هو <span class="highlight">البورتفوليو</span>؟</h2>
-                <p class="section-subtitle">أكثر من مجرد مجموعة أعمال.. إنه هويتك المهنية الرقمية</p>
+                <div class="arabic-title">
+                    <h2 class="section-title">
+                        <span class="title-arabic">ماذا يعني</span>
+                        <span class="title-highlight">البروفوليــو؟</span>
+                    </h2>
+                    <div class="title-decoration">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                </div>
+                <p class="section-subtitle">
+                    بين اللغة والمعنى، والفن والتطبيق
+                </p>
             </div>
             
-            <div class="definition-content">
-                <div class="definition-text">
-                    <p>البورتفوليو (Portfolio) هو مجموعة منظمة ومدروسة تعرض أفضل أعمالك وإنجازاتك ومهاراتك في مجال معين. يعتبر وسيلة تواصل بصرية وتفاعلية تقدم صورة شاملة عن قدراتك المهنية.</p>
-                    
-                    <div class="definition-points">
-                        <div class="point">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>عرض عملي لمهاراتك</h3>
-                                <p>يظهر ما يمكنك إنجازه بشكل ملموس بدلاً من مجرد وصفه.</p>
-                            </div>
+            <div class="meaning-content">
+                <div class="meaning-card arabic-card">
+                    <div class="card-header">
+                        <div class="arabic-icon">
+                            <i class="fas fa-language"></i>
                         </div>
-                        <div class="point">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>سيرة ذاتية بصرية تفاعلية</h3>
-                                <p>يجمع بين المحتوى النصي والمرئي لتقديم تجربة شاملة.</p>
-                            </div>
-                        </div>
-                        <div class="point">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>أداة تسويقية شخصية</h3>
-                                <p>يسوق لخدماتك ومهاراتك بطريقة احترافية وجذابة.</p>
-                            </div>
-                        </div>
+                        <h3>أصل الكلمة</h3>
                     </div>
-                    
-                    <div class="definition-history">
-                        <h3><i class="fas fa-history"></i> تطور مفهوم البورتفوليو</h3>
-                        <p>بدأ البورتفوليو تقليدياً كحافظة ورقية تحتوي على أعمال الفنانين والمصممين. مع التطور التكنولوجي، تحول إلى نماذج رقمية تفاعلية أصبحت اليوم ضرورية في معظم المجالات المهنية.</p>
+                    <div class="card-body">
+                        <p>
+                            كلمة <strong>Portfolio</strong> أصلها إيطالي من كلمة <em>"Portafoglio"</em> 
+                            التي تعني حافظة الأوراق. دخلت الإنجليزية في القرن الثامن عشر ثم انتشرت عالمياً.
+                        </p>
+                        <div class="arabic-quote">
+                            <i class="fas fa-quote-right"></i>
+                            <p>الحافظة التي تجمع بين الأصالة والعصرنة</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="definition-visual">
-                    <div class="visual-container">
-                        <div class="floating-card card-1">
-                            <i class="fas fa-paint-brush"></i>
-                            <h4>نماذج الأعمال</h4>
-                            <p>أفضل مشاريعك السابقة</p>
+                <div class="meaning-card arabic-card">
+                    <div class="card-header">
+                        <div class="arabic-icon">
+                            <i class="fas fa-edit"></i>
                         </div>
-                        <div class="floating-card card-2">
-                            <i class="fas fa-certificate"></i>
-                            <h4>الشهادات</h4>
-                            <p>إثباتات خبرتك</p>
-                        </div>
-                        <div class="floating-card card-3">
-                            <i class="fas fa-chart-line"></i>
-                            <h4>الإنجازات</h4>
-                            <p>قصة نجاحك المهني</p>
-                        </div>
-                        <div class="main-visual">
-                            <i class="fas fa-briefcase"></i>
-                            <h3>بورتفوليو</h3>
-                            <p>هويتك المهنية الرقمية</p>
+                        <h3>التعريف الفني</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            مجموعة منظمة ومختارة بعناية تعرض أفضل إنجازاتك الفنية أو المهنية، 
+                            تروي قصة مسيرتك بإتقان وأسلوب فني مميز.
+                        </p>
+                        <div class="arabic-quote">
+                            <i class="fas fa-quote-right"></i>
+                            <p>سيرة ذاتية فنية تروي قصة الإتقان</p>
                         </div>
                     </div>
+                </div>
+                
+                <div class="meaning-card arabic-card">
+                    <div class="card-header">
+                        <div class="arabic-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>تطور المفهوم</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            تطور من حافظة ورقية تقليدية إلى رقمية تفاعلية، 
+                            وأصبح فناً قائماً بذاته يجمع بين الإبداع والتقنية.
+                        </p>
+                        <div class="arabic-quote">
+                            <i class="fas fa-quote-right"></i>
+                            <p>من المخطوطات إلى الشاشات الذكية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arabic-poem">
+                <div class="poem-header">
+                    <i class="fas fa-book-quran"></i>
+                    <h4>بيت شعر في فن الإتقان</h4>
+                </div>
+                <div class="poem-text">
+                    <p class="poem-line">إذا كان الإتقان فنًا يُعَدْ</p>
+                    <p class="poem-line">فعرض الإتقان أيضًا فنٌ يُجتَدْ</p>
+                    <p class="poem-line">بروفوليوك مرآةٌ تظهر ما</p>
+                    <p class="poem-line">أخفاه إبداعك الفريد المعهدْ</p>
+                </div>
+                <div class="poem-author">
+                    - من وحي الحكمة العربية
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Importance Section -->
-    <section class="section dark-section" id="importance">
+    <!-- قسم الأهمية -->
+    <section class="section importance-section arabic-section" id="importance">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">لماذا <span class="highlight">البورتفوليو</span> ضروري اليوم؟</h2>
-                <p class="section-subtitle">8 أسباب تجعلك تحتاج بورتفوليو احترافي في 2025</p>
+                <div class="arabic-title">
+                    <h2 class="section-title">
+                        <span class="title-arabic">لماذا</span>
+                        <span class="title-highlight">البروفوليــو</span>
+                        <span class="title-arabic">مهم؟</span>
+                    </h2>
+                    <div class="title-decoration">
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="section-subtitle">
+                    فوائد تجمع بين الحكمة العربية والعصرنة
+                </p>
             </div>
             
             <div class="importance-grid">
-                <!-- Importance Card 1 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-medal"></i>
+                <div class="importance-item arabic-card">
+                    <div class="item-header">
+                        <div class="arabic-number">١</div>
+                        <h3>التفرد والتميز</h3>
                     </div>
-                    <h3>التميز في سوق العمل</h3>
-                    <p>في سوق تنافسي يضم ملايين الباحثين عن عمل، البورتفوليو يميزك ويسلط الضوء على مهاراتك الفريدة.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> 87% من المدراء يفضلون مرشحين لديهم بورتفوليو</span>
-                    </div>
-                </div>
-                
-                <!-- Importance Card 2 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>بناء الثقة والمصداقية</h3>
-                    <p>العملاء وأصحاب العمل يثقون أكثر في محترف يعرض أعماله السابقة بشكل منظم وشفاف.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> زيادة 65% في معدل الثقة</span>
+                    <div class="item-body">
+                        <p>يمنحك هوية فنية فريدة تميزك عن الآخرين في سوق العمل المزدحم.</p>
+                        <div class="arabic-wisdom">
+                            <i class="fas fa-quote-left"></i>
+                            <span>التميز فن، والبروفوليو إطار هذا الفن</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Importance Card 3 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-search-dollar"></i>
+                <div class="importance-item arabic-card">
+                    <div class="item-header">
+                        <div class="arabic-number">٢</div>
+                        <h3>بناء السمعة المهنية</h3>
                     </div>
-                    <h3>زيادة فرص العمل الحر</h3>
-                    <p>المستقلون ذوو البورتفوليو الجيد يحصلون على مشاريع أكثر وبأسعار أعلى بنسبة 40% في المتوسط.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> 73% من العملاء يطلبون بورتفوليو قبل التعاقد</span>
-                    </div>
-                </div>
-                
-                <!-- Importance Card 4 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>التواصل الشبكي الفعال</h3>
-                    <p>البورتفوليو يسهل مشاركة مهاراتك مع شبكة أوسع من المحترفين وفرص العمل.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> 3x زيادة في الاتصالات المهنية</span>
+                    <div class="item-body">
+                        <p>يُظهر مصداقيتك ويبني ثقة العملاء وأصحاب العمل في قدراتك.</p>
+                        <div class="arabic-wisdom">
+                            <i class="fas fa-quote-left"></i>
+                            <span>حسن السمعة خير من المال</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Importance Card 5 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="importance-item arabic-card">
+                    <div class="item-header">
+                        <div class="arabic-number">٣</div>
+                        <h3>تسويق ذاتي فني</h3>
                     </div>
-                    <h3>تتبع التطور المهني</h3>
-                    <p>يساعدك على تتبع رحلتك المهنية، وتحديد نقاط القوة والضعف، والتخطيط للتطوير المستقبلي.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> 92% من أصحاب البورتفوليو يشعرون بتطور واضح</span>
-                    </div>
-                </div>
-                
-                <!-- Importance Card 6 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>عالمية ووصول دائم</h3>
-                    <p>بورتفوليو رقمي متاح 24/7 من أي مكان في العالم، يوسع فرصك محلياً وعالمياً.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> متاح لـ 100% من أرباب العمل حول العالم</span>
+                    <div class="item-body">
+                        <p>أداة تسويقية تعرض مهاراتك بأسلوب فني وجذاب.</p>
+                        <div class="arabic-wisdom">
+                            <i class="fas fa-quote-left"></i>
+                            <span>عرض الجودة فن من فنون التسويق</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Importance Card 7 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-brain"></i>
+                <div class="importance-item arabic-card">
+                    <div class="item-header">
+                        <div class="arabic-number">٤</div>
+                        <h3>توثيق الرحلة المهنية</h3>
                     </div>
-                    <h3>عرض عملية التفكير</h3>
-                    <p>لا يعرض النتائج النهائية فقط، بل يوضح منهجيتك في العمل وحل المشكلات والإبداع.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> 78% من المدراء يقدرون رؤية عملية التفكير</span>
-                    </div>
-                </div>
-                
-                <!-- Importance Card 8 -->
-                <div class="importance-card">
-                    <div class="importance-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3>زيادة الدخل والأرباح</h3>
-                    <p>المحترفون ذوو البورتفوليو الجيد يحققون دخلاً أعلى بمتوسط 30% من غيرهم.</p>
-                    <div class="importance-stats">
-                        <span><i class="fas fa-chart-bar"></i> زيادة 30% في متوسط الدخل</span>
+                    <div class="item-body">
+                        <p>يسجل تطورك وإنجازاتك عبر الزمن، كسجل فني لتقدمك.</p>
+                        <div class="arabic-wisdom">
+                            <i class="fas fa-quote-left"></i>
+                            <span>التوثيق ذاكرة الإبداع</span>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="importance-conclusion">
-                <div class="conclusion-card">
-                    <i class="fas fa-crown"></i>
-                    <h3>البورتفوليو لم يعد رفاهية.. إنه ضرورة!</h3>
-                    <p>في عام 2025، أصبح البورتفوليو معياراً أساسياً للتقييم المهني في معظم المجالات. هو الاستثمار الأهم في مستقبلك المهني.</p>
-                    <a href="#categories" class="cta-button primary-btn">اكتشف إذا كنت تحتاج بورتفوليو <i class="fas fa-arrow-left"></i></a>
+            <div class="arabic-callout">
+                <div class="callout-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="callout-content">
+                    <h4>حكمة عربية</h4>
+                    <p>"العمل بلا إتقان كشجرة بلا ثمر، والإتقان بلا عرض ككنز في قعر البحر"</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="section" id="categories">
+    <!-- قسم لمن يناسب؟ -->
+    <section class="section arabic-section" id="who">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">من <span class="highlight">يحتاج</span> بورتفوليو؟</h2>
-                <p class="section-subtitle">اكتشف إذا كان مجالك المهني يحتاج إلى بورتفوليو مميز</p>
+                <div class="arabic-title">
+                    <h2 class="section-title">
+                        <span class="title-arabic">لمن</span>
+                        <span class="title-highlight">يناســب</span>
+                        <span class="title-arabic">البروفوليــو؟</span>
+                    </h2>
+                    <div class="title-decoration">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                </div>
+                <p class="section-subtitle">
+                    من الفنانين إلى المهندسين، البروفوليو للجميع
+                </p>
             </div>
             
-            <div class="categories-tabs">
-                <div class="tabs-header">
-                    <button class="tab-button active" data-tab="design">التصميم والفنون</button>
-                    <button class="tab-button" data-tab="tech">التقنية والبرمجة</button>
-                    <button class="tab-button" data-tab="media">الإعلام والإبداع</button>
-                    <button class="tab-button" data-tab="business">الأعمال والاستشارات</button>
+            <div class="professions-grid">
+                <div class="profession-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>الفنون والتصميم</h3>
+                    </div>
+                    <ul class="profession-list">
+                        <li>
+                            <i class="fas fa-palette"></i>
+                            <span>الفنانون التشكيليون</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-pen-nib"></i>
+                            <span>مصممو الجرافيك</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-camera"></i>
+                            <span>المصورون الفوتوغرافيون</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-vector-square"></i>
+                            <span>مصممو UI/UX</span>
+                        </li>
+                    </ul>
                 </div>
                 
-                <div class="tabs-content">
-                    <!-- Design Tab -->
-                    <div class="tab-pane active" id="design">
-                        <div class="category-detail">
-                            <div class="category-info">
-                                <h3><i class="fas fa-palette"></i> مجال التصميم والفنون</h3>
-                                <p>المجال الأكثر ارتباطاً بمفهوم البورتفوليو منذ بدايته. المصممون والفنانون يعتمدون بشكل كلي على عرض أعمالهم المرئية.</p>
-                                
-                                <div class="category-stats">
-                                    <div class="stat">
-                                        <span class="stat-number">100%</span>
-                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">95%</span>
-                                        <span class="stat-text">من الفرص تتطلب بورتفوليو</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">#1</span>
-                                        <span class="stat-text">أهم معيار للتقييم</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="category-professions">
-                                <h4>المهن في هذا المجال:</h4>
-                                <ul>
-                                    <li><i class="fas fa-check"></i> مصمم الجرافيك</li>
-                                    <li><i class="fas fa-check"></i> مصمم UI/UX</li>
-                                    <li><i class="fas fa-check"></i> فنان رقمي</li>
-                                    <li><i class="fas fa-check"></i> مصور فوتوغرافي</li>
-                                    <li><i class="fas fa-check"></i> رسام وموهوب فني</li>
-                                    <li><i class="fas fa-check"></i> مصمم أزياء</li>
-                                    <li><i class="fas fa-check"></i> مصمم ديكور داخلي</li>
-                                    <li><i class="fas fa-check"></i> مصمم رسوم متحركة</li>
-                                </ul>
-                            </div>
+                <div class="profession-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop-code"></i>
                         </div>
+                        <h3>التقنية والبرمجة</h3>
                     </div>
-                    
-                    <!-- Tech Tab -->
-                    <div class="tab-pane" id="tech">
-                        <div class="category-detail">
-                            <div class="category-info">
-                                <h3><i class="fas fa-laptop-code"></i> مجال التقنية والبرمجة</h3>
-                                <p>مع تطور المجال التقني، أصبح البورتفوليو ضرورة للمبرمجين والمطورين لعرض مشاريعهم وأكوادهم وحلولهم التقنية.</p>
-                                
-                                <div class="category-stats">
-                                    <div class="stat">
-                                        <span class="stat-number">85%</span>
-                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">90%</span>
-                                        <span class="stat-text">من شركات التقنية تطلبه</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">2x</span>
-                                        <span class="stat-text">زيادة في فرص التوظيف</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="category-professions">
-                                <h4>المهن في هذا المجال:</h4>
-                                <ul>
-                                    <li><i class="fas fa-check"></i> مطور الويب (Front-end)</li>
-                                    <li><i class="fas fa-check"></i> مطور الويب (Back-end)</li>
-                                    <li><i class="fas fa-check"></i> مطور التطبيقات</li>
-                                    <li><i class="fas fa-check"></i> مهندس البرمجيات</li>
-                                    <li><i class="fas fa-check"></i> مختبر برمجيات (QA)</li>
-                                    <li><i class="fas fa-check"></i> مهندس DevOps</li>
-                                    <li><i class="fas fa-check"></i> مطور الألعاب</li>
-                                    <li><i class="fas fa-check"></i> متخصص الذكاء الاصطناعي</li>
-                                </ul>
-                            </div>
+                    <ul class="profession-list">
+                        <li>
+                            <i class="fas fa-code"></i>
+                            <span>مطورو الويب</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>مطورو التطبيقات</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-gamepad"></i>
+                            <span>مطورو الألعاب</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            <span>محللو البيانات</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="profession-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-pen-fancy"></i>
                         </div>
+                        <h3>الكتابة والإعلام</h3>
                     </div>
-                    
-                    <!-- Media Tab -->
-                    <div class="tab-pane" id="media">
-                        <div class="category-detail">
-                            <div class="category-info">
-                                <h3><i class="fas fa-film"></i> مجال الإعلام والإبداع</h3>
-                                <p>المحتوى الإبداعي يحتاج إلى عرض جذاب يظهر الإبداع والمهارات التقنية والإنتاجية في هذا المجال التنافسي.</p>
-                                
-                                <div class="category-stats">
-                                    <div class="stat">
-                                        <span class="stat-number">95%</span>
-                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">88%</span>
-                                        <span class="stat-text">من الفرص تتطلبه</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">70%</span>
-                                        <span class="stat-text">يعتمد عليه في القرار</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="category-professions">
-                                <h4>المهن في هذا المجال:</h4>
-                                <ul>
-                                    <li><i class="fas fa-check"></i> صانع محتوى رقمي</li>
-                                    <li><i class="fas fa-check"></i> منتج فيديو وصوتيات</li>
-                                    <li><i class="fas fa-check"></i> مخرج أفلام وفيديو</li>
-                                    <li><i class="fas fa-check"></i> كاتب ومحرر محتوى</li>
-                                    <li><i class="fas fa-check"></i> مسوق إلكتروني</li>
-                                    <li><i class="fas fa-check"></i> مدير وسائل التواصل</li>
-                                    <li><i class="fas fa-check"></i> مذيع ومقدم برامج</li>
-                                    <li><i class="fas fa-check"></i> متخصص دعاية وإعلان</li>
-                                </ul>
-                            </div>
+                    <ul class="profession-list">
+                        <li>
+                            <i class="fas fa-newspaper"></i>
+                            <span>الكتاب والمدونون</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-video"></i>
+                            <span>صانعو المحتوى المرئي</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-microphone-alt"></i>
+                            <span>الإعلاميون</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-ad"></i>
+                            <span>متخصصو التسويق</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="profession-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
                         </div>
+                        <h3>التعليم والاستشارة</h3>
                     </div>
-                    
-                    <!-- Business Tab -->
-                    <div class="tab-pane" id="business">
-                        <div class="category-detail">
-                            <div class="category-info">
-                                <h3><i class="fas fa-chart-line"></i> مجال الأعمال والاستشارات</h3>
-                                <p>حتى المجالات غير التقليدية تحتاج الآن إلى بورتفوليو يظهر الخبرة العملية والإنجازات والنتائج الملموسة.</p>
-                                
-                                <div class="category-stats">
-                                    <div class="stat">
-                                        <span class="stat-number">75%</span>
-                                        <span class="stat-text">ضرورة وجود بورتفوليو</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">65%</span>
-                                        <span class="stat-text">يزيد من المصداقية</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-number">3x</span>
-                                        <span class="stat-text">جذب للعملاء المحتملين</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="category-professions">
-                                <h4>المهن في هذا المجال:</h4>
-                                <ul>
-                                    <li><i class="fas fa-check"></i> مستشار أعمال</li>
-                                    <li><i class="fas fa-check"></i> مدير مشاريع</li>
-                                    <li><i class="fas fa-check"></i> محلل أعمال</li>
-                                    <li><i class="fas fa-check"></i> مدير تسويق</li>
-                                    <li><i class="fas fa-check"></i> خبير استراتيجية</li>
-                                    <li><i class="fas fa-check"></i> مستشار مالي</li>
-                                    <li><i class="fas fa-check"></i> مدرب وموجه مهني</li>
-                                    <li><i class="fas fa-check"></i> رائد أعمال</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="profession-list">
+                        <li>
+                            <i class="fas fa-user-graduate"></i>
+                            <span>المعلمون والأكاديميون</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-pie"></i>
+                            <span>المستشارون</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-hands-helping"></i>
+                            <span>المدربون</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-briefcase"></i>
+                            <span>رواد الأعمال</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="categories-other">
-                <h3>مجالات أخرى تحتاج بورتفوليو:</h3>
-                <div class="other-grid">
-                    <div class="other-card">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>التعليم والتدريس</h4>
-                        <p>عرض المناهج، الدروس النموذجية، تقييمات الطلاب</p>
-                    </div>
-                    <div class="other-card">
-                        <i class="fas fa-stethoscope"></i>
-                        <h4>القطاع الصحي</h4>
-                        <p>الأبحاث، الحالات الناجحة، التخصصات الدقيقة</p>
-                    </div>
-                    <div class="other-card">
-                        <i class="fas fa-balance-scale"></i>
-                        <h4>المحاماة والقانون</h4>
-                        <p>القضايا الناجحة، التخصصات القانونية، الشهادات</p>
-                    </div>
-                    <div class="other-card">
-                        <i class="fas fa-hard-hat"></i>
-                        <h4>الهندسة والعمارة</h4>
-                        <p>المشاريع، التصاميم، الابتكارات الهندسية</p>
-                    </div>
+            <div class="arabic-note">
+                <div class="note-icon">
+                    <i class="fas fa-lightbulb"></i>
                 </div>
-                
-                <div class="conclusion-note">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <p><strong>ملاحظة:</strong> في عام 2025، أصبح البورتفوليو مفيداً في جميع المجالات تقريباً. حتى الوظائف التقليدية تستفيد من عرض الإنجازات والمهارات بشكل مرئي ومنظم.</p>
+                <div class="note-content">
+                    <h4>ملاحظة مهمة</h4>
+                    <p>
+                        في العصر الرقمي، لم يعد البروفوليو حكراً على المهن الإبداعية فقط. 
+                        أي محترف يريد عرض إنجازاته بشكل مميز يحتاج إلى بروفوليو.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Types Section -->
-    <section class="section dark-section" id="types">
+    <!-- قسم أنواع البروفوليو -->
+    <section class="section types-section arabic-section" id="types">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">أنواع <span class="highlight">البورتفوليو</span> في 2025</h2>
-                <p class="section-subtitle">اختر النوع المناسب لمجال عملك واحتياجاتك</p>
+                <div class="arabic-title">
+                    <h2 class="section-title">
+                        <span class="title-arabic">أنواع</span>
+                        <span class="title-highlight">البروفوليــو</span>
+                    </h2>
+                    <div class="title-decoration">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                </div>
+                <p class="section-subtitle">
+                    تنوع في الشكل، اتحاد في الهدف
+                </p>
             </div>
             
             <div class="types-grid">
-                <!-- Type 1 -->
-                <div class="type-card">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <div class="type-badge popular">الأكثر شيوعاً</div>
+                <div class="type-card arabic-card">
+                    <div class="type-badge">
+                        <span>الأكثر انتشاراً</span>
                     </div>
-                    <h3>البورتفوليو الرقمي (الويب)</h3>
-                    <p>موقع ويب شخصي تفاعلي يعرض أعمالك ومهاراتك. الأكثر احترافية وانتشاراً في 2025.</p>
-                    
+                    <div class="type-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="type-title">البروفوليو الرقمي</h3>
+                    <p class="type-desc">
+                        موقع ويب تفاعلي يعرض أعمالك بأسلوب عصري وجذاب.
+                    </p>
                     <div class="type-features">
-                        <h4>المميزات:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> احترافية عالية وتخصيص كامل</li>
-                            <li><i class="fas fa-check"></i> تحسين لمحركات البحث (SEO)</li>
-                            <li><i class="fas fa-check"></i> إحصائيات تفصيلية للزوار</li>
-                            <li><i class="fas fa-check"></i> متوافق مع جميع الأجهزة</li>
-                            <li><i class="fas fa-check"></i> إمكانية البيع المباشر للخدمات</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="type-suitability">
-                        <h4>يناسب:</h4>
-                        <div class="tags">
-                            <span class="tag">المصممين</span>
-                            <span class="tag">المطورين</span>
-                            <span class="tag">مسوقين</span>
-                            <span class="tag">الجميع</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
-                </div>
-                
-                <!-- Type 2 -->
-                <div class="type-card">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <div class="type-badge">تقليدي ومهم</div>
-                    </div>
-                    <h3>البورتفوليو الورقي/PDF</h3>
-                    <p>مستند رقمي (PDF) يمكن طباعته أو إرساله بالبريد الإلكتروني. لا يزال مفيداً في مقابلات العمل.</p>
-                    
-                    <div class="type-features">
-                        <h4>المميزات:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> سهل الإرسال والمشاركة</li>
-                            <li><i class="fas fa-check"></i> لا يحتاج اتصال إنترنت</li>
-                            <li><i class="fas fa-check"></i> مناسب للمقابلات الشخصية</li>
-                            <li><i class="fas fa-check"></i> سريع التصفح والتنقل</li>
-                            <li><i class="fas fa-check"></i> منخفض التكلفة</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="type-suitability">
-                        <h4>يناسب:</h4>
-                        <div class="tags">
-                            <span class="tag">المقابلات</span>
-                            <span class="tag">العروض</span>
-                            <span class="tag">المستقلين</span>
-                            <span class="tag">الطلاب</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
-                </div>
-                
-                <!-- Type 3 -->
-                <div class="type-card">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <div class="type-badge trending">الأكثر تطوراً</div>
-                    </div>
-                    <h3>البورتفوليو التفاعلي/المرئي</h3>
-                    <p>فيديو أو عرض تفاعلي يظهر شخصيتك ومهاراتك بطريقة ديناميكية وجذابة.</p>
-                    
-                    <div class="type-features">
-                        <h4>المميزات:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> جذب انتباه عالي</li>
-                            <li><i class="fas fa-check"></i> إظهار الشخصية والثقة</li>
-                            <li><i class="fas fa-check"></i> مناسب للمقابلات عن بعد</li>
-                            <li><i class="fas fa-check"></i> مشاركة سهلة عبر الوسائط</li>
-                            <li><i class="fas fa-check"></i> مبتكر ومميز</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="type-suitability">
-                        <h4>يناسب:</h4>
-                        <div class="tags">
-                            <span class="tag">المؤثرين</span>
-                            <span class="tag">المتحدثين</span>
-                            <span class="tag">المبدعين</span>
-                            <span class="tag">المدربين</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
-                </div>
-                
-                <!-- Type 4 -->
-                <div class="type-card">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="type-badge essential">أساسي</div>
-                    </div>
-                    <h3>بورتفوليو الوسائط الاجتماعية</h3>
-                    <p>استخدام منصات مثل LinkedIn، Behance، Dribbble كبورتفوليو تفاعلي مع جمهور جاهز.</p>
-                    
-                    <div class="type-features">
-                        <h4>المميزات:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> وصول لمجتمع مهني جاهز</li>
-                            <li><i class="fas fa-check"></i> تحديثات وتفاعل مستمر</li>
-                            <li><i class="fas fa-check"></i> شبكة اتصالات مهنية</li>
-                            <li><i class="fas fa-check"></i> مجاني أو منخفض التكلفة</li>
-                            <li><i class="fas fa-check"></i> مناسب للتوظيف السريع</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="type-suitability">
-                        <h4>يناسب:</h4>
-                        <div class="tags">
-                            <span class="tag">المستقلين</span>
-                            <span class="tag">الخريجين</span>
-                            <span class="tag">الجميع</span>
-                            <span class="tag">مسوقين</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="type-button">تعرف أكثر <i class="fas fa-arrow-left"></i></a>
-                </div>
-            </div>
-            
-            <div class="type-selection-guide">
-                <h3><i class="fas fa-compass"></i> كيف تختار النوع المناسب؟</h3>
-                <div class="guide-steps">
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <div class="step-content">
-                            <h4>حدد هدفك</h4>
-                            <p>هل تبحث عن وظيفة، عمل حر، تعزيز للعلامة الشخصية، أو جذب عملاء؟</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <div class="step-content">
-                            <h4>اعرف جمهورك</h4>
-                            <p>من سيشاهد بورتفوليوك؟ مدراء توظيف، عملاء، شركاء محتملين؟</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <div class="step-content">
-                            <h4>قيّم مهاراتك التقنية</h4>
-                            <p>هل يمكنك إنشاء موقع ويب، أو تحتاج لاستخدام منصات جاهزة؟</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <div class="step-content">
-                            <h4>فكر في الميزانية</h4>
-                            <p>ما هو ميزانيتك لإنشاء وتطوير البورتفوليو؟</p>
-                        </div>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            احترافية عالية
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            وصول عالمي
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            تفاعل مع الجمهور
+                        </span>
                     </div>
                 </div>
                 
-                <div class="type-recommendation">
-                    <div class="recommendation-card">
-                        <i class="fas fa-award"></i>
-                        <div>
-                            <h4>التوصية الذهبية لعام 2025</h4>
-                            <p><strong>الموقع الإلكتروني + لينكدإن + ملف PDF</strong> - هذه التركيبة تضمن لك تغطية جميع الاحتياجات والقنوات المهنية.</p>
-                        </div>
+                <div class="type-card arabic-card">
+                    <div class="type-badge">
+                        <span>تقليدي ومهم</span>
+                    </div>
+                    <div class="type-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="type-title">البروفوليو الورقي</h3>
+                    <p class="type-desc">
+                        مستند PDF أو مطبوع يقدم لمحة سريعة عن أعمالك.
+                    </p>
+                    <div class="type-features">
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            سهل المشاركة
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            مناسب للمقابلات
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            لا يحتاج إنترنت
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="type-card arabic-card">
+                    <div class="type-badge">
+                        <span>فني ومبتكر</span>
+                    </div>
+                    <div class="type-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="type-title">البروفوليو المرئي</h3>
+                    <p class="type-desc">
+                        فيديو أو عرض تفاعلي يروي قصة إنجازاتك بصرياً.
+                    </p>
+                    <div class="type-features">
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            جاذبية بصرية
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            إظهار الشخصية
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            مبتكر ومميز
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="type-card arabic-card">
+                    <div class="type-badge">
+                        <span>عملي وسريع</span>
+                    </div>
+                    <div class="type-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="type-title">بروفوليو المنصات</h3>
+                    <p class="type-desc">
+                        استخدام منصات مثل لينكدإن أو بهانس لعرض أعمالك.
+                    </p>
+                    <div class="type-features">
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            جمهور جاهز
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            تحديث مستمر
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check"></i>
+                            سهولة الاستخدام
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tips Section -->
-    <section class="section" id="tips">
+    <!-- قسم النصائح الفنية -->
+    <section class="section tips-section arabic-section" id="tips">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">نصائح <span class="highlight">احترافية</span> لبورتفوليو مميز</h2>
-                <p class="section-subtitle">10 نصائح من الخبراء لإنشاء بورتفوليو يلفت الانتباه في 2025</p>
+                <div class="arabic-title">
+                    <h2 class="section-title">
+                        <span class="title-arabic">نصائح</span>
+                        <span class="title-highlight">فنية</span>
+                        <span class="title-arabic">لبروفوليو مميز</span>
+                    </h2>
+                    <div class="title-decoration">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                </div>
+                <p class="section-subtitle">
+                    من خبراء الفن والتصميم العربي
+                </p>
             </div>
             
-            <div class="tips-container">
+            <div class="tips-content">
                 <div class="tips-timeline">
-                    <!-- Tip 1 -->
                     <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>1</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>ابدأ بقوي</h3>
-                            <p>ضع أفضل أعمالك وأكثرها إثارة للإعجاب في البداية. أول 15 ثانية هي الأهم لجذب انتباه الزائر.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اختر 3-5 من أفضل مشاريعك</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدم صوراً عالية الجودة</span>
+                        <div class="timeline-number">١</div>
+                        <div class="timeline-content arabic-card">
+                            <h3>اختيار الأعمال بعناية</h3>
+                            <p>لا تعرض كل أعمالك، بل اختر الأفضل الذي يمثل ذروة إتقانك.</p>
+                            <div class="arabic-advice">
+                                <i class="fas fa-quote-right"></i>
+                                "خير الكلام ما قل ودل"
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Tip 2 -->
                     <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>2</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>احكي قصة كل مشروع</h3>
-                            <p>لا تكتف بعرض العمل النهائي. اشرح التحدي، الحل، الأدوات المستخدمة، والنتائج المتحققة.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدم طريقة "قبل-بعد"</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف شهادات العملاء</span>
+                        <div class="timeline-number">٢</div>
+                        <div class="timeline-content arabic-card">
+                            <h3>التسلسل المنطقي</h3>
+                            <p>رتب أعمالك بتسلسل يروي قصة تطورك المهني بشكل منطقي.</p>
+                            <div class="arabic-advice">
+                                <i class="fas fa-quote-right"></i>
+                                "لكل شيء إذا ما تم نقصان"
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Tip 3 -->
                     <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>3</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>بساطة التصميم</h3>
-                            <p>تصميم نظيف وبسيط يركز على المحتوى. تجنب التصميمات المعقدة التي تشتت الانتباه عن أعمالك.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدم 2-3 ألوان رئيسية فقط</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اختر خطاً واضحاً وسهل القراءة</span>
+                        <div class="timeline-number">٣</div>
+                        <div class="timeline-content arabic-card">
+                            <h3>البساطة والأناقة</h3>
+                            <p>التصميم البسيط الأنيق يدل على الثقة بالنفس والاحترافية.</p>
+                            <div class="arabic-advice">
+                                <i class="fas fa-quote-right"></i>
+                                "خير الأمور أوسطها"
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Tip 4 -->
                     <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>4</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>التوافق مع الجوال أولاً</h3>
-                            <p>أكثر من 70% من زوار المواقع يستخدمون الهواتف الذكية. تأكد من أن بورتفوليوك متميز على جميع الأجهزة.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اختبر على أحجام شاشات مختلفة</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> تأكد من سرعة التحميل</span>
+                        <div class="timeline-number">٤</div>
+                        <div class="timeline-content arabic-card">
+                            <h3>إظهار الشخصية</h3>
+                            <p>دع بروفوليوك يعكس شخصيتك وأسلوبك الفريد.</p>
+                            <div class="arabic-advice">
+                                <i class="fas fa-quote-right"></i>
+                                "لكل مقام مقال"
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Tip 5 -->
                     <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>5</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>سهولة التواصل</h3>
-                            <p>اجعل معلومات التواصل واضحة وسهلة الوصول. أضف أزرار اتصال مباشرة في مواقع بارزة.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف نموذج اتصال مباشر</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> وفر أكثر من طريقة اتصال</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tip 6 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>6</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>أضف لمستك الشخصية</h3>
-                            <p>البورتفوليو ليس مجرد أعمال، بل هو انعكاس لشخصيتك المهنية. أضف قسم "عنّي" يعرّف بك.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف صورة شخصية احترافية</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> شارك قصة شخصية ملهمة</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tip 7 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>7</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>استخدم الكلمات المفتاحية</h3>
-                            <p>استخدم مصطلحات البحث الشائعة في مجالك لتحسين ظهور بورتفوليوك في محركات البحث.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> ابحث عن الكلمات المفتاحية في مجالك</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> استخدمها بشكل طبيعي في المحتوى</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tip 8 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>8</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>اطلب التغذية الراجعة</h3>
-                            <p>اطلب رأي زملائك أو مرشديك المهنيين قبل الإطلاق النهائي. النقد البناء يساعد على التحسين.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> اطلب رأي 3-5 أشخاص موثوقين</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> ركز على نقاط الضوء والتحسين</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tip 9 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>9</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>حدث باستمرار</h3>
-                            <p>بورتفوليو قديم يعطي انطباعاً سلبياً. أضف مشاريعك الجديدة بانتظام، وأزل القديمة الأقل تميزاً.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> حدد وقتاً شهرياً للتحديث</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> تابع إحصائيات الزوار</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tip 10 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <span>10</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>شاركه بفعالية</h3>
-                            <p>لا تكتف بإنشاء البورتفوليو، بل شاركه على منصات التواصل المهنية، في توقيع البريد، وفي السيرة الذاتية.</p>
-                            <div class="timeline-tips">
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> أضف الرابط في جميع ملفاتك الشخصية</span>
-                                <span class="tip-tag"><i class="fas fa-lightbulb"></i> شاركه مع شبكتك المهنية</span>
+                        <div class="timeline-number">٥</div>
+                        <div class="timeline-content arabic-card">
+                            <h3>التحديث المستمر</h3>
+                            <p>حافظ على تحديث بروفوليوك بأحدث أعمالك وإنجازاتك.</p>
+                            <div class="arabic-advice">
+                                <i class="fas fa-quote-right"></i>
+                                "التجديد عنوان التميز"
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="tips-checklist">
-                    <div class="checklist-card">
-                        <h3><i class="fas fa-clipboard-check"></i> قائمة تدقيق البورتفوليو</h3>
-                        <p>استخدم هذه القائمة للتأكد من اكتمال بورتفوليوك:</p>
-                        
-                        <div class="checklist-items">
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check1">
-                                <label for="check1">الصفحة الرئيسية جذابة وتوضح تخصصك</label>
+                <div class="tips-sidebar">
+                    <div class="sidebar-card arabic-card">
+                        <div class="sidebar-header">
+                            <i class="fas fa-book-open"></i>
+                            <h4>أقوال مأثورة</h4>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="arabic-saying">
+                                <p>"الإتقان غاية الأحرار"</p>
+                                <span>- مثل عربي</span>
                             </div>
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check2">
-                                <label for="check2">قسم الأعمال يحتوي على 5-10 من أفضل مشاريعك</label>
+                            <div class="arabic-saying">
+                                <p>"العمل بلا فن، كالجسد بلا روح"</p>
+                                <span>- حكمة</span>
                             </div>
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check3">
-                                <label for="check3">معلومات التواصل واضحة وسهلة الوصول</label>
-                            </div>
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check4">
-                                <label for="check4">قسم "عنّي" يعرّف بك وبخبرتك</label>
-                            </div>
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check5">
-                                <label for="check5">الموقع سريع ويعمل على جميع الأجهزة</label>
-                            </div>
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check6">
-                                <label for="check6">لا توجد أخطاء إملائية أو لغوية</label>
-                            </div>
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check7">
-                                <label for="check7">الصور عالية الجودة ومناسبة</label>
-                            </div>
-                            <div class="checklist-item">
-                                <input type="checkbox" id="check8">
-                                <label for="check8">الروابط تعمل بشكل صحيح</label>
+                            <div class="arabic-saying">
+                                <p>"عرض الجودة نصف الجودة"</p>
+                                <span>- مثل</span>
                             </div>
                         </div>
-                        
-                        <div class="checklist-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" id="progressFill"></div>
-                            </div>
-                            <span class="progress-text">0/8 مكتمل</span>
-                        </div>
-                        
-                        <button class="checklist-button" id="checklistReset">إعادة تعيين القائمة</button>
                     </div>
                     
-                    <div class="tips-resources">
-                        <h3><i class="fas fa-toolbox"></i> أدوات لإنشاء بورتفوليو</h3>
-                        <div class="resources-list">
-                            <div class="resource">
+                    <div class="sidebar-card arabic-card">
+                        <div class="sidebar-header">
+                            <i class="fas fa-tools"></i>
+                            <h4>أدوات مفيدة</h4>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="tool-item">
                                 <i class="fab fa-figma"></i>
-                                <h4>Figma</h4>
-                                <p>لتصميم بورتفوليو تفاعلي</p>
+                                <span>Figma للتصميم</span>
                             </div>
-                            <div class="resource">
+                            <div class="tool-item">
+                                <i class="fab fa-adobe"></i>
+                                <span>Adobe Portfolio</span>
+                            </div>
+                            <div class="tool-item">
                                 <i class="fab fa-wordpress"></i>
-                                <h4>WordPress</h4>
-                                <p>أنظمة إدارة محتوى سهلة</p>
+                                <span>WordPress</span>
                             </div>
-                            <div class="resource">
+                            <div class="tool-item">
                                 <i class="fab fa-behance"></i>
-                                <h4>Behance</h4>
-                                <p>للمصممين والفنانين</p>
-                            </div>
-                            <div class="resource">
-                                <i class="fab fa-github"></i>
-                                <h4>GitHub Pages</h4>
-                                <p>للمطورين والمبرمجين</p>
+                                <span>Behance</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tips-conclusion">
-                <div class="conclusion-message">
-                    <i class="fas fa-gem"></i>
-                    <div>
-                        <h3>تذكر: البورتفوليو استثمار في مستقبلك المهني</h3>
-                        <p>الوقت والجهد الذي تبذله في إنشاء بورتفوليو مميز سيعود عليك بأضعاف الفوائد. ابدأ الآن، ولو بخطوات صغيرة.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- الفوتر -->
+    <footer class="arabic-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <i class="fas fa-briefcase"></i>
-                        <span>بورتفوليو<span class="logo-highlight">PRO</span></span>
-                    </div>
-                    <p class="footer-description">دليلك الشامل لفهم أهمية البورتفوليو في العصر الرقمي. نقدم معلومات ونصائح احترافية لإنشاء بورتفوليو يميزك في سوق العمل.</p>
-                    
-                    <div class="footer-newsletter">
-                        <h4>اشترك في نشرتنا</h4>
-                        <p>احصل على نصائح حصرية وأفكار إبداعية مباشرة إلى بريدك.</p>
-                        <div class="newsletter-form">
-                            <input type="email" placeholder="بريدك الإلكتروني">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        <i class="fas fa-feather-alt"></i>
+                        <div>
+                            <h3>البروفوليــو</h3>
+                            <p>فن عرض الإنجازات</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
-                        <li><a href="#definition"><i class="fas fa-chevron-left"></i> ما هو البورتفوليو</a></li>
-                        <li><a href="#importance"><i class="fas fa-chevron-left"></i> أهمية البورتفوليو</a></li>
-                        <li><a href="#categories"><i class="fas fa-chevron-left"></i> الفئات المستهدفة</a></li>
-                        <li><a href="#types"><i class="fas fa-chevron-left"></i> أنواع البورتفوليو</a></li>
-                        <li><a href="#tips"><i class="fas fa-chevron-left"></i> نصائح احترافية</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>موارد مفيدة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> قوالب بورتفوليو جاهزة</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> أمثلة بورتفوليو ناجحة</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> أدوات إنشاء بورتفوليو</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> دورات تدريبية مجانية</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> كتابة محتوى احترافي</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> أسئلة شائعة (FAQ)</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>اتصل بنا</h3>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-envelope"></i> info@portfolio-pro.com</li>
-                        <li><i class="fas fa-phone"></i> +966 500 123 456</li>
-                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
-                    </ul>
-                    
+                    <p class="footer-desc">
+                        موقع يقدم رؤية فنية عربية للبروفوليو، يجمع بين الأصالة والمعاصرة.
+                    </p>
                     <div class="footer-social">
-                        <h4>تابعنا على</h4>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
-                        </div>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-behance"></i>
+                        </a>
                     </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="#meaning"><i class="fas fa-book-open"></i> المعنى والمفهوم</a></li>
+                        <li><a href="#importance"><i class="fas fa-star"></i> الأهمية</a></li>
+                        <li><a href="#who"><i class="fas fa-users"></i> لمن يناسب؟</a></li>
+                        <li><a href="#types"><i class="fas fa-palette"></i> أنواع البروفوليو</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">اتصل بنا</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@portfolio-art.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+٩٦٦ ٥٠٠ ١٢٣ ٤٥٦</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الرياض، المملكة العربية السعودية</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">النشرة البريدية</h4>
+                    <p>اشترك للحصول على نصائح فنية حصرية</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>© 2025 بورتفوليو PRO. جميع الحقوق محفوظة. تصميم بتقنيات الويب الحديثة.</p>
+                    <p>© <span id="currentYear">١٤٤٦</span> - البروفوليــو | جميع الحقوق محفوظة</p>
                 </div>
-                
-                <div class="footer-extra">
-                    <a href="#">سياسة الخصوصية</a>
-                    <a href="#">شروط الاستخدام</a>
-                    <a href="#">خريطة الموقع</a>
+                <div class="footer-credits">
+                    <p>تصميم بلمسة فنية عربية</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
+    <!-- زر العودة للأعلى -->
     <button class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
