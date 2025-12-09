@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-            if (window.pageYOffset >= (sectionTop - 150)) {
+            if (window.pageYOffset >= (sectionTop - 200)) {
                 currentSection = section.getAttribute('id');
             }
         });
@@ -85,9 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTop.classList.remove('visible');
             }
         }
-        
-        // تأثيرات التمرير للأرقام
-        animateStats();
     });
     
     // ========== زر العودة للأعلى ==========
@@ -101,42 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== تأثيرات الأرقام المتحركة ==========
-    function animateStats() {
-        const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-        
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            const current = parseInt(stat.textContent);
-            
-            if (isElementInViewport(stat) && current < target) {
-                let increment = Math.ceil(target / 50);
-                let newValue = current + increment;
-                
-                if (newValue > target) newValue = target;
-                
-                stat.textContent = newValue;
-                
-                if (newValue < target) {
-                    setTimeout(() => {
-                        animateStats();
-                    }, 30);
-                }
-            }
-        });
-    }
-    
-    // دالة التحقق من ظهور العنصر في الشاشة
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-    
     // ========== تأثيرات للعناصر عند التمرير ==========
     const observerOptions = {
         threshold: 0.1,
@@ -146,10 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('animate-in');
                 
-                if (entry.target.classList.contains('artistic-card')) {
+                if (entry.target.classList.contains('service-card')) {
                     setTimeout(() => {
                         entry.target.classList.add('animated');
                     }, 300);
@@ -159,29 +119,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // مراقبة العناصر لإضافة تأثيرات
-    document.querySelectorAll('.artistic-card, .category-card, .portfolio-item, .pricing-card').forEach(card => {
+    document.querySelectorAll('.service-card, .audience-card, .portfolio-item, .process-step').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
     
-    // ========== تأثيرات التحويم ==========
-    const artisticElements = document.querySelectorAll('.artistic-btn, .artistic-card, .social-icon, .contact-method');
+    // ========== تصفية معرض الأعمال ==========
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
     
-    artisticElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            if (this.classList.contains('beige-btn') || this.classList.contains('border-beige')) {
-                this.style.boxShadow = '0 8px 25px rgba(232, 224, 211, 0.4)';
-            } else if (this.classList.contains('nude-btn') || this.classList.contains('border-nude')) {
-                this.style.boxShadow = '0 8px 25px rgba(205, 182, 172, 0.4)';
-            } else if (this.classList.contains('gold-btn') || this.classList.contains('border-gold')) {
-                this.style.boxShadow = '0 8px 25px rgba(212, 175, 55, 0.3)';
-            }
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            this.style.boxShadow = '';
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // إزالة النشط من جميع الأزرار
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // إضافة النشط للزر المختار
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            portfolioItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
     });
     
@@ -193,17 +165,18 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // جمع بيانات النموذج
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
             
             // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
             // مثال: استخدام Fetch API
             
             // عرض رسالة نجاح
-            showNotification('تم إرسال طلبك بنجاح! سنتواصل معك في أقرب وقت لتأكيد التفاصيل.', 'success');
+            showNotification('تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
             
             // إعادة تعيين النموذج
             this.reset();
@@ -225,12 +198,11 @@ document.addEventListener('DOMContentLoaded', function() {
         notification.style.fontFamily = 'var(--font-body)';
         notification.style.fontSize = '1.05rem';
         notification.style.zIndex = '9999';
-        notification.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+        notification.style.boxShadow = 'var(--shadow-elevated)';
         notification.style.transition = 'all 0.3s ease';
         notification.style.transform = 'translateY(-100px)';
         notification.style.opacity = '0';
         notification.style.maxWidth = '400px';
-        notification.style.lineHeight = '1.5';
         
         if (type === 'success') {
             notification.style.background = 'linear-gradient(45deg, var(--secondary-brown), var(--accent-gold))';
@@ -275,49 +247,71 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // تأثيرات للهاتف المحمول
-    const phoneMockup = document.querySelector('.phone-mockup');
-    if (phoneMockup) {
-        phoneMockup.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+    // تأثيرات التمرير السلس
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            const rotateY = (x / rect.width - 0.5) * 8;
-            const rotateX = (0.5 - y / rect.height) * 8;
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
-        
-        phoneMockup.addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-        });
-    }
+    });
     
     // ========== رسالة ترحيب في الكونسول ==========
     console.log('%c🎨 FolioCraft — فوليوكرافت 🎨', 'background: linear-gradient(45deg, #E8E0D3, #CDB6AC, #8B7355, #D4AF37); color: #1A1A1A; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: bold;');
-    console.log('%c📱 متخصصون في تصميم بورتفوليو احترافية للجميع', 'color: #8B7355; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
+    console.log('%c📱 تصميم بورتفوليو احترافي للجميع', 'color: #8B7355; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
     console.log('%c📧 للتواصل: aseeljalal45@gmail.com | واتساب: +962785094075', 'color: #D4AF37; font-size: 11px; margin-top: 5px;');
     
-    // ========== تهيئة الأرقام المتحركة عند التحميل ==========
-    setTimeout(() => {
-        animateStats();
-    }, 500);
-    
-    // ========== توليد عروض بورتفوليو عشوائية ==========
-    function generatePortfolioExamples() {
-        const examples = [
-            { name: 'أحمد - مصمم جرافيك', type: 'modern' },
-            { name: 'سارة - مبرمجة ويب', type: 'creative' },
-            { name: 'خالد - محلل بيانات', type: 'minimal' },
-            { name: 'نور - صانعة محتوى', type: 'interactive' }
-        ];
-        
-        const portfolioGrid = document.querySelector('.portfolio-grid');
-        if (!portfolioGrid) return;
-        
-        // يمكن إضافة أمثلة ديناميكية هنا إذا لزم الأمر
+    // ========== تهيئة عناصر معرض الأعمال ==========
+    function initializePortfolioItems() {
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach((item, index) => {
+            item.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(item);
+        });
     }
     
-    generatePortfolioExamples();
+    initializePortfolioItems();
+    
+    // ========== تأثيرات للبطاقات عند التحويم ==========
+    document.querySelectorAll('.service-card, .audience-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = 'var(--shadow-elevated)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = 'var(--shadow-medium)';
+        });
+    });
 });
+
+// دالة المساعدة لتحميل الصور
+function loadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('data-src');
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// تهيئة تحميل الصور
+window.addEventListener('load', loadImages);
