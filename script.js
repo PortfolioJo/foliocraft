@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-            if (window.pageYOffset >= (sectionTop - 150)) {
+            if (window.pageYOffset >= (sectionTop - 200)) {
                 currentSection = section.getAttribute('id');
             }
         });
@@ -85,9 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTop.classList.remove('visible');
             }
         }
-        
-        // تأثيرات التمرير للأرقام
-        animateStats();
     });
     
     // ========== زر العودة للأعلى ==========
@@ -99,42 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
-    }
-    
-    // ========== تأثيرات الأرقام المتحركة ==========
-    function animateStats() {
-        const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-        
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            const current = parseInt(stat.textContent);
-            
-            if (isElementInViewport(stat) && current < target) {
-                let increment = Math.ceil(target / 50);
-                let newValue = current + increment;
-                
-                if (newValue > target) newValue = target;
-                
-                stat.textContent = newValue;
-                
-                if (newValue < target) {
-                    setTimeout(() => {
-                        animateStats();
-                    }, 30);
-                }
-            }
-        });
-    }
-    
-    // دالة التحقق من ظهور العنصر في الشاشة
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
     }
     
     // ========== تأثيرات للعناصر عند التمرير ==========
@@ -149,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
                 
-                if (entry.target.classList.contains('artistic-card')) {
+                if (entry.target.classList.contains('service-card')) {
                     setTimeout(() => {
                         entry.target.classList.add('animated');
                     }, 300);
@@ -159,30 +120,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // مراقبة العناصر لإضافة تأثيرات
-    document.querySelectorAll('.artistic-card, .category-card, .portfolio-item, .pricing-card').forEach(card => {
+    document.querySelectorAll('.service-card, .audience-card, .project-card, .process-step').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
-    });
-    
-    // ========== تأثيرات التحويم ==========
-    const artisticElements = document.querySelectorAll('.artistic-btn, .artistic-card, .social-icon, .contact-method');
-    
-    artisticElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            if (this.classList.contains('beige-btn') || this.classList.contains('border-beige')) {
-                this.style.boxShadow = '0 8px 25px rgba(232, 224, 211, 0.4)';
-            } else if (this.classList.contains('nude-btn') || this.classList.contains('border-nude')) {
-                this.style.boxShadow = '0 8px 25px rgba(205, 182, 172, 0.4)';
-            } else if (this.classList.contains('gold-btn') || this.classList.contains('border-gold')) {
-                this.style.boxShadow = '0 8px 25px rgba(212, 175, 55, 0.3)';
-            }
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            this.style.boxShadow = '';
-        });
     });
     
     // ========== نموذج الاتصال ==========
@@ -193,17 +135,18 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // جمع بيانات النموذج
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
             
             // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
             // مثال: استخدام Fetch API
             
             // عرض رسالة نجاح
-            showNotification('تم إرسال طلبك بنجاح! سنتواصل معك في أقرب وقت لتأكيد التفاصيل.', 'success');
+            showNotification('تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
             
             // إعادة تعيين النموذج
             this.reset();
@@ -225,12 +168,11 @@ document.addEventListener('DOMContentLoaded', function() {
         notification.style.fontFamily = 'var(--font-body)';
         notification.style.fontSize = '1.05rem';
         notification.style.zIndex = '9999';
-        notification.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+        notification.style.boxShadow = 'var(--shadow-elevated)';
         notification.style.transition = 'all 0.3s ease';
         notification.style.transform = 'translateY(-100px)';
         notification.style.opacity = '0';
         notification.style.maxWidth = '400px';
-        notification.style.lineHeight = '1.5';
         
         if (type === 'success') {
             notification.style.background = 'linear-gradient(45deg, var(--secondary-brown), var(--accent-gold))';
@@ -275,49 +217,266 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // تأثيرات للهاتف المحمول
-    const phoneMockup = document.querySelector('.phone-mockup');
-    if (phoneMockup) {
-        phoneMockup.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+    // تأثيرات التمرير السلس
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            const rotateY = (x / rect.width - 0.5) * 8;
-            const rotateX = (0.5 - y / rect.height) * 8;
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
-        
-        phoneMockup.addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-        });
-    }
+    });
     
     // ========== رسالة ترحيب في الكونسول ==========
     console.log('%c🎨 FolioCraft — فوليوكرافت 🎨', 'background: linear-gradient(45deg, #E8E0D3, #CDB6AC, #8B7355, #D4AF37); color: #1A1A1A; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: bold;');
-    console.log('%c📱 متخصصون في تصميم بورتفوليو احترافية للجميع', 'color: #8B7355; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
+    console.log('%c📱 تصميم بورتفوليو احترافي للجميع', 'color: #8B7355; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
     console.log('%c📧 للتواصل: aseeljalal45@gmail.com | واتساب: +962785094075', 'color: #D4AF37; font-size: 11px; margin-top: 5px;');
+    console.log('%c📁 أعمال حية: test1, test4, test7', 'color: #D4AF37; font-size: 12px; padding: 8px; background: #F5EFE4; border-radius: 4px;');
     
-    // ========== تهيئة الأرقام المتحركة عند التحميل ==========
-    setTimeout(() => {
-        animateStats();
-    }, 500);
+    // ========== تهيئة المشاريع ==========
+    initializeProjects();
     
-    // ========== توليد عروض بورتفوليو عشوائية ==========
-    function generatePortfolioExamples() {
-        const examples = [
-            { name: 'أحمد - مصمم جرافيك', type: 'modern' },
-            { name: 'سارة - مبرمجة ويب', type: 'creative' },
-            { name: 'خالد - محلل بيانات', type: 'minimal' },
-            { name: 'نور - صانعة محتوى', type: 'interactive' }
-        ];
+    // ========== تأثيرات للبطاقات عند التحويم ==========
+    document.querySelectorAll('.service-card, .audience-card, .project-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = 'var(--shadow-elevated)';
+        });
         
-        const portfolioGrid = document.querySelector('.portfolio-grid');
-        if (!portfolioGrid) return;
-        
-        // يمكن إضافة أمثلة ديناميكية هنا إذا لزم الأمر
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('active')) {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '';
+            }
+        });
+    });
+    
+    // ========== تهيئة نموذج النشرة الإخبارية ==========
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+                showNotification('شكراً لك! ستصلك آخر التحديثات قريباً.', 'success');
+                this.reset();
+            }
+        });
     }
+});
+
+// ========== إدارة المشاريع ==========
+const projectDetails = {
+    project1: {
+        title: "بورتفوليو مصور فوتوغرافي",
+        status: "جاري العمل",
+        type: "بورتفوليو مصور",
+        date: "يناير 2025",
+        client: "مصور فوتوغرافي محترف",
+        description: "تصميم معرض صور تفاعلي لمصور فوتوغرافي محترف، مع إضاءة مميزة وتجربة مستخدم سلسة. يعرض المشروع مجموعة متنوعة من الأعمال الفوتوغرافية مع إمكانية التصفية حسب التصنيف.",
+        features: [
+            "معرض صور تفاعلي",
+            "تصفية حسب التصنيف",
+            "عرض تفصيلي لكل صورة",
+            "تصميم متجاوب مع جميع الأجهزة",
+            "سرعة تحميل عالية",
+            "واجهة استخدام سهلة"
+        ],
+        technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Lightbox"],
+        link: "https://portfoliojo.github.io/test1/"
+    },
+    project2: {
+        title: "موقع شخصي متميز",
+        status: "جاري العمل",
+        type: "موقع شخصي",
+        date: "ديسمبر 2024",
+        client: "مصمم جرافيك محترف",
+        description: "تصميم أنيق وعصري لمحترف في مجال التصميم، مع عرض تفاعلي للأعمال وإنجازات المسيرة المهنية. يشمل الموقع سيرة ذاتية تفاعلية ومعرض للأعمال.",
+        features: [
+            "عرض تفاعلي للأعمال",
+            "سيرة ذاتية تفاعلية",
+            "شهادات العملاء",
+            "مدونة مصغرة",
+            "نموذج تواصل مباشر",
+            "تصميم ثلاثي الأبعاد"
+        ],
+        technologies: ["HTML5", "CSS3", "JavaScript", "GSAP", "Swiper.js"],
+        link: "https://portfoliojo.github.io/test7/"
+    },
+    project3: {
+        title: "بورتفوليو مطور ويب",
+        status: "جاري العمل",
+        type: "بورتفوليو مطور",
+        date: "نوفمبر 2024",
+        client: "مطور ويب محترف",
+        description: "تصميم نظيف ومركز لمطور ويب، يعرض المشاريع البرمجية والمهارات التقنية بشكل منظّم وسهل التصفح. يركز التصميم على المحتوى وسرعة الأداء.",
+        features: [
+            "عرض المشاريع البرمجية",
+            "مهارات تقنية تفاعلية",
+            "سجل الخبرات",
+            "شهادات ودورات",
+            "نموذج تواصل سريع",
+            "تحسين لمحركات البحث"
+        ],
+        technologies: ["HTML5", "CSS3", "JavaScript", "Chart.js", "Font Awesome"],
+        link: "https://portfoliojo.github.io/test4/"
+    }
+};
+
+function initializeProjects() {
+    // تحسين iframes
+    const iframes = document.querySelectorAll('.preview-frame iframe');
+    iframes.forEach(iframe => {
+        iframe.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        iframe.style.opacity = '0';
+        iframe.style.transition = 'opacity 0.5s ease';
+    });
+}
+
+// عرض تفاصيل المشروع
+function showProjectDetails(projectId) {
+    const project = projectDetails[projectId];
+    const modalBody = document.getElementById('modalBody');
     
-    generatePortfolioExamples();
+    if (!project || !modalBody) return;
+    
+    const detailsHTML = `
+        <div class="project-details">
+            <h3>${project.title}</h3>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-circle"></i>
+                    <span>الحالة: ${project.status}</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span>النوع: ${project.type}</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>التاريخ: ${project.date}</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-user"></i>
+                    <span>العميل: ${project.client}</span>
+                </div>
+            </div>
+            
+            <div class="project-description">
+                <p>${project.description}</p>
+            </div>
+            
+            <div class="project-features">
+                <h4>المميزات الرئيسية</h4>
+                <ul>
+                    ${project.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="project-tech">
+                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            </div>
+            
+            <a href="${project.link}" target="_blank" class="project-btn">
+                <i class="fas fa-external-link-alt"></i>
+                زيارة الموقع المباشر
+            </a>
+        </div>
+    `;
+    
+    modalBody.innerHTML = detailsHTML;
+    document.getElementById('projectModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+// إغلاق نافذة تفاصيل المشروع
+function closeProjectModal() {
+    document.getElementById('projectModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// إغلاق النافذة عند النقر خارج المحتوى
+document.getElementById('projectModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeProjectModal();
+    }
+});
+
+// نافذة العرض الكامل
+function openFullscreen(url, title) {
+    const fullscreenModal = document.getElementById('fullscreenModal');
+    const fullscreenFrame = document.getElementById('fullscreenFrame');
+    const fullscreenTitle = document.getElementById('fullscreenTitle');
+    
+    if (!fullscreenModal || !fullscreenFrame) return;
+    
+    fullscreenFrame.src = url;
+    fullscreenTitle.textContent = title || 'عرض الموقع';
+    fullscreenModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFullscreen() {
+    const fullscreenModal = document.getElementById('fullscreenModal');
+    const fullscreenFrame = document.getElementById('fullscreenFrame');
+    
+    if (fullscreenModal && fullscreenFrame) {
+        fullscreenModal.classList.remove('active');
+        fullscreenFrame.src = '';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// إغلاق نافذة العرض الكامل بمفتاح ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('fullscreenModal');
+        if (modal) {
+            closeFullscreen();
+        }
+        closeProjectModal();
+    }
+});
+
+// إغلاق نافذة العرض الكامل عند النقر خارجها
+document.getElementById('fullscreenModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeFullscreen();
+    }
+});
+
+// دالة المساعدة لتحميل الصور
+function loadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('data-src');
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// تهيئة تحميل الصور
+window.addEventListener('load', function() {
+    setTimeout(initializeProjects, 1000);
+    loadImages();
 });
